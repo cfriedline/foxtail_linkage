@@ -1,2 +1,7 @@
 *.pdf
 .texpadtmp/
+*.aux
+*.log
+*synctex*
+*.swp
+
