@@ -14,7 +14,8 @@
              natbib=true,
              style=authoryear,
              bibstyle=science,
-             maxnames=50,
+             maxbibnames=50,
+             maxcitenames=3,
              sorting=nty]{biblatex}
 \addbibresource{refs.bib}
 \begin{document}
@@ -52,11 +53,11 @@ $\ast$ E-mail: aeckert2@vcu.edu
 The genetic architecture of fitness-related traits has been a major focus of geneticists for 
 over a century. Genetic architecture refers to the number, type, effect size, genomic organization, 
 interactions, and environmental dependency of the loci contributing to phenotypic variation 
-which in turn creates variation in fitness among individuals within populations (cf. Eckert and Dyer 2012). 
+which in turn creates variation in fitness among individuals within populations \citep{Eckert:2012a}. 
 Interest in this architecture stems from the want to explain the nature of genetic variation which 
 contributes to evolution via the accumulation of adaptations within lineages (i.e. adaptive evolution).
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
-and molecular genetic levels (Kawecki and Ebert 2004; Pannell and Fields 2013), so that some of the best
+and molecular genetic levels \citep{Kawecki:2004, Pannell:2013}, so that some of the best
 examples of adaptive evolution within lineages comes from the field of plant genetics.
 Early efforts to understand the genetic architecture of fitness-related traits
 focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation (e.g. Fisher 1918). 
@@ -90,7 +91,7 @@ contain millions of unordered contigs with average sizes in the thousands of bas
 Neale, D.B. pers. comm.). An alternative, but not mutually exclusive, approach to describing the genome of an organism 
 is that of linkage mapping. In this approach, genetic markers are ordered through observations of recombination events 
 within pedigrees. This approach dates to the beginning of genetics and the logic has remained relatively unchanged 
-since the first linkage maps were created in \textit{Drosophila} (Sturtevant 1913).
+since the first linkage maps were created in \textit{Drosophila} \citep{Sturtevant:1913}.
 
 Renewed interest in linkage maps has occurred for two basic reasons. First, linkage maps can be used to order contigs 
 created during genome sequencing projects (Mackay et al. 2012; Martinez-Garcia et al. 2013). In this fashion, linkage 
@@ -100,14 +101,14 @@ easy to produce and provide a rich context with which to interpret population an
 (e.g. Eckert et al. 2010a,b; Eckert et al. 2013; Yeaman 2013). They can also be used to test explicit hypotheses about 
 the organization of loci contributing to adaptive evolution. For example, Yeaman and Whitlock (2011) developed theoretical 
 predictions about the genomic organization of loci underlying patterns of local adaptation as a function of gene flow, 
-so that loci contributing to local adaptation have differing spatial structure within genomes as a result of different 
+so that loci contributing to local adaptation have differing spatial structure within genomes as a result of differing 
 regimes of gene flow. The relevant scale (\textit{sensu} Houle et al. 2011) in these mathematical formulations is that 
 of recombinational distance among loci, as it is recombination that breaks apart advantageous allelic combinations across 
 loci, so that when matched with an appropriate study system, linkage maps provide the impetus to test basic evolutionary 
 hypotheses. In this context, future additions of finished genome sequences will add only to the interpretation of 
 results based on linkage maps.
 
-Linkage maps have a long history within forest genetics, mostly through their use in quantitative trait locus mapping (Ritland et al. 2011). 
+Construction of linkage maps have a long history within forest genetics, mostly through their use in quantitative trait locus mapping (Ritland et al. 2011). 
 Conifers in particular are highly amenable to linkage mapping, with approximately 25 different species currently having some 
 form of linkage map (see Table 5-1 in Ritland et al. 2011). Much of the amenability of conifers to linkage mapping stems from 
 the early establishment of breeding populations in economically important species and from the presence of a multicellular 
@@ -116,7 +117,7 @@ but see Pichot and El Maataoui 1997). Indeed, many of the first linkage maps in 
 megagametophytes made from single trees (Tulsieram et al. 1992; Nelson et al. 1993; Kubisiak et al. 1996). Continued development 
 of genetic marker technologies facilitated rapid development of linkage maps across a diversity of species, with the largest maps 
 generated for economically important species (Ritland et al. 2011; e.g. Achere et al. 2004; Kang et al. 2010; Martinez-Garcia et al. 2013). 
-The development of biologically informative markers in non-economically important conifers, however, was hampered by production cost. 
+The development of biologically informative markers in non-economically important conifers, however, was hampered by production cost of markers. 
 For example, the vast majority of linkage maps outside of economically important species were created with uncharacterized genetic 
 markers (e.g. Travis et al. 1998). The majority of this cost previously was in the two-step approach needed to generate biologically 
 meaningful markers: polymorphism discovery via DNA sequencing of genic regions followed by genotyping of polymorphisms 
@@ -153,18 +154,18 @@ with current levels of gene flow between these regional populations approximatel
 (Eckert et al. 2008). Within each regional population, levels of genetic diversity and the 
 degree of differentiation among local stands differ, with genetic diversity being highest in 
 the southern Sierra Nevada population and genetic differentiation being the highest in the 
-Klamath population (Oline et al. 2000; Eckert 2006; Eckert et al. 2008). As such, the two regional 
-populations of foxtail pine represent a powerful natural experiment within which to examine
+Klamath population (Oline et al. 2000; Eckert 2006; Eckert et al. 2008). The two regional 
+populations of foxtail pine thus represent a powerful natural experiment within which to examine
 the genomic organization of loci contributing to local adaptation.
 
 \subsection{Sampling}
-Seed lots from approximately 140 maternal trees distributed throughout the natural range 
-of foxtail pine were obtained during 2011 and 2012. XXX of these were sampled from the 
-Klamath region, while XXX were sampled from the southern Sierra Nevada region. Approximately 
+Seed lots from approximately 142 maternal trees distributed throughout the natural range 
+of foxtail pine were obtained during 2011 and 2012. Of these 142 maternal trees, 73 were sampled from the 
+Klamath region, while 69 were sampled from the southern Sierra Nevada region. Approximately 
 50 seeds were germinated from each seed lot and 35 of those 50 seedlings were planted in a 
 common garden located at the USDA Institute of Forest Genetics, Placerville, California. The 
 common garden was established using a randomized block design.
-Five of the 140 maternal trees were selected at random ($n = 3$ from the Klamath region and $n = 2$ from 
+Four of the 140 maternal trees were selected at random ($n = 3$ from the Klamath region and $n = 2$ from 
 the southern Sierra Nevada) for linkage analysis. For each of these trees, \SIrange{75}{100}{} 
 seeds were germinated and planted in the common garden. Upon germination, haploid 
 megagametophyte tissue was rescued from each growing seedling, cleaned, and stored for further 
@@ -178,30 +179,31 @@ was used to generate a genome-wide set of
 single nucleotide polymorphism (SNP) markers for linkage mapping following the protocol 
 outlined by Parchman et al. (2012). In brief, this protocol is a double digestion RADseq 
 approach based on digestion of total genomic DNA using EcoR1 and MseI followed by single-end 
-sequencing on the Illumina HiSeq 2000 (or 2500) platform. Following digestion, adaptors 
+sequencing on the Illumina HiSeq platform. Following digestion, adaptors 
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
-were ligated on to digested DNA fragments. Here, we chose to multiplex 96 samples using the 
+were ligated on to digested DNA fragments. We chose to multiplex 96 samples using the 
 barcodes available from Parchman et al. (2012). These barcodes are a mixture of 8, 9, and 
 10 bp tags that differ by at least four bases, so as to accommodate sample identification in the 
 presence of sequencing errors. Following ligation, successfully ligated DNA fragments were 
 amplified using PCR and amplified fragments were size selected using gel electrophoresis. We selected 
 fragments in the size range of 400 bp (\SIrange{300}{500}{bp}) by excising and purifying pooled DNA from 2.5\% 
 agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, including relevant reagents and 
-oligonucleotide sequences, can be found in File S1. 
+oligonucleotide sequences, can be found in File S1. All DNA sequencing was performed on the Illumina HiSeq 2000 or 2500
+platform at the VCU Nucleic Acids Research Facility (\url{http://www.narf.vcu.edu/}).
 
 
 \subsection{DNA Sequence Analysis}
 
 DNA sequences (reads) were demultiplexed into sample-level fastq files, following quality control 
 and filtering.  The filtering pipeline was adapted from (cf ocean paper ref), and is briefly: reads 
-containing any N beyond the first base were excluded (reads having N as the first base were shifted 
-to exclude it).  Additional quality filtering ensured that all reads in the resulting set for downstream 
+containing any N beyond the first base were excluded. Reads having N as the first base were shifted 
+to exclude it.  Additional quality filtering ensured that all reads in the resulting set for downstream 
 processing had a minimum average quality score of 30 over 5 base-pair (bp), overlapping windows 
 and that not more than \SI{20}{\percent} of the bases had quality scores below 30. Reads passing the 
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
 known barcodes.
 
-From each set of demultiplexed reads, the individual with the largest number of reads as assebled using 
+From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.4) 
 script (for odd $k$ on $k=[19,65]$).  Each assembly was indexed and aligned to the original set of reads 
