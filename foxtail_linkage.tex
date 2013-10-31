@@ -12,9 +12,10 @@
 \linespread{1.6}
 \usepackage[backend=biber,
              natbib=true,
-             style=authoryear,
-             bibstyle=science,
-             maxnames=50,
+             citestyle=authoryear,
+             bibstyle=nature,
+             maxbibnames=99,
+             maxcitenames=3,
              sorting=nty]{biblatex}
 \addbibresource{refs.bib}
 \begin{document}
@@ -46,9 +47,9 @@ CA 95667
 $\ast$ E-mail: aeckert2@vcu.edu
 \end{flushleft}
 
-\section{Abstract}
+\section*{Abstract}
 
-\section{Introduction}
+\section*{Introduction}
 The genetic architecture of fitness-related traits has been a major focus of geneticists for 
 over a century. Genetic architecture refers to the number, type, effect size, genomic organization, 
 interactions, and environmental dependency of the loci contributing to phenotypic variation 
@@ -138,9 +139,9 @@ the utility of our inferred linkage maps to future tests of how patterns of gene
 of loci underlying fitness-related traits in this and other conifer species characterized by strong patters of local adaptation.
 
 
-\section{Materials and Methods}
+\section*{Materials and Methods}
 
-\subsection{Focal species}
+\subsection*{Focal species}
 Foxtail pine is five needle species of \textit{Pinus} classified into 
 subsection \textit{Balfourianae}, section \textit{Parrya}, and subgenus \textit{Strobus} 
 (Gernandt et al. 2005). It is one of three species within subsection \textit{Balfourianae} 
@@ -157,7 +158,7 @@ Klamath population (Oline et al. 2000; Eckert 2006; Eckert et al. 2008). As such
 populations of foxtail pine represent a powerful natural experiment within which to examine
 the genomic organization of loci contributing to local adaptation.
 
-\subsection{Sampling}
+\subsection*{Sampling}
 Seed lots from approximately 140 maternal trees distributed throughout the natural range 
 of foxtail pine were obtained during 2011 and 2012. XXX of these were sampled from the 
 Klamath region, while XXX were sampled from the southern Sierra Nevada region. Approximately 
@@ -171,7 +172,7 @@ megagametophyte tissue was rescued from each growing seedling, cleaned, and stor
 analysis in \SI{1.5}{\mL} Eppendorf tubes at \SI{-20}{\celsius}.
 
 
-\subsection{Library Preparation and Sequencing}
+\subsection*{Library Preparation and Sequencing}
 Total genomic DNA was isolated from each rescued megagametophyte using the DNeasy 96 Plant 
 kit following the manufacturer’s protocol (Qiagen, Germantown, MD). RADseq (Davey and Blaxter 2010; Parchman et al. 2012; Peterson et al. 2012) 
 was used to generate a genome-wide set of 
@@ -190,7 +191,7 @@ agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, inclu
 oligonucleotide sequences, can be found in File S1. 
 
 
-\subsection{DNA Sequence Analysis}
+\subsection*{DNA Sequence Analysis}
 
 DNA sequences (reads) were demultiplexed into sample-level fastq files, following quality control 
 and filtering.  The filtering pipeline was adapted from (cf ocean paper ref), and is briefly: reads 
@@ -204,17 +205,28 @@ known barcodes.
 From each set of demultiplexed reads, the individual with the largest number of reads as assebled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.4) 
-script (for odd $k$ on $k=[19,65]$).  Each assembly was indexed and aligned to the original set of reads 
-using Bowtie2 (citation) (\texttt{--local --very-sensitive}).  Additionally, assemblies were evaluated in a 
-likelihood framework using LAP \citep{Ghodsi:2013bc}
+script (for odd $k$ on $k=[19,65]$).  Assemblies robustness was evaluated in each using the LAP likelihood 
+framework \citep{Ghodsi:2013bc}.  Each assembly was also indexed and aligned to the original set of reads 
+using Bowtie2 (citation) (\texttt{--local --very-sensitive}) and compared the maximum likelihood estimate. 
+In all cases, the assembly with the maximum likelihood value was chosen as the reference.
 
-\subsection{Linkage Analysis}
+SNPs were called for all individuals against their respective reference using a medley of methods.  First, 
+reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
+sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
+(\texttt{view, sort, index}).  SNPs were called using \texttt{bcftools} and filtered using 
+\texttt{vcfutils} to exclude SNPs with less than 100x coverage. The resulting variant call files (vcf) 
+were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
+calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
+To ensure that only SNPs that sort according to expected rations, we excluded SNPs using a $\chi^2$ test of 
+homogeneity against an expectation of 1:1 segregation.
 
-\section{Results}
+\subsection*{Linkage Analysis}
 
-\section{Discussion}
+\section*{Results}
 
-\section{Acknowledgements}
+\section*{Discussion}
+
+\section*{Acknowledgements}
 
 The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
 VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
