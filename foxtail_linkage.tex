@@ -15,8 +15,8 @@
 
 % Title must be 150 characters or less
 \begin{flushleft} 
-{\Large \textbf{The genetic architecture of local adaptation I: The genomic landscape of foxtail 
-pine (\textit{Pinus balfouriana} Grev. \& Balf.)}}
+{\Large \textbf{The genetic architecture of local adaptation I: The genomic landscape of 
+foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.)}}
 % Insert Author names, affiliations and corresponding author email.
 \\
 Christopher J.\ Friedline$^{1}$, 
@@ -25,7 +25,7 @@ Erin M. Hobson,$^{1}$,
 Douglas E. Harwood$^{1}$, 
 Annette Delfino Mix$^{2}$,
 Patricia E. Maloney$^{3}$, and
-Andrew E. Eckert$^{1,4}$
+Andrew J. Eckert$^{1,4}$
 \\
 \bf{1} Department of Biology, Virginia Commonwealth University, Richmond, VA 23225
 \\
@@ -42,17 +42,103 @@ $\ast$ E-mail: aeckert2@vcu.edu
 \section{Abstract}
 
 \section{Introduction}
-Some intro text for demo purposes.
+The genetic architecture of fitness-related traits has been a major focus of geneticists for 
+over a century. Genetic architecture refers to the number, type, effect size, genomic organization, 
+interactions, and environmental dependency of the loci contributing to phenotypic variation 
+which in turn creates variation in fitness among individuals within populations (cf. Eckert and Dyer 2012). 
+Interest in this architecture stems from the want to explain the nature of genetic variation which 
+contributes to evolution via the accumulation of adaptations within lineages (i.e. adaptive evolution).
+Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
+and molecular genetic levels (Kawecki and Ebert 2004; Pannell and Fields 2013), so that some of the best
+examples of adaptive evolution within lineages comes from the field of plant genetics.
+Early efforts to understand the genetic architecture of fitness-related traits
+focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation (e.g. Fisher 1918). 
+Recent work has extended this line of research, with myriad studies linking phenotypic with genetic variation 
+through linkage mapping, both within pedigrees (Mauricio 2001; Neale and Kremer 2011; Ritland et al. 2011) and within 
+unstructured populations (Ingvarsson and Street 2011; Neale and Kremer 2011; Eckert et al. 2013), 
+or through quantitative genetic experimentation (Anderson et al. 2012, 2013; Fournier-Level et al. 2013). All of these approaches 
+have been used extensively in forest genetics, with local adaptation among forest tree populations clearly
+being documented over the past century (White et al. 2007; Neale and Kremer 2011). Despite great advances in experimental technology, empirical 
+focus has remained almost fully on the number, effect size, type, and interactions among loci contributing 
+to adaptive evolution (Neale and Kremer 2011; Alberto et al. 2013). The genomic organization of such loci, however, 
+is also relevant, as it affects many of the other attributes of genetic architecture listed previously 
+(Kirkpatrick and Barton 2006; Yeaman and Whitlock 2011; Yeaman 2013), including the ability to detect the loci as underlying trait variation. 
+Any thorough examination of the genetic architecture of fitness-related traits, therefore, should include 
+some aspect of the genomic organization of the loci contributing to trait variation. Here, we leverage 
+this idea in the first of a series of papers dissecting the genetic architecture of fitness-related 
+traits in a non-model conifer species, foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.), with the 
+ultimate goal of testing explicit evolutionary hypotheses about the genomic organization of loci 
+contributing to variation in fitness-related traits.
+
+Ideally, the genomic organization of loci contributing to variation in fitness-related traits would follow 
+naturally from the production of a genome sequence (i.e. a physical map). For many taxa, especially those with 
+small to modest genome sizes, this is monetarily and computationally feasible using next-generation DNA sequencing 
+technologies (Koboldt et al. 2013). For taxa with large or complex genomes, however, even the advent of next generation DNA 
+sequencing did not solve the complexity and cost hurdles to the production of a finished genome sequence. Conifers have large and 
+complex genomes (Murray 1998; Ahuja and Neale 2005), with estimated average genome sizes in \textit{Pinus} in the 
+range of \SIrange{20}{30}{Gbp}. Several genome projects, each involving many laboratories, are underway or have been 
+completed (Mackay et al. 2012; Nystedt et al. 2013). Even these efforts often initially result in limited information, 
+as current assemblies of the Norway spruce (\textit{Picea abies} L.) and loblolly pine (\textit{Pinus taeda} L.) genomes 
+contain millions of unordered contigs with average sizes in the thousands of base pairs (Nystedt et al. 2013; 
+Neale, D.B. pers. comm.). An alternative, but not mutually exclusive, approach to describing the genome of an organism 
+is that of linkage mapping. In this approach, genetic markers are ordered through observations of recombination events 
+within pedigrees. This approach dates to the beginning of genetics and the logic has remained relatively unchanged 
+since the first linkage maps were created in \textit{Drosophila} (Sturtevant 1913).
+
+Renewed interest in linkage maps has occurred for two basic reasons. First, linkage maps can be used to order contigs 
+created during genome sequencing projects (Mackay et al. 2012; Martinez-Garcia et al. 2013). In this fashion, linkage 
+maps are used to help create larger contigs from those generated during the assembly. It is these larger contigs that 
+create the utility that most practicing scientists attribute to genome sequences. Second, linkage maps are relatively 
+easy to produce and provide a rich context with which to interpret population and quantitative genetic patterns of variation 
+(e.g. Eckert et al. 2010a,b; Eckert et al. 2013; Yeaman 2013). They can also be used to test explicit hypotheses about 
+the organization of loci contributing to adaptive evolution. For example, Yeaman and Whitlock (2011) developed theoretical 
+predictions about the genomic organization of loci underlying patterns of local adaptation as a function of gene flow, 
+so that loci contributing to local adaptation have differing spatial structure within genomes as a result of different 
+regimes of gene flow. The relevant scale (\textit{sensu} Houle et al. 2011) in these mathematical formulations is that 
+of recombinational distance among loci, as it is recombination that breaks apart advantageous allelic combinations across 
+loci, so that when matched with an appropriate study system, linkage maps provide the impetus to test basic evolutionary 
+hypotheses. In this context, future additions of finished genome sequences will add only to the interpretation of 
+results based on linkage maps.
+
+Linkage maps have a long history within forest genetics, mostly through their use in quantitative trait locus mapping (Ritland et al. 2011). 
+Conifers in particular are highly amenable to linkage mapping, with approximately 25 different species currently having some 
+form of linkage map (see Table 5-1 in Ritland et al. 2011). Much of the amenability of conifers to linkage mapping stems from 
+the early establishment of breeding populations in economically important species and from the presence of a multicellular 
+female gametophyte (i.e. the megagametophyte) from which the haploid product of maternal meiosis can be observed (Cairney and Pullman 2007; 
+but see Pichot and El Maataoui 1997). Indeed, many of the first linkage maps in conifers were generated from collections of 
+megagametophytes made from single trees (Tulsieram et al. 1992; Nelson et al. 1993; Kubisiak et al. 1996). Continued development 
+of genetic marker technologies facilitated rapid development of linkage maps across a diversity of species, with the largest maps 
+generated for economically important species (Ritland et al. 2011; e.g. Achere et al. 2004; Kang et al. 2010; Martinez-Garcia et al. 2013). 
+The development of biologically informative markers in non-economically important conifers, however, was hampered by production cost. 
+For example, the vast majority of linkage maps outside of economically important species were created with uncharacterized genetic 
+markers (e.g. Travis et al. 1998). The majority of this cost previously was in the two-step approach needed to generate biologically 
+meaningful markers: polymorphism discovery via DNA sequencing of genic regions followed by genotyping of polymorphisms 
+discovered in step one (cf. Eckert et al. 2013). As such, much of the knowledge about the genetic architecture of fitness-related 
+traits outside of a handful of economically important conifer species was about the number and effect size of uncharacterized 
+genetic markers (Ritland et al. 2011; see Nunes et al. 2012 for caveats). Cost restrictions, however, have largely disappeared 
+as it is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing approaches such as restriction-associated 
+DNA sequencing (RADseq; e.g. Peterson et al. 2012). 
+
+The generation of dense linkage maps from high-throughput RADseq data is a complex endeavor due to the inherent stochasticity
+and error prone nature of the generation and analysis of short read data. Recent examples in several crop species highlight the
+difficulties that must be overcome with respect to missing data and errors (Pfender et al. 2011; Ward et al. 2013). RADseq has been 
+successively applied to samples taken from natural populations of non-model conifer species (Parchman et al. 2012), but has not yet 
+been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
+genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
+to generate maternal linkage maps comprised of tens of thousands of markers. In doing so, we examine the inherent biases
+to RADseq data generation in conifer genomes and how these biases affect downstream inferences of linkage maps. We subsequently discuss
+the utility of our inferred linkage maps to future tests of how patterns of gene flow affect the genomic organization 
+of loci underlying fitness-related traits in this and other conifer species characterized by strong patters of local adaptation.
+
 
 \section{Materials and Methods}
 
 \subsection{Focal species}
-Foxtail pine (\textit{Pinus balfouriana}) is five needle species of pine classified into 
+Foxtail pine is five needle species of \textit{Pinus} classified into 
 subsection \textit{Balfourianae}, section \textit{Parrya}, and subgenus \textit{Strobus} 
-(Gernandt et al. 2008). It is one of three species within subsection \textit{Balfourianae} 
-(Bailey 1970) and generally is 
-regarded as the sister species to Great Basin bristlecone pine (\textit{P. longaeva}; see 
-Eckert and Hall 2006; Syring et al. XXX). The natural range of foxtail pine encompasses two 
+(Gernandt et al. 2005). It is one of three species within subsection \textit{Balfourianae} 
+(Bailey 1970) and generally is regarded as the sister species to Great Basin bristlecone pine (\textit{P. longaeva}; see 
+Eckert and Hall 2006). The natural range of foxtail pine encompasses two 
 regional populations located within California that are separated by approximately 500 km - 
 the Klamath Mountains of northern California and the Sierra Nevada of southern California 
 (Figure 1). These regional populations diverged approximately one million years ago (mya), 
@@ -60,7 +146,9 @@ with current levels of gene flow between these regional populations approximatel
 (Eckert et al. 2008). Within each regional population, levels of genetic diversity and the 
 degree of differentiation among local stands differ, with genetic diversity being highest in 
 the southern Sierra Nevada population and genetic differentiation being the highest in the 
-Klamath population (Oline et al. 2000; Eckert 2006; Eckert et al. 2008).
+Klamath population (Oline et al. 2000; Eckert 2006; Eckert et al. 2008). As such, the two regional 
+populations of foxtail pine represent a powerful natural experiment within which to examine
+the genomic organization of loci contributing to local adaptation.
 
 \subsection{Sampling}
 Seed lots from approximately 140 maternal trees distributed throughout the natural range 
@@ -68,8 +156,8 @@ of foxtail pine were obtained during 2011 and 2012. XXX of these were sampled fr
 Klamath region, while XXX were sampled from the southern Sierra Nevada region. Approximately 
 50 seeds were germinated from each seed lot and 35 of those 50 seedlings were planted in a 
 common garden located at the USDA Institute of Forest Genetics, Placerville, California. The 
-common garden was established using a randomized block design XXX MORE HERE. Five of the 
-140 maternal trees were selected at random ($n = 3$ from the Klamath region and $n = 2$ from 
+common garden was established using a randomized block design.
+Five of the 140 maternal trees were selected at random ($n = 3$ from the Klamath region and $n = 2$ from 
 the southern Sierra Nevada) for linkage analysis. For each of these trees, \SIrange{75}{100}{} 
 seeds were germinated and planted in the common garden. Upon germination, haploid 
 megagametophyte tissue was rescued from each growing seedling, cleaned, and stored for further 
@@ -77,10 +165,9 @@ analysis in \SI{1.5}{\mL} Eppendorf tubes at \SI{-20}{\celsius}.
 
 
 \subsection{Library Preparation and Sequencing}
-
 Total genomic DNA was isolated from each rescued megagametophyte using the DNeasy 96 Plant 
-kit following the manufacturer’s protocol (Qiagen, XXX). Restriction site associated DNA 
-sequencing (RADseq, see Davey and Blaxter 2010) was used to generate a genome-wide set of 
+kit following the manufacturer’s protocol (Qiagen, Germantown, MD). RADseq (Davey and Blaxter 2010; Parchman et al. 2012; Peterson et al. 2012) 
+was used to generate a genome-wide set of 
 single nucleotide polymorphism (SNP) markers for linkage mapping following the protocol 
 outlined by Parchman et al. (2012). In brief, this protocol is a double digestion RADseq 
 approach based on digestion of total genomic DNA using EcoR1 and MseI followed by single-end 
@@ -88,9 +175,12 @@ sequencing on the Illumina HiSeq 2000 (or 2500) platform. Following digestion, a
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
 were ligated on to digested DNA fragments. Here, we chose to multiplex 96 samples using the 
 barcodes available from Parchman et al. (2012). These barcodes are a mixture of 8, 9, and 
-10 bp tags that differ by at least four bases, so as to accommodate identification in the 
-presence of sequencing errors. Following ligation, successfully ligated DNA fragments are 
-amplified using PCR and amplified fragments are size selected using gel electrophoresis. 
+10 bp tags that differ by at least four bases, so as to accommodate sample identification in the 
+presence of sequencing errors. Following ligation, successfully ligated DNA fragments were 
+amplified using PCR and amplified fragments were size selected using gel electrophoresis. We selected 
+fragments in the size range of 400 bp (\SIrange{300}{500}{bp}) by excising and purifying pooled DNA from 2.5\% 
+agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, including relevant reagents and 
+oligonucleotide sequences, can be found in File S1. 
 
 
 \subsection{DNA Sequence Analysis}
@@ -105,9 +195,9 @@ amplified using PCR and amplified fragments are size selected using gel electrop
 
 The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
 VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
-In addition, we would like to thank Tom Blush and XXX Tricia’s husband for help in obtaining 
+In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining 
 seeds. Funding for this project was made available to AJE via startup funds from Virginia 
-Commonwealth University.  CJF was supported under NSF NPGI: Postdoctoral Research Fellowship 
-in Biology FY 2013 Award \#IOS-1306622.
+Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
+Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
 
 \end{document}
