@@ -13,14 +13,17 @@
 \linespread{1.6}
 \usepackage[backend=biber,
              natbib=true,
-             citestyle=authoryear,
+             citestyle=authoryear-comp,
              bibstyle=nature,
              maxbibnames=99,
-             maxcitenames=2,
+             maxcitenames=1,
              sorting=nty,
              doi=false,
              isbn=false,
-             url=false]{biblatex}
+             url=false,
+             firstinits=true,
+             sortcites=true,
+             block=none]{biblatex}
 \addbibresource{refs.bib}
 \begin{document}
 
