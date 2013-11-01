@@ -3,6 +3,7 @@
 \usepackage{simplemargins}
 \usepackage{url}
 \usepackage[pdftex]{graphicx}
+\usepackage{setspace}
 \graphicspath{{figures/}}
 \usepackage{siunitx}
 \bibliographystyle{plain}
@@ -15,8 +16,11 @@
              citestyle=authoryear,
              bibstyle=nature,
              maxbibnames=99,
-             maxcitenames=3,
-             sorting=nty]{biblatex}
+             maxcitenames=2,
+             sorting=nty,
+             doi=false,
+             isbn=false,
+             url=false]{biblatex}
 \addbibresource{refs.bib}
 \begin{document}
 
@@ -237,5 +241,6 @@ seeds. Funding for this project was made available to AJE via startup funds from
 Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
 
+\singlespacing
 \printbibliography
 \end{document}
