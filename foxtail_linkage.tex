@@ -6,28 +6,14 @@
 \usepackage{setspace}
 \graphicspath{{figures/}}
 \usepackage{siunitx}
-\bibliographystyle{plain}
 \setlength{\parindent}{0pt} 
 \setlength{\parskip}{1.6ex} 
 \setallmargins{1in} 
 \linespread{1.6}
-\usepackage[backend=biber,
-             natbib=true,
-             maxcitenames=2,
-             citestyle=authoryear-comp,
-             bibstyle=nature,
-             maxbibnames=99,
-             sorting=nty,
-             doi=false,
-             isbn=false,
-             url=false,
-             firstinits=true,
-             uniquename=init,
-             sortcites=true,
-             block=none]{biblatex}
-\addbibresource{refs.bib}
-\begin{document}
+\usepackage[round]{natbib}
+\listfiles
 
+\begin{document}
 
 % Title must be 150 characters or less
 \begin{flushleft} 
@@ -246,5 +232,6 @@ Commonwealth University. CJF was supported by the National Science Foundation (N
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
 
 \singlespacing
-\printbibliography
+\bibliographystyle{spbasic}
+\bibliography{refs}
 \end{document}
