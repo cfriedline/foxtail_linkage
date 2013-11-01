@@ -6,3 +6,7 @@
 *.swp
 *test*
 *.orig
+*.bbl
+*.bcf
+*.blg
+*.xml
