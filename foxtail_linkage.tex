@@ -17,10 +17,12 @@
 
 % Title must be 150 characters or less
 \begin{flushleft} 
+\singlespacing
 {\Large \textbf{The genetic architecture of local adaptation I: The genomic landscape of 
 foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.)}}
 % Insert Author names, affiliations and corresponding author email.
-\\
+\null
+
 Christopher J.\ Friedline$^{1}$, 
 Brandon M. Lind$^{1}$,
 Erin M. Hobson,$^{1}$,
@@ -28,7 +30,8 @@ Douglas E. Harwood$^{1}$,
 Annette Delfino Mix$^{2}$,
 Patricia E. Maloney$^{3}$, and
 Andrew J. Eckert$^{1,4}$
-\\
+\null
+
 \bf{1} Department of Biology, Virginia Commonwealth University, Richmond, VA 23225
 \\
 \bf{2} Institute of Forest Genetics, USDA Pacific Southwest Research Station, Placerville, 
@@ -37,6 +40,7 @@ CA 95667
 \bf{3} Department of Plant Pathology, University of California, Davis, CA 95616
 \\
 \bf{4} Author for Correspondence
+\null
 
 $\ast$ E-mail: aeckert2@vcu.edu
 \end{flushleft}
@@ -190,7 +194,7 @@ platform at the VCU Nucleic Acids Research Facility (\url{http://www.narf.vcu.ed
 \subsection*{DNA Sequence Analysis}
 
 DNA sequences (reads) were demultiplexed into sample-level fastq files, following quality control 
-and filtering.  The filtering pipeline was adapted from (cf ocean paper ref), and is briefly: reads 
+and filtering.  The filtering pipeline was adapted from \citep{Friedline:2012fm}, and is briefly: reads 
 containing any N beyond the first base were excluded. Reads having N as the first base were shifted 
 to exclude it.  Additional quality filtering ensured that all reads in the resulting set for downstream 
 processing had a minimum average quality score of 30 over 5 base-pair (bp), overlapping windows 
@@ -199,17 +203,18 @@ quality control steps were demultiplexed into sample-specific fastq files by exa
 known barcodes.
 
 From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
-Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
+Velvet version 1.2.10 \citep{Zerbino:2008bm}, with hash length ($k$) coverage cutoff optimized using 
+parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.4) 
 script (for odd $k$ on $k=[19,65]$).  Assemblies robustness was evaluated in each using the LAP likelihood 
 framework \citep{Ghodsi:2013bc}.  Each assembly was also indexed and aligned to the original set of reads 
-using Bowtie2 (citation) (\texttt{--local --very-sensitive}) and compared the maximum likelihood estimate. 
+using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the maximum likelihood estimate. 
 In all cases, the assembly with the maximum likelihood value was chosen as the reference.
 
 SNPs were called for all individuals against their respective reference using a medley of methods.  First, 
 reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
 sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
-(\texttt{view, sort, index}).  SNPs were called using \texttt{bcftools} and filtered using 
+(\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using \texttt{bcftools} and filtered using 
 \texttt{vcfutils} to exclude SNPs with less than 100x coverage. The resulting variant call files (vcf) 
 were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
