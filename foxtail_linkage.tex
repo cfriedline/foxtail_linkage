@@ -123,16 +123,17 @@ genetic markers \citep{Ritland:2011}. Cost restrictions, however, have largely d
 as it is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing approaches such as restriction-associated 
 DNA sequencing \citep [RADseq; e.g.][] {Peterson:2012}. 
 
-The generation of dense linkage maps from high-throughput RADseq data is a complex endeavor due to the inherent stochasticity
+The generation of dense linkage maps from RADseq data is a complex endeavor due to the inherent stochasticity
 and error prone nature of the generation and analysis of short read data. Recent examples in several crop species highlight the
 difficulties that must be overcome with respect to missing data and errors in calling polymorphic sites and the resulting genotypes\citep{Pfender:2011, Ward:2013}. RADseq has been 
 successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has not yet 
 been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
-to generate maternal linkage maps comprised of tens of thousands of markers. In doing so, we examine the inherent biases
+to generate maternal linkage maps comprised of tens of thousands of markers. There are currently no published linkage 
+maps for this species nor any within the subsection \textit{Balfourianae}. By doing so, we examine the inherent biases
 to RADseq data generation in conifer genomes and how these biases affect downstream inferences of linkage maps. We subsequently discuss
-the utility of our inferred linkage maps to future tests of how patterns of gene flow affect the genomic organization 
-of loci underlying fitness-related traits in this and other conifer species characterized by strong patterns of local adaptation.
+the utility of our inferred linkage maps to comparative genomics within the conifers and to future tests of how patterns of gene flow 
+affect the genomic organization of loci underlying fitness-related traits.
 
 
 \section*{Materials and Methods}
@@ -156,19 +157,18 @@ subsp. \textit{balfouriana} located in the Klamath region and \textit{P. balfour
 Sierra Nevada mountains \citep{Mastrogiuseppe:1980}. The two regional populations of foxtail pine 
 thus represent a powerful natural experiment within which to examine the genomic organization of loci contributing to local adaptation. 
 
-\subsection{Sampling}
-Seed lots from approximately 141 maternal trees distributed throughout the natural range 
+\subsection*{Sampling}
+Seed lots from 141 maternal trees distributed throughout the natural range 
 of foxtail pine were obtained during 2011 and 2012. Of these 141 maternal trees, 72 were sampled from the 
 Klamath region, while 69 were sampled from the southern Sierra Nevada region. These 141 families were
-divided among 15 local stands ($n = 4$ to $17$ trees/stand), with eight in the Klamath region and seven in the southern Sierra Nevada.
+divided among 15 local stands ($n = 4$ to $17$ trees/stand), with eight stands in the Klamath region and seven stands in the southern Sierra Nevada.
 Approximately 50 seeds were germinated from each seed lot and 35 of those 50 seedlings were planted in a 
 common garden located at the USDA Institute of Forest Genetics, Placerville, California. The 
 common garden was established using a randomized block design and involved three separate plantings of seeds spanning
 approximately one year from June 6, 2012 until May 20, 2013. Four of the 141 maternal trees were selected 
 at random ($n = 2$ from the Klamath region and $n = 2$ from the southern Sierra Nevada) for linkage analysis. 
-There are currently no published linkage maps for this species.
 For each of these trees, \SIrange{75}{100}{} seeds were germinated and planted in the common garden. 
-Upon germination, haploid megagametophyte tissue was rescued from each growing seedling, cleaned, and stored for further 
+Upon germination, haploid megagametophyte tissue was rescued from each seedling, cleaned, and stored for further 
 analysis in \SI{1.5}{\mL} Eppendorf tubes at \SI{-20}{\celsius}.
 
 
@@ -178,7 +178,7 @@ kit following the manufacturer’s protocol (Qiagen, Germantown, MD). RADseq \ci
 was used to generate a genome-wide set of 
 single nucleotide polymorphism (SNP) markers for linkage mapping following the protocol 
 outlined by \citet{Parchman:2012}. In brief, this protocol is a double digestion RADseq 
-approach based on digestion of total genomic DNA using EcoR1 and MseI followed by single-end 
+approach based on digestion of total genomic DNA using EcoRI and MseI followed by single-end 
 sequencing on the Illumina HiSeq platform. Following digestion, adaptors 
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
 were ligated on to digested DNA fragments. We chose to multiplex 96 samples using the 
@@ -194,7 +194,12 @@ platform at the VCU Nucleic Acids Research Facility (\url{http://www.narf.vcu.ed
 
 \subsection*{DNA Sequence Analysis}
 
-DNA sequences (reads) were demultiplexed into sample-level fastq files, following quality control 
+There are multiple steps involved with the processing of raw DNA sequence reads into a set of SNP genotypes that are useful for linkage mapping:
+(1) quality control, filtering, and demultiplexing, (2) assembly to generate a reference sequence for mapping reads, (3) mapping 
+of reads to call SNPs and genotypes for each sample, and (4) filtering of SNPs and the resulting genotypes for
+data quality and biological meaning.
+
+DNA sequence reads were demultiplexed into sample-level fastq files, following quality control 
 and filtering.  The filtering pipeline was adapted from \citep{Friedline:2012fm}, and is briefly: reads 
 containing any N beyond the first base were excluded. Reads having N as the first base were shifted 
 to exclude it.  Additional quality filtering ensured that all reads in the resulting set for downstream 
@@ -211,7 +216,6 @@ framework \citep{Ghodsi:2013bc}.  Each assembly was also indexed and aligned to 
 using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the maximum 
 likelihood estimate. In all cases, the assembly with the maximum likelihood value was chosen as the reference.
 
-
 SNPs were called for all individuals against their respective reference using a medley of methods.  First, 
 reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
 sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
@@ -219,10 +223,34 @@ sam files were converted their binary equivalent (e.g., bam) using \texttt{samto
 \texttt{vcfutils} to exclude SNPs with less than 100x coverage. The resulting variant call files (vcf) 
 were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
-To ensure that only SNPs that sort according to expected rations, we excluded SNPs using a $\chi^2$ test of 
-homogeneity against an expectation of 1:1 segregation.
+To ensure that only SNPs that sort according to expected ratios, we excluded SNPs using a $\chi^2$ test of 
+homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected, because
+the maternal tree had to be a heterozygote for us to detect a SNP and Mendel's first law guarantees
+that 
 
 \subsection*{Linkage Analysis}
+
+The production of a genetic linkage map for a single tree requires three main steps: (1) calculation of 
+pairwise distances between all pairs of loci, (2) clustering of loci based on these pairwise distances, 
+and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps (XXXXX).
+Traditional software packages for linkage mapping, however, are not amenable to large amounts of missing data and frequent
+errors in genotype calls. The former causes issues with all aspects of analysis, while the latter primarily affects the 
+genetic distances between markers (XXXXX). We thus followed the approach of \citet{Ward:2013}, which was designed specifically for RADseq
+data. Pairwise distances were estimated and loci were clustered using a custom R script (see File S2). We used MSTmap \citep{Wu:2008} 
+to infer marker order and Maskov \citep{Ward:2013} to impute and correct genotypes. These two programs
+were used iteratively. MSTmap was used initially to order markers, which was followed by the use of Maskov
+to impute and correct putative genotype errors conditional on this initial marker ordering. A last round of ordering 
+was performed using MSTmap conditional on the imputed and error corrected genotype data. 
+
+The relevant pairwise distance for genetic linkage mapping is the standardized number of recombination events separating
+the haplotypes of two related individuals.  As defined, this distance can be calculated for a set of biallelic loci using the Hamming distance.
+The Hamming distance is the number of differences separating two binary strings. Here, the binary strings are the haploid
+genotypes for the set of two megagametophytes. This distance was shown to have as its expected value the number of recombination
+events separating two haplotypes (XXXX).
+
+
+
+\subsection*{Sensitivity Analysis}
 
 \section*{Results}
 
@@ -233,9 +261,11 @@ homogeneity against an expectation of 1:1 segregation.
 The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
 VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
 In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining 
-seeds. Funding for this project was made available to AJE via startup funds from Virginia 
+seeds. Funding for this project was made available to AJE via start-up funds from Virginia 
 Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
+
+\clearpage
 
 \singlespacing
 \bibliographystyle{spbasic}
