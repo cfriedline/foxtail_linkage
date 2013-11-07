@@ -221,8 +221,8 @@ sam files were converted their binary equivalent (e.g., bam) using \texttt{samto
 \texttt{vcfutils} to exclude SNPs with less than 100x coverage. The resulting variant call files (vcf) 
 were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
-To ensure that only SNPs that sort according to expected rations, we excluded SNPs using a $\chi^2$ test of 
-homogeneity against an expectation of 1:1 segregation.
+To ensure that only SNPs that sort according to expected ratios were analyzed, we excluded SNPs using a 
+$\chi^2$ test of homogeneity against an expectation of 1:1 segregation.
 
 \subsection*{Linkage Analysis}
 
