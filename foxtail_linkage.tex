@@ -207,9 +207,11 @@ From each set of demultiplexed reads, the individual with the largest number of 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
-framework \citep{Ghodsi:2013bc}.  Each assembly was also indexed and aligned to the original set of reads 
-using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the maximum 
-likelihood estimate. In all cases, the assembly with the maximum likelihood value was chosen as the reference.
+framework \citep{Ghodsi:2013bc}, version 1.1, averaged across five iterations to account for variance 
+in the likelihood calcuations.  Each assembly was also indexed and aligned to the original set of reads 
+using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the average maximum 
+likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
+chosen as the reference for SNP calling.
 
 
 SNPs were called for all individuals against their respective reference using a medley of methods.  First, 
