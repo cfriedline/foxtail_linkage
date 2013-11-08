@@ -213,7 +213,8 @@ Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimiz
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
 framework \citep{Ghodsi:2013bc}, version 1.1, averaged across five iterations to account for variance 
-in the likelihood calcuations.  Each assembly was also indexed and aligned to the original set of reads 
+in the likelihood calcuations.  Each assembly was also indexed and aligned (Figure \ref{f:mapping_performance}) 
+to the original set of reads 
 using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the average maximum 
 likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
 chosen as the reference for SNP calling.
@@ -272,4 +273,15 @@ Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Aw
 \singlespacing
 \bibliographystyle{spbasic}
 \bibliography{refs}
+
+\clearpage
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1.0\textwidth]{mapping_performance}
+\caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
+$k>53$ were excluded from the figure.}
+\label{f:mapping_performance}
+\end{figure}
+
 \end{document}
