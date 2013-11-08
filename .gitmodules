@@ -1,0 +1,3 @@
+[submodule "assembly_foxtail_ipynb"]
+	path = assembly_foxtail_ipynb
+	url = https://github.com/cfriedline/assembly_foxtail.git
