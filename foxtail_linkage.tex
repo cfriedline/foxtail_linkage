@@ -70,7 +70,7 @@ Adaptive evolution has been extensively documented for forest trees, especially 
 being documented over the past century \citep{White:2007, Neale:2011}. Despite great advances in experimental technology, empirical 
 focus has remained almost fully on the number, effect size, type, and interactions among loci contributing 
 to adaptive evolution \citep{Neale:2011, Alberto:2013}.  A thorough examination of the 
-genetic architecture of fitness-related traits, however, should include 
+genetic architecture of fitness-related traits, however, should also include 
 an examination of the genomic organization of the loci contributing to trait variation. Here, we leverage 
 this idea in the first of a series of papers dissecting the genetic architecture of fitness-related 
 traits in a non-model conifer species, foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.), with the 
@@ -181,12 +181,15 @@ was used to generate a genome-wide set of
 single nucleotide polymorphism (SNP) markers for linkage mapping following the protocol 
 outlined by \citet{Parchman:2012}. In brief, this protocol is a double digestion RADseq 
 approach based on digestion of total genomic DNA using EcoRI and MseI followed by single-end 
-sequencing on the Illumina HiSeq platform. Following digestion, adaptors 
+sequencing on the Illumina HiSeq platform. Following digestion, adapters 
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
 were ligated on to digested DNA fragments. We chose to multiplex 96 samples using the 
-barcodes available from \citet{Parchman:2012}. These barcodes are a mixture of eight, nine, and 
-10 bp tags that differ by at least four bases, so as to accommodate sample identification in the 
-presence of sequencing errors. Following ligation, successfully ligated DNA fragments were 
+barcodes available from \citet{Parchman:2012}. One of these samples, per set of 96, was a pseudo-diploid
+constructed by pooling five megagametophytes sampled from the same maternal tree. We used the genotype of the
+pseudo-diploid sample as that of the maternal genotype, although there is a probability of $0.5^{4} = 0.0625$ that 
+the genotype for any given SNP will be mistakenly called homozygous due to the five megagametophytes all being of the same allele \citep[see][]{Morris:1978}.
+These barcodes are a mixture of eight, nine, and  10 bp tags that differ by at least four bases, so as to accommodate
+sample identification in the presence of sequencing errors. Following ligation, successfully ligated DNA fragments were 
 amplified using PCR and amplified fragments were size selected using gel electrophoresis. We selected 
 fragments in the size range of 400 bp (\SIrange{300}{500}{bp}) by excising and purifying pooled DNA from 2.5\% 
 agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, including relevant reagents and 
@@ -229,33 +232,85 @@ sam files were converted their binary equivalent (e.g., bam) using \texttt{samto
 were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
 To ensure that only SNPs that sort according to expected ratios, we excluded SNPs using a $\chi^2$ test of 
-homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected, because
-the maternal tree had to be a heterozygote for us to detect a SNP and Mendel's first law guarantees
+homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected because
+the maternal tree had to be a heterozygote for us to detect a SNP, and Mendel's first law guarantees
 that the segregation ratio should thus be 1:1.
 
 \subsection*{Linkage Analysis}
 
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
-pairwise distances between all pairs of loci, (2) clustering of loci based on these pairwise distances, 
-and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps (XXXXX).
+pairwise distances between all pairs of loci, (2) clustering (i.e. grouping) of loci based on these pairwise distances, 
+and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps \citep[e.g.,][]{VanOoijen:2011}.
 Traditional software packages for linkage mapping, however, are not amenable to large amounts of missing data and frequent
 errors in genotype calls. The former causes issues with all aspects of analysis, while the latter primarily affects the 
-genetic distances between markers (XXXXX). We thus followed the approach of \citet{Ward:2013}, which was designed specifically for RADseq
-data. Pairwise distances were estimated and loci were clustered using a custom R script (see File S2). We used MSTmap \citep{Wu:2008} 
-to infer marker order and Maskov \citep{Ward:2013} to impute and correct genotypes. These two programs
-were used iteratively. MSTmap was used initially to order markers, which was followed by the use of Maskov
+genetic distances between markers \citep{Cartwright:2007}. We thus followed the approach of \citet{Ward:2013}, 
+which was designed specifically for RADseq data. Pairwise distances were estimated and loci were clustered using a 
+custom R script \citep[see File S2;][]{R:2013}. We used MSTmap \citep{Wu:2008} 
+to infer marker order and Maskov \citep{Ward:2013} to impute and correct genotypes. The algorithms available
+in MSTmap can also be used to impute and correct genotype errors \citep[see][]{Wu:2008}, but the amount of missing
+data and putative genotyping errors in our RADseq data far surpassed those used to develop this software. These two programs
+were used in an iterative fashion. MSTmap was used initially to order markers, which was followed by the use of Maskov
 to impute and correct putative genotype errors conditional on this initial marker ordering. A last round of ordering 
-was performed using MSTmap conditional on the imputed and error corrected genotype data. 
+was performed using MSTmap conditional on the imputed and error corrected genotype data. This general schema
+was followed for each of the four maternal trees independently.
 
-The relevant pairwise distance for genetic linkage mapping is the standardized number of recombination events separating
-the haplotypes of two related individuals.  As defined, this distance can be calculated for a set of biallelic loci using the Hamming distance.
-The Hamming distance is the number of differences separating two binary strings. Here, the binary strings are the haploid
-genotypes for the set of two megagametophytes. This distance was shown to have as its expected value the number of recombination
-events separating two haplotypes (XXXX).
+The relevant pairwise distance for linkage mapping in our haploid case is the probability of observing a recombination 
+event between two haplotypes. This distance can be calculated for a set of biallelic loci using the Hamming distance ($d_{i,j}$).
+The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}. Here, the binary strings are the haploid
+genotypes for the set of two megagametophytes. This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
+is the maximum likelihood estimate of the probability of a recombination event with respect to a pair of haplotypes \citep{Wu:2008}.
+This is the estimate we used to construct a matrix of pairwise distances between all possible pairs of markers passing our quality thresholds.
 
+The matrix of pairwise distances between all possible markers was clustered using two methods: hierarchical clustering with 
+either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and \textit{k}-means clustering \citep{Hartigan:1979}. We explored groupings ($k$) based on clustering on the interval $k=[8,16]$. For the hierarchical clustering, this 
+entailed cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. For \textit{k}-means clustering
+values of \textit{k} were established \textit{a priori}. Solutions in all cases were compared using silhouette plots \citep{Rousseeuw:1987}.
+The value of $k$ which maximized the number of loci correctly classified  (i.e., $s_{i} \geq 0.80$ where $s_{i}$ is the 
+silhouette width of individual \textit{i}) was chosen as the optimal value of the number of clusters.
 
+Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008}. This method takes a full, undirected graph where nodes are markers and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted traveling salesman path. \citet{Wu:2008} showed that the minimum-weighted traveling salesman path
+can be found using a minimum spanning tree and that this minimum-weighted traveling
+salesman path corresponds to the correct order of the loci if the minimum spanning tree on
+the full, undirected graph is unique. We employed MSTmap using the maximum likelihood objective function, grouping turned off, imputation of 
+missing data turned off, and the Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci
+within each cluster, along with the distances (i.e., cM) in each cluster, were taken as the initial linkage map from which
+data were error corrected and imputed.
+ 
+Data were imputed and corrected for errors using Maskov. A full account of the mechanics of the algorithm
+used in Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and
+error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
+contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
+missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each
+cluster for the latter. A value of 5\% was chosen because its use resulted in the number of detected recombination events per
+megagametophyte being within the range previously published for conifers using single tree maps (i.e., between $1-5$/megagametophyte). 
+
+A last round of ordering was conducted with the imputed and error corrected data using MSTmap as described previously. Imputation 
+and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin
+\citep[see][]{Wu:2008}. The collection of resulting ordered clusters was taken as the final linkage map for each of the for maternal trees. 
+The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
 
 \subsection*{Sensitivity Analysis}
+
+The production of linkage maps for each maternal tree required assumptions in the analysis of the RADseq
+data and during linkage mapping. We explored the effect of these assumptions on the resulting linkage maps using a sensitivity
+analysis, whereby the effect of assumptions were examined by modifying threshold values defining each assumption. We selected the
+data from the maternal tree with the largest number of reads as the focal linkage map with which to explore
+the sensitivity of our approach to our assumptions.
+
+First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes.
+The mapping of reads requires an entity against which to match reads based on their similarity. This entity is the reference
+sequence. Here, we used an assembly of the single megagametophyte with the largest number of reads to generate the
+reference assembly. The assembly process, however, requires optimization of the hash size (see DNA Sequence Analysis).  Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect
+of assembly choice on SNP calling. To do this, we selected assemblies where the likelihood value was within $4$ log-likelihood units of
+the optimal assembly for SNP calling. This resulted in multiple sets of SNPs for which we quantified various aspects: number, amount of 
+missing data, and overlap with the optimal assembly. 
+
+Second, we explored the use of thresholds for segregation distortion, amount of missing data, and use of the pseudo-diploid sample to
+call the maternal genotype. (MORE HERE).
+
+Lastly, we explored the thresholds used in the linkage mapping. (MORE HERE).
+
+\subsection*{Consensus Map Construction and Biological Interpretation}
 
 \section*{Results}
 
