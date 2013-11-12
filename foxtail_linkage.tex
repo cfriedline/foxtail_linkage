@@ -147,7 +147,7 @@ subsection \textit{Balfourianae}, section \textit{Parrya}, and subgenus \textit{
 {Eckert:2006a}. The natural range of foxtail pine encompasses two 
 regional populations located within California that are separated by approximately 500 km - 
 the Klamath Mountains of northern California and the Sierra Nevada of southern California 
-(Figure 1). These regional populations diverged approximately one million years ago (mya), 
+(Figure \ref{f:Figure01_TGG}). These regional populations diverged approximately one million years ago (mya), 
 with current levels of gene flow between regional populations being approximately zero 
 \citep{Eckert:2008}. Within each regional population, levels of genetic diversity and the 
 degree of differentiation among local stands differ, with genetic diversity being highest in 
@@ -174,7 +174,6 @@ For each of these trees, \SIrange{75}{100}{} seeds were germinated and planted i
 Upon germination, haploid megagametophyte tissue was rescued from each seedling, cleaned, and stored for further 
 analysis in \SI{1.5}{\mL} Eppendorf tubes at \SI{-20}{\celsius}.
 
-
 \subsection*{Library Preparation and Sequencing}
 Total genomic DNA was isolated from each rescued megagametophyte using the DNeasy 96 Plant 
 kit following the manufacturer’s protocol (Qiagen, Germantown, MD). RADseq \citep{Davey:2010, Parchman:2012, Peterson:2012} 
@@ -198,7 +197,6 @@ oligonucleotide sequences, can be found in File S1. All DNA sequencing was perfo
 platform at the VCU Nucleic Acids Research Facility (\url{http://www.narf.vcu.edu/}).
 
 \subsection*{DNA Sequence Analysis}
-
 There are multiple steps involved with the processing of raw DNA sequence reads into a set of SNP genotypes that are useful for linkage mapping:
 (1) quality control, filtering, and demultiplexing, (2) assembly to generate a reference sequence for mapping reads, (3) mapping 
 of reads to call SNPs and genotypes for each sample, and (4) filtering of SNPs and the resulting genotypes for
@@ -217,9 +215,8 @@ From each set of demultiplexed reads, the individual with the largest number of 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
-framework \citep{Ghodsi:2013bc}, version 1.1, averaged across five iterations to account for variance 
-in the likelihood calcuations.  Each assembly was also indexed and aligned (Figure \ref{f:mapping_performance}) 
-to the original set of reads 
+framework \citep{Ghodsi:2013bc}, version 1.1.  Each assembly was also indexed and aligned 
+(Figure \ref{f:mapping_performance}) to the original set of reads 
 using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the average maximum 
 likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
 chosen as the reference for SNP calling.
@@ -234,14 +231,15 @@ calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of
 
 We used several thresholds to filter called SNPs for linkage mapping. First, 
 we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected because
-the maternal tree had to be a heterozygote for us to detect a SNP, and Mendel's first law 
-guarantees that the segregation ratio should thus be 1:1. Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as to keep only those SNPs
+the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
+guarantees that the segregation ratio for this SNP should thus be 1:1. Significance of each test was 
+assessed using a Bonferroni-corrected $\alpha = 0.05$, where $\alpha$ was corrected using the number of SNPs tested. 
+Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as to keep only those SNPs
 where the pseudo-diploid was called a heterozygote or had a missing genotype call.
 Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$
 genotype calls for each of the alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis. 
 
 \subsection*{Linkage Analysis}
-
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
 pairwise distances between all pairs of loci, (2) clustering (i.e. grouping) of loci based on these pairwise distances, 
 and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps \citep[e.g.,][]{VanOoijen:2011}.
@@ -295,39 +293,59 @@ and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segre
 The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
 
 \subsection*{Sensitivity Analysis}
-
 The production of linkage maps for each maternal tree required many assumptions. We
 explored the effect of these assumptions on the resulting linkage maps using a sensitivity
 analysis, whereby the effect of assumptions were examined by modifying threshold values defining each assumption. We selected the
 data from the maternal tree with the largest number of reads as the focal linkage map with which to explore
-the sensitivity of our approach to our assumptions.
+the sensitivity of our results to our assumptions.
 
 First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes.
 The mapping of reads requires a reference against which to match reads based on their similarity. We used an assembly
 of the single megagametophyte with the largest number of reads to generate the
-reference assembly. The assembly process, however, requires optimization of the hash size (see DNA Sequence Analysis),
+reference assembly. The assembly process, however, requires optimization of the hash size (see \textbf{DNA Sequence Analysis}),
 which in turn affects the quality of the contigs comprising the assembly (CITATION).  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect
 of assembly choice on SNP calling. To do this, we selected assemblies where the likelihood value was within $4$ log-likelihood units of
-the optimal assembly for SNP calling. This resulted in multiple sets of SNPs for which we quantified various aspects: number of SNPs, amount of 
-missing data, and overlap with the optimal assembly (see Consensus Map 
-Construction and Biological Interpretation). When loci were shared across SNP sets, we conducted linkage mapping as
-described previously for each set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}.
+the optimal assembly for SNP calling. When loci were shared across SNP sets (see \textbf{Consensus Map 
+Construction and Biological Interpretation}), we conducted linkage mapping as
+described previously (i.e., used all of the other previous thresholds unless otherwise noted) for each
+set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}. 
+For linkage mapping, we selected the method of clustering used that defined the best 
+value of \textit{K} in the previously described linkage analyses (see \textbf{Linkage Analysis}). 
+The significance of each comparison was tested via permutation 
+analysis ($n = 10,000$ permutations), using a Bonferroni-corrected $\alpha = 0.05$. Non-significant values 
+were taken as evidence of significantly different orderings.
 
-Second, we explored the use of thresholds for segregation distortion, amount of missing data, and 
-use of the pseudo-diploid sample to call the maternal genotype to filter SNPs prior to linkage mapping.
+Second, we explored the use of thresholds for segregation distortion and 
+use of the pseudo-diploid sample to call the maternal genotype to filter SNPs prior to linkage mapping. 
+Specifically, we used only those SNPs resulting from the optimal assembly.
+We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05, and 0.10$ to 
+study the effects of segregation distortion on the resulting map. Laslty, we built linkage maps with and without
+use of the pseudo-diploid based filtering. Comparisons among the resulting linkage maps were made
+in a fully factorial design and maps were compared using pairwise Spearman correlation coefficients 
+(i.e., {$6 \choose 2$} = $15$ unique comparisons). The significance of each correlation coefficient 
+was tested using permutation analysis ($n = 10,000$ permutations) and a Bonferroni-corrected $\alpha = 0.05$. 
+Non-significant values were taken as evidence of significantly different orderings.
+In all cases, linkage mapping as described previously  (i.e., used all of the other previous thresholds unless otherwise noted) 
+was carried out for each of the resulting SNP sets, with the method of clustering used that defined 
+the best value of \textit{K} in the previously described linkage analyses (see \textbf{Linkage Analysis}). 
 
-Lastly, we explored the thresholds used in the linkage mapping. We varied the threshold upon which
+Lastly, we explored the thresholds used in imputation and error correction. We varied the threshold upon which
 we allowed the maximum amount of missing data, as this may affect the uniqueness 
 or non-uniqueness of the minimum spanning tree used during ordering of the loci. Specifically,
 we examined the effects of using as the threshold, the $10^{th}$, $25^{th}$, $50^{th}$, $75^{th}$, and $95^{th}$ percentiles of
 the distribution of missing data across megagametophytes. We also varied the threshold determining 
 the number of consecutive loci allowed to have incorrect genotypes. Incorrect genotypes inflate estimated
 map distances due the larger number of recombination events needed to explain the data. Specifically, we
-examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster.
+examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster. We chose to examine the 
+effects of these threshold values in a fully factorial design requiring 15 treatment comparisons. As such we restricted
+analysis to the largest linkage group for the maternal tree with the largest number of reads used to construct
+the assembly. For each treatment combination we produced a new linkage map, and when loci were shared, we calculated
+the Spearman rank correlation of all possible pairwise combinations of the $15$ orderings (i.e., {$15 \choose 2$} = $105$ unique
+comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations), 
+using a Bonferroni-corrected $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
 
 \subsection*{Consensus Map Construction and Biological Interpretation}
-
 The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. Prior to building the consensus linkage map, contigs that were
 shared by each map were identified through use of XXXXX.
 
@@ -356,7 +374,7 @@ Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Aw
 \centering
 \includegraphics[width=1.0\textwidth]{Figure01_TGG}
 \caption{Geographical locations of foxtail pine samples used to construct a common garden located in Placerville, CA. Circles
-denote the 15 unique locations from which $4 to 17$ maternal trees were sampled. Circles enclosed in squares denote
+denote the 15 unique locations from which $4$ to $17$ maternal trees were sampled. Circles enclosed in squares denote
 locations from which maternal trees used in linkage mapping were sampled. Photo credits: lower: T. Burt; upper: A. Delfino Mix}
 \label{f:Figure01_TGG}
 \end{figure}
