@@ -12,6 +12,7 @@
 \linespread{1.5}
 \usepackage{hyperref}
 \usepackage[round]{natbib}
+\usepackage{subfigure}
 \listfiles
 
 \begin{document}
@@ -399,7 +400,10 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=1.0\textwidth]{mapping_performance}
+
+\subfigure[Local alignment using Bowtie 2]{\includegraphics[width=0.72\textwidth]{mapping_performance}}\\
+\subfigure[Log Average Proability (LAP)]{\includegraphics[width=0.72\textwidth]{lap_performance}}
+
 \caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
 $k>53$ were excluded from the figure.}
 \label{f:mapping_performance}
