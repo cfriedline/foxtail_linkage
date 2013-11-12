@@ -305,8 +305,8 @@ of the single megagametophyte with the largest number of reads to generate the
 reference assembly. The assembly process, however, requires optimization of the hash size (see \textbf{DNA Sequence Analysis}),
 which in turn affects the quality of the contigs comprising the assembly (CITATION).  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect
-of assembly choice on SNP calling. To do this, we selected assemblies where the likelihood value was within $4$ log-likelihood units of
-the optimal assembly for SNP calling. When loci were shared across SNP sets (see \textbf{Consensus Map 
+of assembly choice on SNP calling. To do this, we selected the next best assemblies flanking the maximum-likelihood assembly 
+and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \textbf{Consensus Map 
 Construction and Biological Interpretation}), we conducted linkage mapping as
 described previously (i.e., used all of the other previous thresholds unless otherwise noted) for each
 set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}. 
