@@ -83,25 +83,27 @@ ultimate goal of testing explicit evolutionary hypotheses about the genomic orga
 contributing to variation in fitness-related traits.
 
 Ideally, the genomic organization of loci contributing to variation in fitness-related traits would follow 
-naturally from the production of a genome sequence (i.e. a physical map). For many taxa, especially those with 
+naturally from the production of a genome sequence (i.e., a physical map). For many taxa, especially those with 
 small to modest genome sizes, this is monetarily and computationally feasible using next-generation DNA sequencing 
 technologies \citep{Koboldt:2013}. For taxa with large or complex genomes, however, even the advent of next generation DNA 
-sequencing does not solve the complexity and cost hurdles associated with the production of a finished genome sequence. Conifers have large and 
+sequencing, coupled with algorithmic and computational advancement, does not eliminate the analytical complexity or cost hurdles 
+associated with the production of a finished genome sequence. Conifers have large and 
 complex genomes \citep{Murray:1998, Ahuja:2005}, with estimated average genome sizes in \textit{Pinus} in the 
 range of \SIrange{20}{30}{Gbp}. Several genome projects, each involving many laboratories, are underway or have been 
 completed \citep{Mackay:2012}. Even these efforts often initially result in limited information, 
 as current assemblies of the Norway spruce (\textit{Picea abies} L.) and loblolly pine (\textit{Pinus taeda} L.) genomes 
-contain millions of unordered contigs with average sizes in the thousands of base pairs \citep{Nystedt:2013}. An alternative, but 
-not mutually exclusive, approach to describing the genome of an organism 
-is that of linkage mapping. In this approach, genetic markers are ordered through observations of recombination events 
-within pedigrees. This approach dates to the beginning of genetics and the logic has remained relatively unchanged 
-since the first linkage maps were created in \textit{Drosophila} \citep{Sturtevant:1913}.
+contain millions of unordered contigs with average sizes in the thousands of base pairs \citep{Nystedt:2013}. Linkage mapping is 
+an alternative, though not mutually exclusive, approach to describing the genome of an organism. In this approach, genetic markers 
+are ordered through observations of recombination events within pedigrees. This approach dates to the beginning of 
+genetics and the logic has remained relatively unchanged since the first linkage maps were created in 
+\textit{Drosophila} \citep{Sturtevant:1913}.
 
 Renewed interest in linkage maps has occurred for two reasons. First, linkage maps can be used to order contigs 
 created during genome sequencing projects \citep{Mackay:2012, Martinez-Garcia:2013}. In this fashion, linkage 
 maps are used to help create larger contigs from those generated during the assembly. It is these larger contigs that 
 create the utility that most practicing scientists attribute to genome sequences. Second, linkage maps are relatively 
-easy to produce and provide a rich context with which to interpret population and quantitative genetic patterns of variation 
+easy to produce given vaniant call data (i.e., SNPs) and provide a rich context with which to interpret population and quantitative 
+genetic patterns of variation 
 \citep[e.g.][]{Eckert:2010a, Eckert:2010b, Eckert:2013a, Yeaman:2013}. They can also be used to test explicit hypotheses about 
 the organization of loci contributing to adaptive evolution. For example, \citet{Yeaman:2011} developed theoretical 
 predictions about the genomic organization of loci underlying patterns of local adaptation as a function of gene flow, 
@@ -115,12 +117,12 @@ Construction of linkage maps have a long history within forest genetics, mostly 
 mapping \citep{Ritland:2011}. 
 Conifers in particular are highly amenable to linkage mapping, with approximately 25 different species currently having some 
 form of linkage map completed \citep[see Table 5-1 in][]{Ritland:2011}. Much of the amenability of conifers to linkage mapping stems from 
-the early establishment of breeding populations in economically important species and from the presence of a multicellular 
-female gametophyte (i.e. the megagametophyte) from which the haploid product of maternal meiosis can be observed \citep{Cairney:2007}. 
+the early establishment of breeding populations in economically important species as well as from the presence of a multicellular 
+female gametophyte (i.e. the megagametophyte) from which the haploid meiotic products can be observed \citep{Cairney:2007}. 
 Indeed, many of the first linkage maps in conifers were generated from collections of 
 megagametophytes made from single trees \citep{Tulsieram:1992, Nelson:1993, Kubisiak:1996}. Continued development 
-of genetic marker technologies has facilitated rapid development of linkage maps across a diversity of species, with the largest maps 
-generated for economically important species \citep[e.g.][] {Achere:2004, Kang:2010, Martinez-Garcia:2013}. 
+of genetic marker technologies has facilitated rapid development of linkage maps across a variety of species, with the largest maps 
+generated for economically important species \citep[e.g.,][] {Achere:2004, Kang:2010, Martinez-Garcia:2013}. 
 The development of biologically informative markers in non-economically important conifers, however, is hampered by production costs associated
 with the development of characterized  genetic markers (i.e., those with a known DNA sequence and/or function). 
 The majority of this cost is in the two-step approach needed to generate biologically 
@@ -128,9 +130,9 @@ meaningful markers: polymorphism discovery via DNA sequencing of genic regions f
 \citep[cf.][]{Eckert:2013a}. As a result, the vast majority of linkage maps outside of economically important 
 species are created with uncharacterized genetic markers \citep[e.g.][]{Travis:1998}. Much of the knowledge about the genetic 
 architecture of fitness-related traits outside of a handful of economically important conifer species, therefore, is about the 
-number and effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost restrictions, however, have largely disappeared. 
-It is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing 
-approaches, such as restriction-associated DNA sequencing \citep [RADseq; e.g.][] {Peterson:2012}. 
+number and effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost restrictions on data generation, however, 
+have largely disappeared. It is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing 
+approaches, such as restriction site-associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
 
 The generation of dense linkage maps from RADseq data is a complex endeavor due to the inherent stochasticity
 and error prone nature of these data. Recent examples in several crop species highlight the
@@ -139,11 +141,11 @@ and the resulting genotypes \citep{Pfender:2011, Ward:2013}. Despite these diffi
 successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has not yet 
 been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
-to generate maternal linkage maps comprised of tens of thousands of markers. There are currently no published linkage 
+to generate maternal linkage maps comprised of tens of thousands of markers. There are currently neither any published linkage 
 maps for this species nor any within the subsection \textit{Balfourianae}. By doing so, we examine the inherent biases
-to the generation of RADseq data in conifer genomes and how these biases affect downstream inferences of linkage maps. We subsequently discuss
-the utility of our inferred linkage maps to comparative genomics within the conifers and to tests of how patterns of gene flow 
-affect the genomic organization of loci underlying fitness-related traits.
+to the generation of RADseq data in conifer genomes and investiate ow these biases affect downstream inferences of 
+linkage maps. We subsequently discuss the utility of our inferred linkage maps to comparative genomics within the 
+conifers and to tests of how patterns of gene flow affect the genomic organization of loci underlying fitness-related traits.
 
 \section*{Materials and Methods}\label{s:materialsandmethods}
 
