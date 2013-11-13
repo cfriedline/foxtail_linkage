@@ -13,7 +13,11 @@
 \usepackage[round]{natbib}
 \usepackage{color}
 \usepackage{hyperref}
+\usepackage{subfigure}
 \listfiles
+
+% make subfigure labels capitalized
+\renewcommand{\thesubfigure}{(\Alph{subfigure})}
 
 \begin{document}
 
@@ -398,9 +402,12 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=1.0\textwidth]{mapping_performance}
+\subfigure[Bowtie 2 read mapping\label{f:assembly_perf}]{\includegraphics[width=0.7\textwidth]{mapping_performance}}
+\subfigure[Log Average Proability (LAP)\label{f:lap_perf}]{\includegraphics[width=0.7\textwidth]{lap_performance}}
 \caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
-$k>53$ were excluded from the figure.}
+$k>49$ were excluded from the figure.  Figure \subref{f:assembly_perf} shows the performance of the assemblies as a 
+function of local alignments, while Figure \subref{f:lap_perf} shows the performance using an objective 
+likelihood statistic.}
 \label{f:mapping_performance}
 \end{figure}
 
