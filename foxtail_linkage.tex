@@ -178,7 +178,8 @@ common garden was established using a randomized block design and involved three
 approximately one year from June 6, 2012 until May 20, 2013. Four of the 141 maternal trees were selected 
 at random ($n = 2$ from the Klamath region and $n = 2$ from the southern Sierra Nevada) for linkage analysis. 
 For each of these trees, \SIrange{75}{100}{} seeds were germinated and planted in the common garden. 
-Upon germination, haploid megagametophyte tissue was rescued from each seedling, cleaned (\textcolor{red}{how?}), and stored for further 
+Upon germination, haploid megagametophyte tissue was rescued from each seedling, cleaned by removing 
+soil and other extraneous materials with water, and stored for further 
 analysis in \SI{1.5}{\mL} Eppendorf tubes at \SI{-20}{\celsius}.
 
 \subsection*{Library Preparation and Sequencing}
@@ -225,7 +226,7 @@ through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com},
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
 framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186).  Each assembly was also indexed and aligned 
 (Figure \ref{f:mapping_performance}) to the original set of reads 
-using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared the average maximum 
+using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared to the average maximum 
 likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
 chosen as the reference for SNP calling (Figure \ref{f:mapping_performance}).
 
@@ -274,7 +275,9 @@ in this case, the haploid genotypes for a set of two megagametophytes.
 This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
 is the maximum likelihood estimate of the probability of a recombination event with respect to a pair of haplotypes \citep{Wu:2008a}.
 It is also an estimate of the recombination fraction, so that these distances can be transformed into LOD scores \citep[see][]{Morton:1955}.
-The LOD scores were used to construct pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
+Missing data were dealt with in a pairwise manner, so that each pairwise comparison had missing data removed prior to estimation of $d_{i,j}/n$.
+When values of $d_{i,j}/n$ exceeded 0.5, which is the theoretical maximum value given the expected 1:1 segregation pattern, they were set to 0.5.  
+The $d_{i,j}/n$ values were used to construct the pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
 
 The matrix of pairwise distances between all possible markers was clustered using two methods: 1) hierarchical clustering with 
 either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and 2) \textit{K}-means clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was chosen because 
@@ -284,7 +287,7 @@ values of \textit{K} were established \textit{a priori}. Solutions in all cases 
 The value of $K$ which maximized the number of loci correctly classified  (i.e., $s_{i} \geq 0.80$ where $s_{i}$ is the 
 silhouette width of individual \textit{i}) was chosen as the optimal value of the number of clusters.
 
-Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted traveling salesman path (TSP)-. \citet{Wu:2008a} showed that the minimum-weighted TSP
+Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted traveling salesman path (TSP). \citet{Wu:2008a} showed that the minimum-weighted TSP
 can be found using a minimum spanning tree approach and that it corresponds to the correct order of the loci if the minimum spanning tree on
 the full, undirected graph is unique. We employed MSTmap using the maximum likelihood objective function, grouping turned off, imputation of 
 missing data turned off, and the Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci
@@ -296,7 +299,7 @@ used in Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes,
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
 contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
 missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each
-cluster for the latter (\textcolor{red}{because...}).
+cluster for the latter because this was a value similar to that used by \citet{Ward:2013}.
 
 A final round of ordering was conducted with the imputed and error corrected data using MSTmap as described previously. Imputation 
 and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin
@@ -365,6 +368,12 @@ linkage map, contigs that were shared by each map were identified through use of
 
 \subsection*{DNA Sequence Analysis}
 
+The number of raw reads varied across libraries from a minimum of XX to a maximum of XX, with an average of XX. In
+general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater number of reads than those run on the 
+Illumina 2000 HiSeq platform. Processing of reads for quality reduced these number by approximately XX-fold, with a range
+of XX-fold (XXXX) to XX-fold (XXXXX) reduction. The number of quality-filtered reads per megagametophyte varied XX-fold on average
+across libraries, with minimums of approximately XX to maximums of approximately XX. 
+
 \subsection*{Linkage Mapping}
 
 \subsection*{Sensitivity Analysis}
@@ -402,12 +411,13 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 
 \begin{figure}[t]
 \centering
-\subfigure[Bowtie 2 read mapping\label{f:assembly_perf}]{\includegraphics[width=0.7\textwidth]{mapping_performance}}
+\subfigure[Bowtie2 read mapping\label{f:assembly_perf}]{\includegraphics[width=0.7\textwidth]{mapping_performance}}
 \subfigure[Log Average Proability (LAP)\label{f:lap_perf}]{\includegraphics[width=0.7\textwidth]{lap_performance}}
 \caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
 $k>49$ were excluded from the figure.  Figure \subref{f:assembly_perf} shows the performance of the assemblies as a 
 function of local alignments, while Figure \subref{f:lap_perf} shows the performance using an objective 
-likelihood statistic for values of $k$ yielding assemblies compatible with this metric.}
+likelihood statistic for values of $k$ yielding assemblies compatible with this metric. Values for $k$ without
+likelihood values were assemblies for the likelihood could not be calculated.}
 \label{f:mapping_performance}
 \end{figure}
 
