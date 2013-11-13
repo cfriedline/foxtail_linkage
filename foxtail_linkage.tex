@@ -12,6 +12,7 @@
 \linespread{1.6}
 \usepackage[round]{natbib}
 \usepackage{color}
+\usepackage{hyperref}
 \listfiles
 
 \begin{document}
@@ -199,7 +200,7 @@ agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, inclu
 oligonucleotide sequences, can be found in File S1. All DNA sequencing was performed on the Illumina HiSeq 2000 or 2500
 platform at the VCU Nucleic Acids Research Facility (\url{http://www.narf.vcu.edu/}).
 
-\subsection*{DNA Sequence Analysis}
+\subsection*{DNA Sequence Analysis}\label{ss:dna}
 There are multiple steps involved with the processing of raw DNA sequence reads into a set of SNP genotypes that are useful for linkage mapping:
 (1) quality control, filtering, and demultiplexing, (2) assembly to generate a reference sequence for mapping reads, (3) mapping 
 of reads to call SNPs and genotypes for each sample, and (4) filtering of SNPs and the resulting genotypes for
@@ -242,7 +243,7 @@ where the pseudo-diploid was either 1) called a heterozygote or 2) had a missing
 Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$
 genotype calls for each of the alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis. 
 
-\subsection*{Linkage Analysis}
+\subsection*{Linkage Analysis}\label{ss:linkage}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
 pairwise distances between all pairs of loci, (2) clustering (i.e., grouping) of loci based on these pairwise distances, 
 and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps \citep[e.g.,][]{VanOoijen:2011}.
@@ -308,16 +309,15 @@ data from the maternal tree with the largest number of reads as the focal linkag
 the sensitivity of our results to our assumptions.
 
 First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes \citep[cf.][]{Pool:2010}.
-The mapping of reads requires a reference against which to match reads based on their similarity. The assembly process, however, requires optimization of the hash length (see \textbf{DNA Sequence Analysis}),
-which in turn affects the quality of the contigs comprising the assembly (CITATION).  
+The mapping of reads requires a reference against which to match reads based on their similarity. The assembly process, however, requires optimization of the hash length (see \nameref{ss:dna}),
+which in turn affects the quality of the contigs comprising the assembly \citep{Earl:2011gt,Salzberg:2011fr,Bradnam:2013uu}.  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect
 of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum-likelihood
-and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \textbf{Consensus Map 
-Construction and Biological Interpretation}), we conducted linkage mapping as
+and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \nameref{ss:consensus}), we conducted linkage mapping as
 described previously (i.e., we used all of the other previous thresholds unless otherwise noted) for each
 set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}. 
 For linkage mapping, we selected the method of clustering used that defined the best 
-value of \textit{K} in the previously described linkage analyses (see \textbf{Linkage Analysis}). 
+value of \textit{K} in the previously described linkage analyses (see \nameref{ss:linkage}). 
 The significance of each comparison was tested via permutation 
 analysis ($n = 10,000$ permutations) using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values 
 were taken as evidence of significantly different orderings.
@@ -335,7 +335,7 @@ Non-significant values were taken as evidence of significantly different orderin
 In all cases, linkage mapping as described previously  (i.e., we used all of the other previous thresholds unless otherwise noted) 
 was carried out for each of the resulting SNP sets based on the optimal assembly, with the 
 method of clustering used that defined the best value of \textit{K} in the previously 
-described linkage analyses (see \textbf{Linkage Analysis}). 
+described linkage analyses (see \nameref{ss:linkage}). 
 
 Lastly, we explored the thresholds used in imputation and error correction. We varied the threshold upon which
 we allowed the maximum amount of missing data, as this may affect the uniqueness 
@@ -352,7 +352,7 @@ the Spearman rank correlation of all possible pairwise combinations of the $15$ 
 comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations)
 using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
 
-\subsection*{Consensus Map Construction and Biological Interpretation}
+\subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:consensus}
 The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. This
 method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus linkage map. Prior to building the consensus 
 linkage map, contigs that were shared by each map were identified through use of XXXXX.
