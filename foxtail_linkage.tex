@@ -78,7 +78,7 @@ ultimate goal of testing explicit evolutionary hypotheses about the genomic orga
 contributing to variation in fitness-related traits.
 
 Ideally, the genomic organization of loci contributing to variation in fitness-related traits would follow 
-naturally from the production of a genome sequence (i.e. a physical map). For many taxa, especially those with 
+naturally from the production of a genome sequence (i.e., a physical map). For many taxa, especially those with 
 small to modest genome sizes, this is monetarily and computationally feasible using next-generation DNA sequencing 
 technologies \citep{Koboldt:2013}. For taxa with large or complex genomes, however, even the advent of next generation DNA 
 sequencing does not solve the complexity and cost hurdles associated with the production of a finished genome sequence. Conifers have large and 
@@ -103,13 +103,13 @@ so that loci contributing to local adaptation have differing spatial structure w
 regimes of gene flow. The relevant scale \citep[\textit{sensu}][]{Houle:2011} in these mathematical formulations is that 
 of recombinational distance among loci, so that when matched with an appropriate study system, 
 linkage maps provide the impetus to test basic evolutionary hypotheses. In this context, future additions of finished 
-genome sequences would add only to the interpretation of results based on linkage maps.
+genome sequences would add only to the interpretation of results.
 
 Construction of linkage maps have a long history within forest genetics, mostly through their use in quantitative trait locus mapping \citep{Ritland:2011}. 
 Conifers in particular are highly amenable to linkage mapping, with approximately 25 different species currently having some 
 form of linkage map completed \citep[see Table 5-1 in][]{Ritland:2011}. Much of the amenability of conifers to linkage mapping stems from 
 the early establishment of breeding populations in economically important species and from the presence of a multicellular 
-female gametophyte (i.e. the megagametophyte) from which the haploid product of maternal meiosis can be observed \citep{Cairney:2007}. Indeed, many of the first linkage maps in conifers were generated from collections of 
+female gametophyte (i.e., the megagametophyte) from which the haploid product of maternal meiosis can be observed \citep{Cairney:2007}. Indeed, many of the first linkage maps in conifers were generated from collections of 
 megagametophytes made from single trees \citep{Tulsieram:1992, Nelson:1993, Kubisiak:1996}. Continued development 
 of genetic marker technologies has facilitated rapid development of linkage maps across a diversity of species, with the largest maps 
 generated for economically important species \citep[e.g.][] {Achere:2004, Kang:2010, Martinez-Garcia:2013}. 
@@ -117,11 +117,11 @@ The development of biologically informative markers in non-economically importan
 with the development of characterized  genetic markers (i.e., those with a known DNA sequence and/or function). 
 The majority of this cost is in the two-step approach needed to generate biologically 
 meaningful markers: polymorphism discovery via DNA sequencing of genic regions followed by genotyping of those polymorphisms \citep[cf.][]{Eckert:2013a}. As a result, the vast majority of linkage maps outside of economically important 
-species are created with uncharacterized genetic markers \citep[e.g.][]{Travis:1998}. Much of the knowledge about the genetic 
+species are created with uncharacterized genetic markers \citep[e.g.,][]{Travis:1998}. Much of the knowledge about the genetic 
 architecture of fitness-related traits outside of a handful of economically important conifer species, therefore, is about the 
 number and effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost restrictions, however, have largely disappeared. 
 It is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing 
-approaches, such as restriction-associated DNA sequencing \citep [RADseq; e.g.][] {Peterson:2012}. 
+approaches, such as restriction-associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
 
 The generation of dense linkage maps from RADseq data is a complex endeavor due to the inherent stochasticity
 and error prone nature of these data. Recent examples in several crop species highlight the
@@ -206,7 +206,7 @@ DNA sequence reads were demultiplexed into sample-level fastq files, following q
 and filtering.  The filtering pipeline was adapted from \citep{Friedline:2012fm}, and is briefly: reads 
 containing any N beyond the first base were excluded. Reads having N as the first base were shifted 
 to exclude it.  Additional quality filtering ensured that all reads in the resulting set for downstream 
-processing had a minimum average quality score of 30 over 5 base-pair (bp), overlapping windows 
+processing had a minimum average quality score of 30 over 5 bp, overlapping windows 
 and that not more than \SI{20}{\percent} of the bases had quality scores below 30. Reads passing the 
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
 known barcodes.
@@ -232,7 +232,7 @@ calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of
 We used several thresholds to filter called SNPs for linkage mapping. First, 
 we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected because
 the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
-guarantees that the segregation ratio for this SNP should thus be 1:1. Significance of each test was 
+guarantees that the segregation ratio for this SNP should be 1:1. Significance of each test was 
 assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, where $\alpha$ was corrected using the number of SNPs tested. 
 Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as to keep only those SNPs
 where the pseudo-diploid was called a heterozygote or had a missing genotype call.
@@ -241,7 +241,7 @@ genotype calls for each of the alternate alleles. The resulting subset of SNPs w
 
 \subsection*{Linkage Analysis}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
-pairwise distances between all pairs of loci, (2) clustering (i.e. grouping) of loci based on these pairwise distances, 
+pairwise distances between all pairs of loci, (2) clustering (i.e., grouping) of loci based on these pairwise distances, 
 and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps \citep[e.g.,][]{VanOoijen:2011}.
 Traditional software packages for linkage mapping, however, are not amenable to large amounts of missing data and frequent
 errors in genotype calls. The former causes issues with all aspects of analysis, while the latter primarily affects the 
@@ -260,14 +260,17 @@ was followed for each of the four maternal trees independently.
 
 The relevant pairwise distance for linkage mapping in our haploid case is the probability of observing a recombination 
 event between two haplotypes. This distance can be calculated for a set of biallelic loci using the Hamming distance ($d_{i,j}$).
-The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}. The binary strings are the haploid
-genotypes for a set of two megagametophytes. This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
+The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}. 
+The binary strings are the haploid genotypes for a set of two megagametophytes. 
+This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
 is the maximum likelihood estimate of the probability of a recombination event with respect to a pair of haplotypes \citep{Wu:2008a}.
+It is also an estimate of the recombination fraction, so that these distances can be transformed into LOD scores \citep[see][]{Morton:1955}.
 This is the estimate we used to construct a matrix of pairwise distances between all possible pairs of loci passing our quality thresholds.
 
 The matrix of pairwise distances between all possible markers was clustered using two methods: (1) hierarchical clustering with 
-either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and (2) \textit{K}-means clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering within the interval $K=[8,16]$. For hierarchical clustering, this 
-entailed cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. For \textit{K}-means clustering
+either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and (2) \textit{K}-means clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was chosen because 
+it brackets the haploid chromosome number of foxtail pine ($1N = 12$). 
+For hierarchical clustering, this entailed cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. For \textit{K}-means clustering
 values of \textit{K} were established \textit{a priori}. Solutions in all cases were compared using silhouette plots \citep{Rousseeuw:1987}.
 The value of $K$ which maximized the number of loci correctly classified  (i.e., $s_{i} \geq 0.80$ where $s_{i}$ is the 
 silhouette width of individual \textit{i}) was chosen as the optimal value of the number of clusters.
@@ -294,20 +297,18 @@ The end result of the linkage analysis was thus four independent linkage maps, o
 
 \subsection*{Sensitivity Analysis}
 The production of linkage maps for each maternal tree required many assumptions.
-Given that the inferred maps will be used in downstream analysis, including acting as aids
+Given that the inferred maps will be used in downstream analyses, including acting as aids
 to help impute missing data in population-level sampling, we explored the effect of these assumptions on 
-the resulting linkage maps using a sensitivity analysis. The effect of assumptions 
+the resulting linkage maps using sensitivity analysis. The effect of assumptions 
 were examined by modifying threshold values defining each assumption. We selected the
 data from the maternal tree with the largest number of reads as the focal linkage map with which to explore
 the sensitivity of our results to our assumptions.
 
 First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes \citep[cf.][]{Pool:2010}.
-The mapping of reads requires a reference against which to match reads based on their similarity. We used an assembly
-of the single megagametophyte with the largest number of reads to generate the
-reference assembly. The assembly process, however, requires optimization of the hash length (see \textbf{DNA Sequence Analysis}),
+The mapping of reads requires a reference against which to match reads based on their similarity. The assembly process, however, requires optimization of the hash length (see \textbf{DNA Sequence Analysis}),
 which in turn affects the quality of the contigs comprising the assembly (CITATION).  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect
-of assembly choice on SNP calling. To do this, we selected the next best assemblies flanking the assembly identified as optimal via maximum-likelihood
+of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum-likelihood
 and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \textbf{Consensus Map 
 Construction and Biological Interpretation}), we conducted linkage mapping as
 described previously (i.e., we used all of the other previous thresholds unless otherwise noted) for each
@@ -315,22 +316,23 @@ set and compared the resulting maps of the shared loci using Spearman rank corre
 For linkage mapping, we selected the method of clustering used that defined the best 
 value of \textit{K} in the previously described linkage analyses (see \textbf{Linkage Analysis}). 
 The significance of each comparison was tested via permutation 
-analysis ($n = 10,000$ permutations), using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values 
+analysis ($n = 10,000$ permutations) using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values 
 were taken as evidence of significantly different orderings.
 
 Second, we explored the use of thresholds for segregation distortion and 
 use of the pseudo-diploid sample to call the maternal genotype to filter SNPs prior to linkage mapping. 
-Specifically, we used only those SNPs resulting from the optimal assembly.
-We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05,$ and $0.10$ to 
-study the effects of segregation distortion on the resulting map. Laslty, we built linkage maps with and without
+We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05,$ 
+and $0.10$ to study the effects of segregation distortion on the resulting map. 
+Lastly, we built linkage maps with and without
 use of the pseudo-diploid based filtering. Comparisons among the resulting linkage maps were made
 in a fully factorial design and maps were compared using pairwise Spearman correlation coefficients 
 (i.e., {$6 \choose 2$} = $15$ unique comparisons). The significance of each correlation coefficient 
 was tested using permutation analysis ($n = 10,000$ permutations) and a Bonferroni-corrected significance threshold of $\alpha = 0.05$. 
 Non-significant values were taken as evidence of significantly different orderings.
 In all cases, linkage mapping as described previously  (i.e., we used all of the other previous thresholds unless otherwise noted) 
-was carried out for each of the resulting SNP sets, with the method of clustering used that defined 
-the best value of \textit{K} in the previously described linkage analyses (see \textbf{Linkage Analysis}). 
+was carried out for each of the resulting SNP sets based on the optimal assembly, with the 
+method of clustering used that defined the best value of \textit{K} in the previously 
+described linkage analyses (see \textbf{Linkage Analysis}). 
 
 Lastly, we explored the thresholds used in imputation and error correction. We varied the threshold upon which
 we allowed the maximum amount of missing data, as this may affect the uniqueness 
@@ -339,20 +341,29 @@ we examined the effects of using as the threshold, the $10^{th}$, $25^{th}$, $50
 the distribution of missing data across megagametophytes. We also varied the threshold determining 
 the number of consecutive loci allowed to have incorrect genotypes. Incorrect genotypes inflate estimated
 map distances due the larger number of recombination events needed to explain the data. Specifically, we
-examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster. We chose to examine the 
-effects of these threshold values in a fully factorial design requiring 15 treatment comparisons. As such we restricted
+examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster as being erroneous. We chose to examine the effects of these threshold values in a fully factorial design 
+requiring 15 treatment comparisons. As such we restricted
 analysis to the largest linkage group for the maternal tree with the largest number of reads used to construct
 the assembly. For each treatment combination we produced a new linkage map, and when loci were shared, we calculated
 the Spearman rank correlation of all possible pairwise combinations of the $15$ orderings (i.e., {$15 \choose 2$} = $105$ unique
-comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations), 
+comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations)
 using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
 
 \subsection*{Consensus Map Construction and Biological Interpretation}
 The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. This
-method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus map. Prior to building the consensus 
+method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus linkage map. Prior to building the consensus 
 linkage map, contigs that were shared by each map were identified through use of XXXXX.
 
 \section*{Results}
+
+\subsection*{DNA Sequence Analysis}
+
+\subsection*{Linkage Mapping}
+
+\subsection*{Sensitivity Analysis}
+
+\subsection*{Consensus Map Construction and Biological Interpretation}
+
 
 \section*{Discussion}
 
