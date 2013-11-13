@@ -246,7 +246,7 @@ We used several thresholds to filter called SNPs for linkage mapping. First,
 we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation pattern was expected because
 the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
 guarantees that the segregation ratio for this SNP should thus be 1:1. Significance of each test was 
-assessed using a Bonferroni-corrected $\alpha = 0.05$, where $\alpha$ was corrected using the number of SNPs tested. 
+assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, where $\alpha$ was corrected using the number of SNPs tested. 
 Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as to keep only those SNPs
 where the pseudo-diploid was called a heterozygote or had a missing genotype call.
 Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$
@@ -309,6 +309,12 @@ and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segre
 \citep[see][]{Wu:2008a}. The collection of resulting ordered clusters was taken as the final linkage map for each of the for maternal trees. 
 The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
 
+\subsection*{Sensitivity Analysis}
+The production of linkage maps for each maternal tree required many assumptions.
+Given that the inferred maps will be used in downstream analysis, including acting as aids
+to help impute missing data in population-level sampling, we explored the effect of these assumptions on 
+the resulting linkage maps using a sensitivity analysis. The effect of assumptions 
+were examined by modifying threshold values defining each assumption. We selected the
 \subsection*{Sensitivity Analysis}\label{ss:sensitivity}
 
 The production of linkage maps for each maternal tree required many assumptions. We
@@ -317,7 +323,7 @@ analysis, whereby the effect of assumptions were examined by modifying threshold
 data from the maternal tree with the largest number of reads as the focal linkage map with which to explore
 the sensitivity of our results to our assumptions.
 
-First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes.
+First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes \citep[cf.][]{Pool:2010}.
 The mapping of reads requires a reference against which to match reads based on their similarity. We used an assembly
 of the single megagametophyte with the largest number of reads to generate the
 reference assembly. The assembly process, however, requires optimization of the hash size (see \nameref{ss:dna}),
@@ -331,20 +337,20 @@ set and compared the resulting maps of the shared loci using Spearman rank corre
 For linkage mapping, we selected the method of clustering used that defined the best 
 value of \textit{K} in the previously described linkage analyses (see \nameref{ss:linkage}). 
 The significance of each comparison was tested via permutation 
-analysis ($n = 10,000$ permutations), using a Bonferroni-corrected $\alpha = 0.05$. Non-significant values 
+analysis ($n = 10,000$ permutations), using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values 
 were taken as evidence of significantly different orderings.
 
 Second, we explored the use of thresholds for segregation distortion and 
 use of the pseudo-diploid sample to call the maternal genotype to filter SNPs prior to linkage mapping. 
 Specifically, we used only those SNPs resulting from the optimal assembly.
-We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05, and 0.10$ to 
+We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05,$ and $0.10$ to 
 study the effects of segregation distortion on the resulting map. Laslty, we built linkage maps with and without
 use of the pseudo-diploid based filtering. Comparisons among the resulting linkage maps were made
 in a fully factorial design and maps were compared using pairwise Spearman correlation coefficients 
 (i.e., {$6 \choose 2$} = $15$ unique comparisons). The significance of each correlation coefficient 
-was tested using permutation analysis ($n = 10,000$ permutations) and a Bonferroni-corrected $\alpha = 0.05$. 
+was tested using permutation analysis ($n = 10,000$ permutations) and a Bonferroni-corrected significance threshold of $\alpha = 0.05$. 
 Non-significant values were taken as evidence of significantly different orderings.
-In all cases, linkage mapping as described previously  (i.e., used all of the other previous thresholds unless otherwise noted) 
+In all cases, linkage mapping as described previously  (i.e., we used all of the other previous thresholds unless otherwise noted) 
 was carried out for each of the resulting SNP sets, with the method of clustering used that defined 
 the best value of \textit{K} in the previously described linkage analyses (see \nameref{ss:linkage}). 
 
@@ -361,9 +367,12 @@ analysis to the largest linkage group for the maternal tree with the largest num
 the assembly. For each treatment combination we produced a new linkage map, and when loci were shared, we calculated
 the Spearman rank correlation of all possible pairwise combinations of the $15$ orderings (i.e., {$15 \choose 2$} = $105$ unique
 comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations), 
-using a Bonferroni-corrected $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
+using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
 
-\subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:map}
+\subsection*{Consensus Map Construction and Biological Interpretation}
+The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. This
+method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus map. Prior to building the consensus 
+linkage map, contigs that were shared by each map were identified through use of XXXXX.
 
 The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. Prior to 
 building the consensus linkage map, contigs that were shared by each map were identified through use of XXXXX.
