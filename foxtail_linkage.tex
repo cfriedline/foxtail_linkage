@@ -261,37 +261,37 @@ to impute and correct putative genotype errors conditional on this initial marke
 was performed using MSTmap conditional on the imputed and error corrected genotype data. This general schema
 was followed for each of the four maternal trees independently.
 
-The relevant pairwise distance for linkage mapping in our haploid case is the probability of observing a recombination 
-event between two haplotypes. This distance can be calculated for a set of biallelic loci using the Hamming distance ($d_{i,j}$).
-The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}. 
-The binary strings are the haploid genotypes for a set of two megagametophytes. 
+The relevant pairwise distance for linkage mapping in our haploid case is defined as the probability 
+of observing a recombination event between two haplotypes. This distance can be calculated for a set of 
+biallelic loci using the Hamming distance ($d_{i,j}$).
+The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}, which are 
+in this case, the haploid genotypes for a set of two megagametophytes. 
 This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
 is the maximum likelihood estimate of the probability of a recombination event with respect to a pair of haplotypes \citep{Wu:2008a}.
 It is also an estimate of the recombination fraction, so that these distances can be transformed into LOD scores \citep[see][]{Morton:1955}.
-This is the estimate we used to construct a matrix of pairwise distances between all possible pairs of loci passing our quality thresholds.
+The LOD scores were used to construct pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
 
-The matrix of pairwise distances between all possible markers was clustered using two methods: (1) hierarchical clustering with 
-either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and (2) \textit{K}-means clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was chosen because 
+The matrix of pairwise distances between all possible markers was clustered using two methods: 1) hierarchical clustering with 
+either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and 2) \textit{K}-means clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was chosen because 
 it brackets the haploid chromosome number of foxtail pine ($1N = 12$). 
 For hierarchical clustering, this entailed cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. For \textit{K}-means clustering
 values of \textit{K} were established \textit{a priori}. Solutions in all cases were compared using silhouette plots \citep{Rousseeuw:1987}.
 The value of $K$ which maximized the number of loci correctly classified  (i.e., $s_{i} \geq 0.80$ where $s_{i}$ is the 
 silhouette width of individual \textit{i}) was chosen as the optimal value of the number of clusters.
 
-Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted traveling salesman path. \citet{Wu:2008a} showed that the minimum-weighted traveling salesman path
-can be found using a minimum spanning tree and that this minimum-weighted traveling
-salesman path corresponds to the correct order of the loci if the minimum spanning tree on
+Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted traveling salesman path (TSP)-. \citet{Wu:2008a} showed that the minimum-weighted TSP
+can be found using a minimum spanning tree approach and that it corresponds to the correct order of the loci if the minimum spanning tree on
 the full, undirected graph is unique. We employed MSTmap using the maximum likelihood objective function, grouping turned off, imputation of 
 missing data turned off, and the Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci
 within each cluster, along with the distances (i.e., cM) in each cluster, were taken as the initial linkage map from which
-data were error corrected and imputed.
+data were error-corrected and imputed.
  
 Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics of the algorithm
 used in Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
 contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
 missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each
-cluster for the latter.
+cluster for the latter (\textcolor{red}{because...}).
 
 A final round of ordering was conducted with the imputed and error corrected data using MSTmap as described previously. Imputation 
 and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin
