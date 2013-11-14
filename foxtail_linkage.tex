@@ -181,7 +181,8 @@ Approximately 50 seeds were germinated from each seed collection and 35 of those
 common garden located at the USDA Institute of Forest Genetics, Placerville, California (Figure \ref{f:Figure01_TGG}). The 
 common garden was established using a randomized block design and involved three separate plantings of seeds spanning
 approximately one year from June 6, 2012 until May 20, 2013. Four of the 141 maternal trees were selected 
-at random ($n = 2$ from the Klamath region and $n = 2$ from the southern Sierra Nevada) for linkage analysis. 
+at random ($n = 2$ from the Klamath region and $n = 2$ from the southern Sierra Nevada) for linkage analysis. Libraries were color-coded and are referred to as
+red (southern Sierra Nevada), green (southern Sierra Nevada), blue (Klamath), and yellow (Klamath).
 For each of these trees, \SIrange{75}{100}{} seeds were germinated and planted in the common garden. 
 Upon germination, haploid megagametophyte tissue was rescued from each seedling, cleaned by removing 
 soil and other extraneous materials with water, and stored for further 
@@ -279,13 +280,13 @@ The Hamming distance is the number of differences separating two binary strings 
 in this case, the haploid genotypes for a set of two megagametophytes. 
 This distance, scaled by the number of positions (i.e., $d_{i,j}/n$), 
 is the maximum likelihood estimate of the probability of a recombination event with respect to a pair of haplotypes 
-\citep{Wu:2008a}. It is also an estimate of the recombination fraction, so that these distances can be transformed into LOD 
+in a double haploid design \citep{Wu:2008a}. It is also an estimate of the recombination fraction, so that these distances can be transformed into LOD 
 scores \citep[see][]{Morton:1955}. Missing data were dealt with in a pairwise manner, so that each pairwise comparison had 
 missing data removed prior to estimation of $d_{i,j}/n$. When values of $d_{i,j}/n$ exceeded 0.5, which is the theoretical maximum 
 value given the expected 1:1 segregation pattern, they were set to 0.5.  The $d_{i,j}/n$ values were used to construct the 
 pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
 
-The matrix of pairwise distances between all possible markers was clustered using two methods: 1) hierarchical clustering with 
+Loci were clustered based on the pairwise distance matrix using two methods: 1) hierarchical clustering with 
 either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and 2) \textit{K}-means 
 clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was 
 chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 12$). For hierarchical clustering, this entailed 
@@ -359,7 +360,7 @@ map distances due the larger number of recombination events needed to explain th
 examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster as being erroneous. We chose to 
 examine the effects of these threshold values in a fully factorial design requiring 15 treatment comparisons. As such we restricted 
 analysis to the largest linkage group for the maternal tree with the largest number of reads used to construct 
-the assembly. For each treatment combination we produced a new linkage map, and when loci were shared, we calculated 
+the assembly. For each treatment combination we produced a new ordering, and when loci were shared, we calculated 
 the Spearman rank correlation of all possible pairwise combinations of the $15$ orderings (i.e., {$15 \choose 2$} = $105$ unique 
 comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations) 
 using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly 
@@ -374,11 +375,23 @@ linkage map, contigs that were shared by each map were identified through use of
 
 \subsection*{DNA Sequence Analysis}
 
-The number of raw reads varied across libraries from a minimum of XX to a maximum of XX, with an average of XX. In 
-general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater number of reads than those run on the 
-Illumina 2000 HiSeq platform. Processing of reads for quality reduced these number by approximately XX-fold, with a range 
-of XX-fold (XXXX) to XX-fold (XXXXX) reduction. The number of quality-filtered reads per megagametophyte varied XX-fold on average 
-across libraries, with minimums of approximately XX to maximums of approximately XX. 
+Megagametohpytes from each maternal tree are 
+collectively referred to as libraries. These libraries have color-coded names (Figure \ref{f:Figure01_TGG}).
+The number of raw reads varied across libraries from a minimum of
+XX to a maximum of XX, with an average of XX. All raw reads were XX bp in length. In 
+general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater 
+number of reads than those run on the 
+Illumina 2000 HiSeq platform. Processing of reads for quality reduced these numbers by 
+approximately XX-fold, with a range 
+of XX-fold (XXXX) to XX-fold (XXXXX) reduction. After filtering, the average
+length of reads was XX bp, with a range of XX to XX across libraries. The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
+across libraries, with minimums of approximately XX to maximums of approximately XX. Further details abut the raw and filtered read data are given in Table S1.
+
+The megagametophyte from each library with the largest number of reads
+was used to create an assembly for downstream read mapping and SNP calling.
+Optimization of the hash length reasulted in assemblies being created with different values of 
+$k$ across libraries (Figure \ref{f:mapping_performance}).
+
 
 \subsection*{Linkage Mapping}
 
