@@ -70,7 +70,7 @@ or through quantitative genetic experimentation \citep{Anderson:2013a, Anderson:
 little empirical work outside of model organisms, however, has focused on the genomic organization 
 of loci contributing to fitness differences 
 among individuals \citep[but see][]{Stevison:2011}. This is despite clear theoretical predictions relating the evolution of 
-the genetic architecture to the genomic organization of the loci comprising that architecture 
+the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this architecture 
 \citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013}.
 
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
@@ -93,9 +93,9 @@ small to modest genome sizes, this is monetarily and computationally feasible us
 technologies \citep{Koboldt:2013}. For taxa with large or complex genomes, however, even the advent of next generation DNA 
 sequencing does not solve the complexity and cost hurdles associated with the production of a finished genome sequence. Conifers 
 have large and complex genomes \citep{Murray:1998, Ahuja:2005}, with estimated average genome sizes in \textit{Pinus} in the 
-range of \SIrange{20}{30}{Gbp}. Several genome projects, each involving many laboratories, are underway or have been 
-completed \citep{Mackay:2012}. Even these efforts often initially result in limited information, 
-as current assemblies of the Norway spruce (\textit{Picea abies} L.) and loblolly pine (\textit{Pinus taeda} L.) genomes 
+range of \SIrange{20}{30}{Gbp}. Several genome projects, each of which involves many laboratories, are underway or have been 
+completed \citep{Mackay:2012}. Even these efforts often initially result in limited information, however,
+as for example the current assemblies of the Norway spruce (\textit{Picea abies} L.) and loblolly pine (\textit{Pinus taeda} L.) genomes 
 contain millions of unordered contigs with average sizes in the thousands of base pairs \citep{Nystedt:2013}. An alternative, 
 but not mutually exclusive, approach to describing the genome of an organism 
 is that of linkage mapping. In this approach, genetic markers are ordered through observations of recombination events 
@@ -107,7 +107,7 @@ created during genome sequencing projects \citep{Mackay:2012, Martinez-Garcia:20
 maps are used to help create larger contigs from those generated during the assembly. It is these larger contigs that 
 create the utility that most practicing scientists attribute to genome sequences. Second, linkage maps are relatively 
 easy to produce and provide a rich context with which to interpret population and quantitative genetic patterns of variation 
-\citep[e.g.][]{Eckert:2010a, Eckert:2010b, Eckert:2013a, Yeaman:2013}. They can also be used to test explicit hypotheses about 
+\citep[e.g.,][]{Eckert:2010a, Eckert:2010b, Eckert:2013a, Yeaman:2013}. They can also be used to test explicit hypotheses about 
 the organization of loci contributing to adaptive evolution. For example, \citet{Yeaman:2011} developed theoretical 
 predictions about the genomic organization of loci underlying patterns of local adaptation as a function of gene flow, 
 so that loci contributing to local adaptation have differing spatial structure within genomes as a result of differing 
@@ -128,7 +128,7 @@ generated for economically important species \citep[e.g.][] {Achere:2004, Kang:2
 The development of biologically informative markers in non-economically important conifers, however, is hampered by production costs 
 associated with the development of characterized  genetic markers (i.e., those with a known DNA sequence and/or function). 
 The majority of this cost is in the two-step approach needed to generate biologically 
-meaningful markers: polymorphism discovery via DNA sequencing of genic regions followed by genotyping of those polymorphisms 
+meaningful markers: polymorphism discovery via DNA sequencing followed by genotyping of those polymorphisms 
 \citep[cf.][]{Eckert:2013a}. As a result, the vast majority of linkage maps outside of economically important 
 species are created with uncharacterized genetic markers \citep[e.g.,][]{Travis:1998}. Much of the knowledge about the genetic 
 architecture of fitness-related traits outside of a handful of economically important conifer species, therefore, is about the 
@@ -144,8 +144,9 @@ successively applied to samples taken from natural populations of non-model coni
 been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
 to generate maternal linkage maps comprised of tens of thousands of markers. There are currently no published linkage 
-maps for this species nor any within the subsection \textit{Balfourianae}. By doing so, we examine the inherent biases
-to the generation of RADseq data in conifer genomes and how these biases affect downstream inferences of linkage maps. We subsequently discuss
+maps for this species, which is only distantly related to loblolly pine \citep{Eckert:2006a}, nor any within the subsection \textit{Balfourianae}. 
+By doing so, we examine the inherent biases to the generation of RADseq data in conifer genomes and how these biases affect
+downstream inferences of linkage maps. We subsequently discuss
 the utility of our inferred linkage maps to comparative genomics within the conifers and to tests of how patterns of gene flow 
 affect the genomic organization of loci underlying fitness-related traits.
 
@@ -168,9 +169,9 @@ the southern Sierra Nevada stands and genetic differentiation being the highest 
 Klamath stands \citep{Oline:2000, Eckert:2008}. These two regional populations
 have also been recognized as distinct subspecies based on numerous quantitative traits, with \textit{P. balfouriana}
 subsp.\ \textit{balfouriana} located in the Klamath region and \textit{P. balfouriana} subsp.\ \textit{austrina} located 
-in the southernSierra Nevada mountains \citep{Mastrogiuseppe:1980}. The two regional populations of foxtail pine 
+in the southern Sierra Nevada mountains \citep{Mastrogiuseppe:1980}. The two regional populations of foxtail pine 
 thus represent a powerful natural experiment within which to examine the genomic organization of loci contributing to 
-local adaptation. The first stepin using this system to test evolutionary hypotheses is the production of a
+local adaptation. The first step in using this system to test evolutionary hypotheses is the production of a
 dense linkage map \citep[cf.][]{Pannell:2013}.
 
 \subsection*{Sampling}
@@ -266,7 +267,7 @@ the latter primarily affects the genetic distances between markers \citep{Cartwr
 of \citet{Ward:2013}, which was designed specifically for RADseq data. 
 
 In brief, this method can be described as follows. Pairwise distances were estimated and loci were clustered using a 
-custom R script \citep[see File S2;][]{R:2013}. We used MSTmap \citep{Wu:2008a} 
+custom R script \citep{R:2013}. We used MSTmap \citep{Wu:2008a} 
 to infer marker order and Maskov \citep{Ward:2013} to impute and correct genotypes. The algorithms available
 in MSTmap can also be used to impute and correct genotype errors \citep[see][]{Wu:2008a}, but the amount of missing
 data and putative genotyping errors in our RADseq data far surpassed those used to develop this software. These two programs
@@ -276,7 +277,7 @@ was performed using MSTmap conditional on the imputed and error corrected genoty
 was followed for each of the four maternal trees independently.
 
 The relevant pairwise distance for linkage mapping in our haploid case is defined as the probability 
-of observing a recombination event between two haplotypes. This distance can be calculated for a set of 
+of observing a recombination event between two haplotypes. This probability can be calculated for a set of 
 biallelic loci using the Hamming distance ($d_{i,j}$).
 The Hamming distance is the number of differences separating two binary strings \citep{Hamming:1950}, which are 
 in this case, the haploid genotypes for a set of two megagametophytes. 
@@ -288,14 +289,16 @@ missing data removed prior to estimation of $d_{i,j}/n$. When values of $d_{i,j}
 value given the expected 1:1 segregation pattern, they were set to 0.5.  The $d_{i,j}/n$ values were used to construct the 
 pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
 
-Loci were clustered based on the pairwise distance matrix using two methods: 1) hierarchical clustering with 
-either Ward's method \citep{Ward:1963} or average linkage \citep{Sokal:1958} as the linkage function and 2) \textit{K}-means 
-clustering \citep{Hartigan:1979}. We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was 
-chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 12$). For hierarchical clustering, this entailed 
-cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. For \textit{K}-means clustering 
-values of \textit{K} were established \textit{a priori}. Solutions in all cases were compared using silhouette plots \citep{Rousseeuw:1987}. 
-The value of $K$ which maximized the number of loci correctly classified  (i.e., $s_{i} \geq 0.80$ where $s_{i}$ is the silhouette width 
-of individual \textit{i}) was chosen as the optimal value of the number of clusters.
+Loci were clustered based on the pairwise distance matrix using Ward's method as the linkage function \citep{Ward:1963}.
+The accuracy of this method was explored via simulation of a single maternal tree with two chromosomes each
+with 100 loci. Levels of missing data and genotyping error were introduced to match those from the observed data.
+More information about these simulations is given in File S1.
+We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was 
+chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 12$). This entailed 
+cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. 
+Solutions were compared using silhouette widths for each locus \citep{Rousseeuw:1987}. 
+The value of $K$ which maximized the number of loci for which the silhouette width was maximal 
+was selected as optimal.
 
 Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where 
 nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted 
@@ -331,7 +334,7 @@ First, we explored the effect of assumptions made during the process of read map
 The assembly process, however, requires optimization of the hash length (see \nameref{ss:dna}), 
 which in turn affects the quality of the contigs comprising the assembly \citep{Earl:2011gt,Salzberg:2011fr,Bradnam:2013uu}.  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect 
-of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum-likelihood 
+of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum likelihood 
 and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \nameref{ss:consensus}), we 
 conducted linkage mapping as described previously (i.e., we used all of the other previous thresholds unless otherwise noted) for each 
 set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}. For linkage mapping, we selected 
@@ -377,8 +380,8 @@ linkage map, contigs that were shared by each map were identified through use of
 
 \subsection*{DNA Sequence Analysis}
 
-Megagametohpytes from each maternal tree are 
-collectively referred to as libraries. These libraries have color-coded names (Figure \ref{f:Figure01_TGG}).
+Megagametophytes from each maternal tree are 
+collectively referred to as libraries. Each library has color-coded name (Figure \ref{f:Figure01_TGG}).
 The number of raw reads varied across libraries from a minimum of
 XX to a maximum of XX, with an average of XX. All raw reads were XX bp in length. In 
 general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater 
@@ -391,7 +394,7 @@ across libraries, with minimums of approximately XX to maximums of approximately
 
 The megagametophyte from each library with the largest number of reads
 was used to create an assembly for downstream read mapping and SNP calling.
-Optimization of the hash length reasulted in assemblies being created with different values of 
+Optimization of the hash length resulted in assemblies being created with different values of 
 $k$ across libraries (Figure \ref{f:mapping_performance}).
 
 
@@ -454,5 +457,33 @@ likelihood values were assemblies from which the likelihood could not be calcula
 
 %put supplementary figures and tables below here
 \subsection*{Supplementary Text}
+
+\textbf{Simulation of Meiosis} - Simulations ($n = 200$) were used to explore 
+the effect of missing data and genotyping error on clustering. We 
+used a simple case of a single maternal tree with two chromosomes each of which contains 100 loci.
+The remainder of the data structure followed that observed for the red library. This library was selected
+because it had the lowest coverage, largest amount of missing data, and fewest SNPs.
+Recombination was modeled within chromosomes as a process comprised of only simple crossing-over 
+with a constant probability of $0.30$. If a recombination event occurred, a site within the chromosome
+was selected at random to define the breakpoint. After recombination one of the two resulting haplotypes was
+selected at random with equal probability. This process was repeated $n = 76$ times to create
+an array of gametes for each chromosome. Once finished, genotyping error was introduced as a constant
+probability of $0.10$ that one of the known haploid genotypes is changed to the alternate allele. After
+introduction of errors in this fashion, missing data were simulated by randomly removing data for each
+of the 76 haplotypes at random using the level of missing data observbed for each haplotype in the red library
+as the per loci probability of being missing. For example, if an observed haplotype has $2\%$ missing data
+then the per locus probability of making a given haploid genotype missing was 0.02. The resulting data were
+clustered following the procedure outlined in \nameref{ss:linkage} using the known number of clusters ($K = 2$).
+This process was repeated $200$ times and for each replication the fraction of incorrectly classified loci was
+estimated. All simulations were done using custom scripts in R \citep{R:2013}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.0\textwidth]{misclassified}
+\caption{The fraction of incorrectly classified loci in the simple case of a single maternal tree with
+two chromosomes each with 100 loci. The distribution shown is based on 200 simulations.
+Details are given in the Supplementary Text.}
+\label{f:misclassified.pdf}
+\end{figure}
 
 \end{document}
