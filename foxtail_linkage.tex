@@ -388,7 +388,7 @@ Illumina 2000 HiSeq platform. Processing of reads for quality reduced these numb
 approximately XX-fold, with a range 
 of XX-fold (XXXX) to XX-fold (XXXXX) reduction. After filtering, the average
 length of reads was XX bp, with a range of XX to XX across libraries. The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
-across libraries, with minimums of approximately XX to maximums of approximately XX. Further details abut the raw and filtered read data are given in Table S1.
+across libraries, with minimums of approximately XX to maximums of approximately XX. Further details about the raw and filtered read data are given in Table S1.
 
 The megagametophyte from each library with the largest number of reads
 was used to create an assembly for downstream read mapping and SNP calling.
@@ -421,6 +421,29 @@ Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Aw
 \bibliography{refs}
 
 \clearpage
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccc}
+\toprule
+Attribute & Yellow & Blue & Red & Green\\
+\midrule
+Region & Klamath & Klamath & Sierra Nevada & Sierra Nevada \\
+Latitude & 44.7483 & 41.1959 & 36.4481 & 36.4481 \\
+Longitude & -123.1332 & -122.7922 & -118.1706 & -118.1706 \\
+Platform & HiSeq2500 & HiSeq2000 & HiSeq2000 & HiSeq2500 \\
+No. Megagametophytes & 95 & 95 & 76 & 73 \\
+Reads (total) & NA & NA & NA & NA \\
+Reads (assembly) & NA & NA & NA & NA \\
+No. Contigs & NA & NA & NA & NA \\
+Length (min - max) & NA & NA & NA & NA \\
+No. SNPs & 106057 & 68465 & 28322 & 178715 \\
+Missing Data (min - max) & 69.41 (1.22 - 99.97) & 70.20 (1.58 - 99.98) & 78.24 (2.04 - 99.98) & 67.17 (1.45-99.50) \\
+\bottomrule
+\end{tabular}
+\caption{Attributes of the data structure related to maternal tree} 
+\label{t:label}
+\end{table}
 
 \begin{figure}[ht]
 \centering
@@ -458,22 +481,22 @@ likelihood values were assemblies from which the likelihood could not be calcula
 
 \textbf{Simulation of Meiosis} - Simulations ($n = 200$) were used to explore 
 the effect of missing data and genotyping error on clustering. We 
-used a simple case of a single maternal tree with two chromosomes each of which contains 100 loci.
+used a simple case of a single maternal tree with two chromosomes each of which contained 100 loci.
 The remainder of the data structure followed that observed for the red library. This library was selected
 because it had the lowest coverage, largest amount of missing data, and fewest SNPs.
 Recombination was modeled within chromosomes as a process comprised of only simple crossing-over 
 with a constant probability of $0.30$. If a recombination event occurred, a site within the chromosome
-was selected at random to define the breakpoint. After recombination one of the two resulting haplotypes was
+was selected at random to define the breakpoint. After recombination, one of the two resulting haplotypes was
 selected at random with equal probability. This process was repeated $n = 76$ times to create
 an array of gametes for each chromosome. Once finished, genotyping error was introduced as a constant
-probability of $0.10$ that one of the known haploid genotypes is changed to the alternate allele. After
-introduction of errors in this fashion, missing data were simulated by randomly removing data for each
-of the 76 haplotypes at random using the level of missing data observbed for each haplotype in the red library
-as the per loci probability of being missing. For example, if an observed haplotype has $2\%$ missing data
+probability of $0.10$, so that one of the known haploid genotypes was changed to the alternate allele with probability $0.10$. 
+After introduction of errors, missing data were simulated by randomly removing data for each
+of the 76 haplotypes at random using the level of missing data observed for each haplotype in the red library
+as the per locus probability of being missing. For example, if an observed haplotype had $2\%$ missing data
 then the per locus probability of making a given haploid genotype missing was 0.02. The resulting data were
 clustered following the procedure outlined in \nameref{ss:linkage} using the known number of clusters ($K = 2$).
 This process was repeated $200$ times and for each replication the fraction of incorrectly classified loci was
-estimated. All simulations were done using custom scripts in R \citep{R:2013}.
+estimated. All simulations were performed with custom scripts in R \citep{R:2013}.
 
 \begin{figure}[ht]
 \centering
