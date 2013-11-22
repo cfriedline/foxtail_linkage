@@ -62,7 +62,7 @@ which in turn creates variation in fitness among individuals within populations 
 Interest in this architecture stems from the want to explain the nature of genetic variation which 
 contributes to evolution via the accumulation of adaptations within lineages (i.e., adaptive evolution).
 Early efforts to understand the genetic architecture of fitness-related traits
-focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation \citep{Fisher:1930}. 
+focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation \citep{Fisher:1918}. 
 Recent work has extended this line of research, with myriad studies linking phenotypic with genetic variation 
 through linkage mapping, both within pedigrees \citep{Mauricio:2001, Neale:2011, Ritland:2011} and within 
 natural populations \citep{Ingvarsson:2011, Eckert:2013a}, 
@@ -75,7 +75,9 @@ the genetic architecture underlying fitness-related traits to the genomic organi
 
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
 and molecular levels \citep{Kawecki:2004, Pannell:2013}, so that some of the best
-examples of adaptive evolution within lineages comes from the field of plant genetics \citep[e.g.,][]{Antonovics:1970}.
+examples of adaptive evolution within lineages comes from the field of plant genetics \citep[e.g.,][]{Antonovics:1970}. 
+Despite this evidence, relatively little work has focused explicitly on the genomic organization of loci contributing
+to these patterns\citep{Hoffman:2008}, which likely stemmed from the lack of genomic resources for plants relative to animals.
 Adaptive evolution has been extensively documented for forest trees, especially conifers, with many instances of 
 local adaptation clearly being documented over the past century \citep{White:2007, Neale:2011}. Despite great advances 
 in experimental technology, empirical focus has remained almost fully on the number, effect size, type, and interactions 
@@ -143,7 +145,7 @@ and the resulting genotypes \citep{Pfender:2011, Ward:2013}. Despite these diffi
 successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has not yet 
 been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
-to generate maternal linkage maps comprised of tens of thousands of markers. There are currently no published linkage 
+to generate maternal linkage maps comprised of thousands of loci. There are currently no published linkage 
 maps for this species, which is only distantly related to loblolly pine \citep{Eckert:2006a}, nor any within the subsection \textit{Balfourianae}. 
 By doing so, we examine the inherent biases to the generation of RADseq data in conifer genomes and how these biases affect
 downstream inferences of linkage maps. We subsequently discuss
@@ -151,7 +153,7 @@ the utility of our inferred linkage maps to comparative genomics within the coni
 affect the genomic organization of loci underlying fitness-related traits.
 
 
-\section*{Materials and Methods}
+\section*{Materials and Methods}\label{ss:mats}
 
 \subsection*{Focal species}
 Foxtail pine is a five needle species of \textit{Pinus} classified into 
@@ -206,8 +208,8 @@ constructed by pooling five megagametophytes sampled from the same maternal tree
 pseudo-diploid sample as that of the maternal genotype, although there is a probability of $0.5^{4} = 0.0625$ that 
 the genotype for any given SNP will be mistakenly called homozygous due to the five megagametophytes all being of the 
 same allele \citep[see][]{Morris:1978}.
-These barcodes are a mixture of eight, nine, and  10 bp tags that differ by at least four bases, so as to accommodate
-sample identification in the presence of sequencing errors. Following ligation, successfully ligated DNA fragments were 
+These barcodes are a mixture of \SI{8}{bp}, \SI{9}{bp}, and \SI{10}{bp} tags that differ by at least four bases. 
+Following ligation, successfully ligated DNA fragments were 
 amplified using PCR and amplified fragments were size selected using gel electrophoresis. We selected 
 fragments in the size range of 400 bp (\SIrange{300}{500}{bp}) by excising and purifying pooled DNA from 2.5\% 
 agarose gels using QIAquick Gel Extraction Kits (Qiagen). Further details, including relevant reagents and 
@@ -255,15 +257,17 @@ assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$,
 number of SNPs tested. Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as 
 to keep only those SNPs where the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call.
 Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype calls for each of the 
-alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis. 
+alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis.
+
+CHRIS....INSERT SHARING STUFF HERE.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
 pairwise distances between all pairs of loci, (2) clustering (i.e., grouping) of loci based on these pairwise distances, 
-and (3) ordering of loci within each cluster.  A variety of software packages exist to carry out these steps 
+and (3) ordering of loci within each cluster \citep{Cheema:2009}.  A variety of software packages exist to carry out these steps 
 \citep[e.g.,][]{VanOoijen:2011}. Traditional software packages for linkage mapping, however, are not amenable to large 
 amounts of missing data and frequent errors in genotype calls. The former causes issues with all aspects of analysis, while 
-the latter primarily affects the genetic distances between markers \citep{Cartwright:2007}. We thus followed the approach 
+the latter primarily affects the genetic distances between markers \citep{Hackett:2003, Cartwright:2007}. We thus followed the approach 
 of \citet{Ward:2013}, which was designed specifically for RADseq data. 
 
 In brief, this method can be described as follows. Pairwise distances were estimated and loci were clustered using a 
@@ -289,7 +293,8 @@ missing data removed prior to estimation of $d_{i,j}/n$. When values of $d_{i,j}
 value given the expected 1:1 segregation pattern, they were set to 0.5.  The $d_{i,j}/n$ values were used to construct the 
 pairwise distance matrix between all possible pairs of loci passing our quality thresholds.
 
-Loci were clustered based on the pairwise distance matrix using Ward's method as the linkage function \citep{Ward:1963}.
+Loci were clustered hierarchically based on the pairwise distance matrix using Ward's method as the linkage function \citep{Ward:1963}.
+The values of $d_{i,j}/n$ were squared prior to use of Ward's method in hierarchical clustering.
 The accuracy of this method was explored via simulation of a single maternal tree with two chromosomes each
 with 100 loci. Levels of missing data and genotyping error were introduced to match those from the observed data.
 More information about these simulations is given in File S1.
@@ -298,7 +303,7 @@ chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 
 cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. 
 Solutions were compared using silhouette widths for each locus \citep{Rousseeuw:1987}. 
 The value of $K$ which maximized the number of loci for which the silhouette width was maximal 
-was selected as optimal.
+across the different values of $K$ was selected as optimal.
 
 Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where 
 nodes are loci and edges are based on the values of $d_{i,j}/n$ and finds the correct order of markers based on the minimum-weighted 
@@ -313,11 +318,11 @@ used in Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes,
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
 contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
 missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each 
-cluster for the latter because this was a value similar to that used by \citet{Ward:2013}.
+cluster for the latter \citet[cf.][]{Ward:2013}.
 
 A final round of ordering was conducted with the imputed and error corrected data using MSTmap as described previously. Imputation 
 and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin 
-\citep[see][]{Wu:2008a}. The collection of resulting ordered clusters was taken as the final linkage map for each of the for maternal trees. 
+\citep[see][]{Wu:2008a}. The collection of resulting ordered clusters was taken as the final linkage map for each of the four maternal trees. 
 The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
 
 \subsection*{Sensitivity Analysis}
@@ -335,7 +340,7 @@ The assembly process, however, requires optimization of the hash length (see \na
 which in turn affects the quality of the contigs comprising the assembly \citep{Earl:2011gt,Salzberg:2011fr,Bradnam:2013uu}.  
 Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect 
 of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum likelihood 
-and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \nameref{ss:consensus}), we 
+and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \nameref{ss:dna}), we 
 conducted linkage mapping as described previously (i.e., we used all of the other previous thresholds unless otherwise noted) for each 
 set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}.  
 The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations) using a Bonferroni-corrected significance 
@@ -358,8 +363,7 @@ we allowed the maximum amount of missing data, as this may affect the uniqueness
 or non-uniqueness of the minimum spanning tree used during ordering of the loci. Specifically, 
 we examined the effects of using as the threshold, the $10^{th}$, $25^{th}$, $50^{th}$, $75^{th}$, and $95^{th}$ percentiles of 
 the distribution of missing data across megagametophytes. We also varied the threshold determining 
-the number of consecutive loci allowed to have incorrect genotypes. Incorrect genotypes inflate estimated 
-map distances due the larger number of recombination events needed to explain the data. Specifically, we 
+the number of consecutive loci allowed to have incorrect genotypes. Specifically, we 
 examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster as being erroneous. We chose to 
 examine the effects of these threshold values in a fully factorial design requiring 15 treatment comparisons. As such we restricted 
 analysis to the largest linkage group for the maternal tree with the largest number of reads used to construct 
@@ -371,8 +375,7 @@ different orderings.
 
 \subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:consensus}
 The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. This 
-method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus linkage map. Prior to building the consensus 
-linkage map, contigs that were shared by each map were identified through use of XXXXX.
+method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus linkage map.
 
 \section*{Results}
 
@@ -380,20 +383,37 @@ linkage map, contigs that were shared by each map were identified through use of
 
 Megagametophytes from each maternal tree are 
 collectively referred to as libraries. Each library has color-coded name (Figure \ref{f:Figure01_TGG}).
-The number of raw reads varied across libraries from a minimum of
-XX to a maximum of XX, with an average of XX. All raw reads were XX bp in length. In 
+The raw number of reads varied across libraries from a minimum of
+XX to a maximum of XX, with an average of XX. All raw reads were 108 bp in length. In 
 general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater 
 number of reads than those run on the 
 Illumina 2000 HiSeq platform. Processing of reads for quality reduced these numbers by 
 approximately XX-fold, with a range 
 of XX-fold (XXXX) to XX-fold (XXXXX) reduction. After filtering, the average
-length of reads was XX bp, with a range of XX to XX across libraries. The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
-across libraries, with minimums of approximately XX to maximums of approximately XX. Further details about the raw and filtered read data are given in Table S1.
+length of reads was XX bp, with a range of XX to XX across libraries. 
+The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
+across libraries, with minimums of approximately XX to maximums of approximately XX. 
+Further details about the raw and filtered read data are given in Table S1.
 
 The megagametophyte from each library with the largest number of reads
 was used to create an assembly for downstream read mapping and SNP calling.
 Optimization of the hash length resulted in assemblies being created with different values of 
-$k$ across libraries (Figure \ref{f:mapping_performance}).
+$k$ across libraries (Figure \ref{f:mapping_performance}). The optimal value of $k$ was $31$ for 
+both of the libraries sequenced using the Illumina HiSeq2500 platform, while it was $33$ for the
+libraries sequenced using the HiSeq2000 platform (Table 1, Fig. 2). These values differed from those that would
+have been identified using a summary statistic based on the percent of mapped reads (Fig. 2), with the
+summary statistic method supporting lower values of $k$ in all instances. In general, the optimal assembly
+included \SIrange{60}{70}{\%} of the available reads. 
+
+These four assemblies, one per library, were used to call SNPs and genotypes of those SNPs as described in the \nameref{ss:mats}. 
+The number of called SNPs varied dramatically across libraries (yellow: $373,022$; blue: $263,088$; red: $119,975$; green: $653,861$). 
+After filtering, the numbers of SNPs dropped approximately $73$\% (range: \SIrange{71.6}{76.4}{\%}), so that the number of SNPs
+ranged from $28,322$ to $178,715$ (Table 1). The average percent of missing data across megagametophytes 
+varied from $XX$ to $XX$ across libraries (Table 1), with an average of $XX$. The number of shared contigs across the four 
+libraries containing these SNPs was $XX$ (Figure SX). When considered by regional population, this number increased to $XX$ and $XX$.
+There was no relationship between the platform used to sequence the library and the number of shared contigs, 
+so that assemblies from DNA sequences produced on the HiSeq2500 were no more likely to share contigs than assemblies 
+from DNA sequences produced on the HiSeq2000 (Fisher's exact test: \textit{P} = $0.XX$). 
 
 
 \subsection*{Linkage Mapping}
@@ -477,15 +497,15 @@ likelihood values were assemblies from which the likelihood could not be calcula
 \makeatother
 
 %put supplementary figures and tables below here
-\subsection*{Supplementary Text}
+\subsection*{Supplementary Text}\label{ss:supp}
 
 \textbf{Simulation of Meiosis} - Simulations ($n = 200$) were used to explore 
 the effect of missing data and genotyping error on clustering. We 
-used a simple case of a single maternal tree with two chromosomes each of which contained 100 loci.
-The remainder of the data structure followed that observed for the red library. This library was selected
+used a simple case of a single maternal tree with two chromosomes each of which contained 100 loci
+with an average spacing of \SI{1.5}{cM} ($\pm$ \SI{0.5}{cM}).
+The remainder of the data structure followed that observed for the red library and the general framework from \citet{Hackett:2003}. This library was selected
 because it had the lowest coverage, largest amount of missing data, and fewest SNPs.
-Recombination was modeled within chromosomes as a process comprised of only simple crossing-over 
-with a constant probability of $0.30$. If a recombination event occurred, a site within the chromosome
+Recombination was modeled within chromosomes as a process comprised of only simple crossing-over. If a recombination event occurred, a site within the chromosome
 was selected at random to define the breakpoint. After recombination, one of the two resulting haplotypes was
 selected at random with equal probability. This process was repeated $n = 76$ times to create
 an array of gametes for each chromosome. Once finished, genotyping error was introduced as a constant
@@ -501,9 +521,9 @@ estimated. All simulations were performed with custom scripts in R \citep{R:2013
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.0\textwidth]{misclassified}
-\caption{The fraction of incorrectly classified loci in the simple case of a single maternal tree with
-two chromosomes each with 100 loci. The distribution shown is based on 200 simulations.
-Details are given in the Supplementary Text.}
+\caption{Error rate of Ward's method on grouping in the simple case of a maternal tree with
+two chromosomes (A) and the performance of maximizing the maximum of silhouette widths
+across different values of $K$ for the red library. Further details are given in the \nameref{ss:supp}.}
 \label{f:misclassified.pdf}
 \end{figure}
 
