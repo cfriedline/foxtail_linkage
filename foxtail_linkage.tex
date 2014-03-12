@@ -240,7 +240,7 @@ to exclude it.  Additional quality filtering ensured that all reads in the resul
 processing had a minimum average quality score of 30 over 5 bp, overlapping windows 
 and that not more than \SI{20}{\percent} of the bases had quality scores below 30. Reads passing the 
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
-known barcodes.
+known barcodes; reads which did not match were excluded.
 
 From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
