@@ -240,19 +240,17 @@ to exclude it.  Additional quality filtering ensured that all reads in the resul
 processing had a minimum average quality score of 30 over 5 bp, overlapping windows 
 and that not more than \SI{20}{\percent} of the bases had quality scores below 30. Reads passing the 
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
-known barcodes.
+known barcodes; reads which did not match were excluded.
 
-From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
+The individual with the largest number of reads across all four locations was assembled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
-framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186).  Each assembly was also indexed and aligned 
-(Figure \ref{f:mapping_performance}) to the original set of reads 
-using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared to the average maximum 
-likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
-chosen as the reference for SNP calling (Figure \ref{f:mapping_performance}).
+framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186) following mapping of the original reads to the 
+assembly with Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}).  The assembly with the highest 
+maximum likelihood value was chosen as the reference for SNP calling.
 
-SNPs were called for all individuals against their respective reference using a variety of methods.  First, 
+SNPs were called for all individuals against the reference using the following methodology.  First, 
 reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
 sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using \texttt{bcftools} and filtered using 
@@ -261,16 +259,18 @@ were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove i
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
 
 We used several thresholds to filter called SNPs for linkage mapping. First, 
-we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation 
-pattern was expected because the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
-guarantees that the segregation ratio for this SNP should be 1:1. Significance of each test was 
-assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, where $\alpha$ was corrected using the 
-number of SNPs tested. Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as 
-to keep only those SNPs where the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call.
-Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype calls for each of the 
-alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis.
-
-CHRIS....INSERT SHARING STUFF HERE.
+we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. 
+This segregation pattern was expected because the maternal tree had to be a heterozygote to detect a 
+SNP, and Mendel's first law guarantees that the segregation ratio for this SNP should be 1:1. Significance 
+of each test was assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, 
+where $\alpha$ was corrected using the number of SNPs tested. As reads from each family were mapped 
+against a single reference assembly, we performed the $\chi^2$ test and corrections on a family-wise 
+basis.  Second, for each family, we filtered the resulting SNPs based 
+on the genotype of the pseudo-diploid sample in that family so as to keep only those SNPs where 
+the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call. 
+Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype 
+calls for each of the alternate alleles. The resulting subset of SNPs was then used as the input to 
+linkage analysis.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
@@ -489,18 +489,6 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 \label{f:Figure01_TGG}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\subfigure[Bowtie2 read mapping\label{f:assembly_perf}]{\includegraphics[width=0.7\textwidth]{mapping_performance}}
-\subfigure[Log Average Proability (LAP)\label{f:lap_perf}]{\includegraphics[width=0.7\textwidth]{lap_performance}}
-\caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
-$k>49$ were excluded from the figure.  Figure \subref{f:assembly_perf} shows the performance of the assemblies as a 
-function of local alignments, while Figure \subref{f:lap_perf} shows the performance using an objective 
-likelihood statistic for values of $k$ yielding assemblies compatible with this metric. Values for $k$ without 
-likelihood values were assemblies from which the likelihood could not be calculated.}
-\label{f:mapping_performance}
-\end{figure}
-
 \clearpage
 
 \beginsupplement
@@ -538,27 +526,6 @@ across different values of $K$ for the red library. Further details are given in
 \label{f:misclassified.pdf}
 \end{figure}
 
-\clearpage
 
-\begin{figure}[ht]
-\centering
-\subfigure[Network of $n=30$ nodes]{\includegraphics[width=0.45\textwidth]{g1}}
-\subfigure[Strongly connected subgraphs ($n=21$) of (A)]{\includegraphics[width=0.45\textwidth]{g2}}
-\caption{Illustration of the concept of strongly connected subgraphs in a directed graph.  (A) shows a 
-random graph of $n=30$ nodes; (B) shows the strongly connected subgraphs contained in (A), colored 
-uniquely by subgraph.  Edge styles vary to distinguish subgraphs with similar colors, and bar thickness 
-indicates the edge direction.  Solitary nodes represent subgraphs connected by a trivial path.}
-\label{f:graphs}
-\end{figure}
-
-\clearpage
-\begin{figure}[ht]
-\centering
-\includegraphics[width=\textwidth]{scc_subgraph}
-\caption{Example subgraph of $n=207$ strongly connected components for SNPs shared across all libraries.  
-Each shape indicates a unique contig and the direction is oriented according the aligment 
-which connectes the contig from query (dotted) to target (solid).}
-\label{f:scc_subgraph}
-\end{figure}
 
 \end{document}
