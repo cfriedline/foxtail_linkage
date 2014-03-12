@@ -242,17 +242,15 @@ and that not more than \SI{20}{\percent} of the bases had quality scores below 3
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
 known barcodes; reads which did not match were excluded.
 
-From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
+The individual with the largest number of reads across all four locations was assembled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
 script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
-framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186).  Each assembly was also indexed and aligned 
-(Figure \ref{f:mapping_performance}) to the original set of reads 
-using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared to the average maximum 
-likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
-chosen as the reference for SNP calling (Figure \ref{f:mapping_performance}).
+framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186) following mapping of the original reads to the 
+assembly with Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}).  The assembly with the highest 
+maximum likelihood value was chosen as the reference for SNP calling.
 
-SNPs were called for all individuals against their respective reference using a variety of methods.  First, 
+SNPs were called for all individuals against the reference using the following methodology.  First, 
 reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
 sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using \texttt{bcftools} and filtered using 
@@ -261,16 +259,18 @@ were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove i
 calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
 
 We used several thresholds to filter called SNPs for linkage mapping. First, 
-we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation 
-pattern was expected because the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
-guarantees that the segregation ratio for this SNP should be 1:1. Significance of each test was 
-assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, where $\alpha$ was corrected using the 
-number of SNPs tested. Second, we filtered the resulting SNPs based on the genotype of the pseudo-diploid sample so as 
-to keep only those SNPs where the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call.
-Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype calls for each of the 
-alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis.
-
-CHRIS....INSERT SHARING STUFF HERE.
+we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. 
+This segregation pattern was expected because the maternal tree had to be a heterozygote to detect a 
+SNP, and Mendel's first law guarantees that the segregation ratio for this SNP should be 1:1. Significance 
+of each test was assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, 
+where $\alpha$ was corrected using the number of SNPs tested. As reads from each family were mapped 
+against a single reference assembly, we performed the $\chi^2$ test and corrections on a family-wise 
+basis.  Second, for each family, we filtered the resulting SNPs based 
+on the genotype of the pseudo-diploid sample in that family so as to keep only those SNPs where 
+the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call. 
+Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype 
+calls for each of the alternate alleles. The resulting subset of SNPs was then used as the input to 
+linkage analysis.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
@@ -487,18 +487,6 @@ Missing Data (min - max) & 69.41 (1.22 - 99.97) & 70.20 (1.58 - 99.98) & 78.24 (
 denote the 15 unique locations from which $4$ to $17$ maternal trees were sampled. Circles enclosed in squares denote 
 locations from which maternal trees used in linkage mapping were sampled. Photo credits: lower: T. Burt; upper: A. Delfino Mix}
 \label{f:Figure01_TGG}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\subfigure[Bowtie2 read mapping\label{f:assembly_perf}]{\includegraphics[width=0.7\textwidth]{mapping_performance}}
-\subfigure[Log Average Proability (LAP)\label{f:lap_perf}]{\includegraphics[width=0.7\textwidth]{lap_performance}}
-\caption{Mapping performance at various sizes of $k$ for all four assemblies.  Assemblies using 
-$k>49$ were excluded from the figure.  Figure \subref{f:assembly_perf} shows the performance of the assemblies as a 
-function of local alignments, while Figure \subref{f:lap_perf} shows the performance using an objective 
-likelihood statistic for values of $k$ yielding assemblies compatible with this metric. Values for $k$ without 
-likelihood values were assemblies from which the likelihood could not be calculated.}
-\label{f:mapping_performance}
 \end{figure}
 
 \clearpage
