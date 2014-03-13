@@ -147,7 +147,7 @@ species are created with uncharacterized genetic markers \citep[e.g.,][]{Travis:
 architecture of fitness-related traits outside of a handful of economically important conifer species, therefore, is about the 
 number and effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost restrictions, however, have largely disappeared. 
 It is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing 
-approaches, such as restriction-associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
+approaches, such as restriction-site associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
 
 The generation of linkage maps from RADseq data is a complex endeavor due to the inherent stochasticity
 and error prone nature of these data. Recent examples in several crop species highlight the
@@ -156,12 +156,10 @@ and the resulting genotypes \citep{Pfender:2011, Ward:2013}. Despite these diffi
 successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has not yet 
 been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
-to generate maternal linkage maps comprised of thousands of loci. There are currently no published linkage 
+to generate maternal linkage maps. There are currently no published linkage 
 maps for this species, which is only distantly related to loblolly pine \citep{Eckert:2006a}, nor any within the subsection \textit{Balfourianae}. 
-By doing so, we examine the inherent biases to the generation of RADseq data in conifer genomes and how these biases affect
-downstream inferences of linkage maps. We subsequently discuss
-the utility of our inferred linkage maps to comparative genomics within the conifers and to tests of how patterns of gene flow 
-affect the genomic organization of loci underlying fitness-related traits.
+We subsequently discuss the utility of our inferred linkage maps to comparative genomics 
+within the conifers and to tests of how patterns of gene flow affect the genomic organization of loci underlying fitness-related traits.
 
 
 \section*{Materials and Methods}\label{ss:mats}
@@ -215,8 +213,7 @@ sequencing on the Illumina HiSeq platform. Following digestion, adapters
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
 were ligated to the digested DNA fragments. We chose to multiplex 96 samples using the 
 barcodes available from \citet{Parchman:2012}. One of these samples, per set of 96, was a pseudo-diploid
-constructed by pooling five megagametophytes sampled from the same maternal tree. We used the genotype of the
-pseudo-diploid sample as that of the maternal genotype, although there is a probability of $0.5^{4} = 0.0625$ that 
+constructed by pooling five megagametophytes sampled from the same maternal tree, although there is a probability of $0.5^{4} = 0.0625$ that 
 the genotype for any given SNP will be mistakenly called homozygous due to the five megagametophytes all being of the 
 same allele \citep[see][]{Morris:1978}.
 These barcodes are a mixture of \SI{8}{bp}, \SI{9}{bp}, and \SI{10}{bp} tags that differ by at least four bases. 
@@ -242,26 +239,26 @@ and that not more than \SI{20}{\percent} of the bases had quality scores below 3
 quality control steps were demultiplexed into sample-specific fastq files by exact pattern matching to 
 known barcodes.
 
-From each set of demultiplexed reads, the individual with the largest number of reads as assembled using 
+The individual with the largest number of reads was assembled using 
 Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
-script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
+script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated using the LAP likelihood 
 framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186).  Each assembly was also indexed and aligned 
 (Figure \ref{f:mapping_performance}) to the original set of reads 
 using Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}) and compared to the average maximum 
-likelihood estimate. In all cases, the assembly with the highest average maximum likelihood value was 
+likelihood estimate. The assembly with the highest average maximum likelihood value was 
 chosen as the reference for SNP calling (Figure \ref{f:mapping_performance}).
 
-SNPs were called for all individuals against their respective reference using a variety of methods.  First, 
+SNPs were called for all individuals against the reference using a variety of methods.  First, 
 reads were mapped to the reference with Bowtie2 (\texttt{--local --very-sensitive-local}).  These resulting 
-sam files were converted their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
+sam files were converted to their binary equivalent (e.g., bam) using \texttt{samtools} version 0.1.19 
 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using \texttt{bcftools} and filtered using 
 \texttt{vcfutils} to exclude SNPs with less than 100x coverage. The resulting variant call files (vcf) 
-were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels and exclude genotype 
-calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) of genotypes by individuals.  
+were further processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels, exclude genotype 
+calls below a quality threshold of 5, and output as a matrix (\texttt{--012}) the haploid genotype of each megagametophyte for each SNP.  
 
 We used several thresholds to filter called SNPs for linkage mapping. First, 
-we excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1 segregation. This segregation 
+we excluded SNPs using a $\chi^2$ test against an expectation of 1:1 segregation. This segregation 
 pattern was expected because the maternal tree had to be a heterozygote to detect a SNP, and Mendel's first law 
 guarantees that the segregation ratio for this SNP should be 1:1. Significance of each test was 
 assessed using a Bonferroni-corrected significance threshold of $\alpha = 0.05$, where $\alpha$ was corrected using the 
@@ -269,8 +266,6 @@ number of SNPs tested. Second, we filtered the resulting SNPs based on the genot
 to keep only those SNPs where the pseudo-diploid was either 1) called a heterozygote or 2) had a missing genotype call.
 Lastly, we filtered the resulting SNPs so as keep only those that had a minimum of $5$ genotype calls for each of the 
 alternate alleles. The resulting subset of SNPs was then used as the input to linkage analysis.
-
-CHRIS....INSERT SHARING STUFF HERE.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
 The production of a linkage map for a single tree requires three main steps: (1) calculation of 
@@ -306,9 +301,6 @@ pairwise distance matrix between all possible pairs of loci passing our quality 
 
 Loci were clustered hierarchically based on the pairwise distance matrix using Ward's method as the linkage function \citep{Ward:1963}.
 The values of $d_{i,j}/n$ were squared prior to use of Ward's method in hierarchical clustering.
-The accuracy of this method was explored via simulation of a single maternal tree with two chromosomes each
-with 100 loci. Levels of missing data and genotyping error were introduced to match those from the observed data.
-More information about these simulations is given in File S1.
 We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This interval was 
 chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 12$). This entailed 
 cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. 
@@ -324,8 +316,8 @@ employed MSTmap using the maximum likelihood objective function, grouping turned
 Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci within each cluster, along with the distances (i.e., cM) 
 in each cluster, were taken as the initial linkage map from which data were error-corrected and imputed.
  
-Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics of the algorithm 
-used in Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and 
+Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics used in the algorithm 
+of Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and 
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
 contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
 missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each 
@@ -335,6 +327,87 @@ A final round of ordering was conducted with the imputed and error corrected dat
 and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin 
 \citep[see][]{Wu:2008a}. The collection of resulting ordered clusters was taken as the final linkage map for each of the four maternal trees. 
 The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
+
+\subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:consensus}
+We took a two-step appraoch to the inference of the consensus linkage map. First, the four linkage maps, one for each maternal tree, were combined
+into a framework linkage map using MergeMap \citep{Wu:2008b}.  
+We constructed a set of weights with which to rank SNP orderings from each map as more or less believeable based on the average 
+amount of mising data, where a higher weight meant that the genotype data used to infer the linkage map had fewer instances
+of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on only those markers that appeared in three or more of the linkage maps 
+with the stipulation that two of the three linkage maps in which the marker appeared must be that for the green and yellow libraries (n = XX).
+Second, the remaining XX SNPs were added to the framework map by
+using the weighted average of the observed recombination fractions across libraries and contructing a linkage map as described previoulsy
+based on these weighted average values. Consistency in the positioning and relative distances among framework markers was assessed using
+Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
+the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
+A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
+computing environment.
+
+The resulting consensus linkage map was used to estimate genome size and coverage of the fotail pine genome following XXXX. The contigs 
+(i.e., RAD tags) from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
+and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. XXXX). Each contig from the assembly was queried against 
+the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
+hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
+coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
+of substitutions between two sequences (2ut, see Nei 1987), where the mutation rate (u) was assumed to be $1.0$ x $10^{-9}$ substitutions/site/year and the
+divergence time was assumed to be $8.0$ x $10^{7}$ years (Willyard et al. 2008). This translated into an average expectation of 16\% divergence
+between any two DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for a portion of the variance
+around this expectation. Hits that exceeded these thresholds were transferred as annotations to the RAD tag appearing on the 
+consensus linkage map for foxtail pine. 
+
+\section*{Results}
+
+\subsection*{DNA Sequence Analysis}
+
+The raw number of reads varied across libraries from a minimum of
+XX to a maximum of XX, with an average of XX. All raw reads were 108 bp in length. In 
+general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater 
+number of reads than those run on the Illumina 2000 HiSeq platform. Processing of reads 
+for quality reduced these numbers by approximately XX-fold, with a range 
+of a XX-fold (XXXX) to a XX-fold (XXXXX) reduction. After filtering, the average
+length of reads was XX bp, with a range of XX to XX across libraries. 
+The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
+across libraries, with minimums of approximately XX to maximums of approximately XX. After 
+quality filtering this translated into an average total of XX bp generated per library, with XX to XX bp 
+per megagametophyte per library.  
+
+The largest number of reads (n = XXXX) were obtained for a single megagmetophyte in the green library.
+These reads were used to create an assembly for which alll other data were mapped against for SNP calling and genotype determination.
+Optimization of assembly parameters (list here, see Figure 2) resulted in an assembly with 231,053 contigs, with an average length
+of 90 bp per contig (range: \SIrange {61}{312}{bp}). {STATEMENT HERE ABOUT COVERAGE FOR EACH CONTIG}
+This assembly represented approximately 0.07\% of the genome of foxtail
+pine, which was assumed to be approximately 30 Gbp in size \citep{Murray:1998}.
+
+Using this assembly, 349,542 putative SNPs were called (Table 1). These 349,542 SNPs were located in
+83,051 unique contigs (35.94\% of the total), with a mean of 4 SNPs per contig (range: \SIrange{1}{32}{}). Filtering these SNPs by
+expected segregation patterns, consistency with heterozygous calls for the psuedo-diploid sample, and minimum
+sample sizes for genotype calls, resulted in 983, 34,261, 21,594, and 35,304 SNPs for the red, green, blue, 
+and yellow libraries, respectively. The counts for the yellow and green libraries were also trimmed so as to remove
+unique contigs not found as polymorphic in the other libraries. This was done to facilitate the efficiency of the calculation of pairwise
+recombination fractions. These SNP counts represented 557, 17,051, 11,883, and 17,506 contigs
+for the red, green, blue, and yellow libraries, respectively. Patterns of shared polymorphic contigs, as well as
+SNPs, were as expected (Figure 2), with libraries comprised of megagametophytes sampled from maternal trees located in 
+the same geographical area sharing more polymorphic contigs and SNPs than comparisons .
+On average, megagametophytes in the filtered dataset had XX\% missing data across SNPs (range: 1.5\% to 99.\%), 
+with the yellow library having the smallest average amount of missing data per 
+megagametophyte and the red library having the largest.
+
+\subsection*{Linkage Mapping}
+
+\subsection*{Consensus Map Construction and Biological Interpretation}
+
+
+\section*{Discussion}
+
+\section*{Acknowledgements}
+
+The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
+VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
+In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining 
+seeds. Funding for this project was made available to AJE via start-up funds from Virginia 
+Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
+Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
+
 
 \subsection*{Sensitivity Analysis}
 The production of linkage maps for each maternal tree required many assumptions.
@@ -384,66 +457,6 @@ comparisons). The significance of each comparison was tested via permutation ana
 using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly 
 different orderings.
 
-\subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:consensus}
-The four linkage maps, one for each maternal tree, were combined into a consensus map using MergeMap \citep{Wu:2008b}. This 
-method uses Directed Acylic Graphs (DAGs) to merge independent linkage maps into a consensus linkage map.
-
-\section*{Results}
-
-\subsection*{DNA Sequence Analysis}
-
-Megagametophytes from each maternal tree are 
-collectively referred to as libraries. Each library has color-coded name (Figure \ref{f:Figure01_TGG}).
-The raw number of reads varied across libraries from a minimum of
-XX to a maximum of XX, with an average of XX. All raw reads were 108 bp in length. In 
-general, the libraries run on the Illumina HiSeq 2500 platform had a XX-fold greater 
-number of reads than those run on the 
-Illumina 2000 HiSeq platform. Processing of reads for quality reduced these numbers by 
-approximately XX-fold, with a range 
-of XX-fold (XXXX) to XX-fold (XXXXX) reduction. After filtering, the average
-length of reads was XX bp, with a range of XX to XX across libraries. 
-The number of quality-filtered reads per megagametophyte also varied XX-fold on average 
-across libraries, with minimums of approximately XX to maximums of approximately XX. 
-Further details about the raw and filtered read data are given in Table S1.
-
-The megagametophyte from each library with the largest number of reads
-was used to create an assembly for downstream read mapping and SNP calling.
-Optimization of the hash length resulted in assemblies being created with different values of 
-$k$ across libraries (Figure \ref{f:mapping_performance}). The optimal value of $k$ was $31$ for 
-both of the libraries sequenced using the Illumina HiSeq2500 platform, while it was $33$ for the
-libraries sequenced using the HiSeq2000 platform (Table 1, Fig. 2). These values differed from those that would
-have been identified using a summary statistic based on the percent of mapped reads (Fig. 2), with the
-summary statistic method supporting lower values of $k$ in all instances. In general, the optimal assembly
-included \SIrange{60}{70}{\%} of the available reads. 
-
-These four assemblies, one per library, were used to call SNPs and genotypes of those SNPs as described in the \nameref{ss:mats}. 
-The number of called SNPs varied dramatically across libraries (yellow: $373,022$; blue: $263,088$; red: $119,975$; green: $653,861$). 
-After filtering, the numbers of SNPs dropped approximately $73$\% (range: \SIrange{71.6}{76.4}{\%}), so that the number of SNPs
-ranged from $28,322$ to $178,715$ (Table 1). The average percent of missing data across megagametophytes 
-varied from $XX$ to $XX$ across libraries (Table 1), with an average of $XX$. The number of shared contigs across the four 
-libraries containing these SNPs was $XX$ (Figure SX). When considered by regional population, this number increased to $XX$ and $XX$.
-There was no relationship between the platform used to sequence the library and the number of shared contigs, 
-so that assemblies from DNA sequences produced on the HiSeq2500 were no more likely to share contigs than assemblies 
-from DNA sequences produced on the HiSeq2000 (Fisher's exact test: \textit{P} = $0.XX$). 
-
-
-\subsection*{Linkage Mapping}
-
-\subsection*{Sensitivity Analysis}
-
-\subsection*{Consensus Map Construction and Biological Interpretation}
-
-
-\section*{Discussion}
-
-\section*{Acknowledgements}
-
-The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
-VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
-In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining 
-seeds. Funding for this project was made available to AJE via start-up funds from Virginia 
-Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
-Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
 
 \clearpage
 
@@ -467,13 +480,14 @@ Platform & HiSeq2500 & HiSeq2000 & HiSeq2000 & HiSeq2500 \\
 No. Megagametophytes & 95 & 95 & 76 & 73 \\
 Reads (total) & NA & NA & NA & NA \\
 Reads (assembly) & NA & NA & NA & NA \\
-No. Contigs & NA & NA & NA & NA \\
-Length (min - max) & NA & NA & NA & NA \\
+No. Contigs & 120605 & 81211 & 26596 & 231053 \\
+Length (min - max) & 92 (61 - 283) & 101 (65 - 215) & 102 (65 - 288)  & 95 (61 - 312) \\
 No. SNPs & 106057 & 68465 & 28322 & 178715 \\
 Missing Data (min - max) & 69.41 (1.22 - 99.97) & 70.20 (1.58 - 99.98) & 78.24 (2.04 - 99.98) & 67.17 (1.45-99.50) \\
 \bottomrule
 \end{tabular}
-\caption{Attributes of the data structure related to maternal tree} 
+\caption{Attributes of the data structure related to maternal tree. Notes: the sum total length of
+contigs in each assembly: blue: 7918275 bp, red: 2728398 bp, yellow: 10838392 bp, green: 20678013 bp} 
 \label{t:label}
 \end{table}
 \end{landscape}
