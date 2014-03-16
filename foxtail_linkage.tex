@@ -321,9 +321,9 @@ in each cluster, were taken as the initial linkage map from which data were erro
 Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics used in the algorithm 
 of Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and 
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
-contiguous loci where genotype errors can occur. We chose a value equal to the $75^{th}$ percentile for the amount of 
+contiguous loci where genotype errors can occur. We chose a value equal to 90\% for the amount of 
 missing data across megagametophytes for the former and a value of 5\% of the number of loci in the initial map for each 
-cluster for the latter \citet[cf.][]{Ward:2013}.
+cluster for the latter \citep[cf.][]{Ward:2013}.
 
 A final round of ordering was conducted with the imputed and error corrected data using MSTmap as described previously. Imputation 
 and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segregating markers were thus mapped to the same bin 
@@ -331,30 +331,30 @@ and error correction resulted in many loci where $d_{i,j}/n = 0$. These co-segre
 The end result of the linkage analysis was thus four independent linkage maps, one per maternal tree.
 
 \subsection*{Consensus Map Construction and Biological Interpretation}\label{ss:consensus}
-We took a two-step appraoch to the inference of the consensus linkage map. First, the four linkage maps, one for each maternal tree, were combined
+We took a two-step approach to the inference of the consensus linkage map. First, the four linkage maps, one for each maternal tree, were combined
 into a framework linkage map using MergeMap \citep{Wu:2008b}.  
-We constructed a set of weights with which to rank SNP orderings from each map as more or less believeable based on the average 
-amount of mising data, where a higher weight meant that the genotype data used to infer the linkage map had fewer instances
+We constructed a set of weights with which to rank SNP orderings from each map as more or less believable based on the average 
+amount of missing data, where a higher weight meant that the genotype data used to infer the linkage map had fewer instances
 of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on only those markers that appeared in three or more of the linkage maps 
-with the stipulation that two of the three linkage maps in which the marker appeared must be that for the green and yellow libraries (n = XX).
-Second, the remaining XX SNPs were added to the framework map by
-using the weighted average of the observed recombination fractions across libraries and contructing a linkage map as described previoulsy
+with the stipulation that two of the three linkage maps in which the marker appeared must be that for the green and yellow libraries.
+Second, the remaining SNPs were added to the framework map by
+using the weighted average of the observed recombination fractions across libraries and constructing a linkage map as described previously
 based on these weighted average values. Consistency in the positioning and relative distances among framework markers was assessed using
 Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
 the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
 A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
 computing environment.
 
-The resulting consensus linkage map was used to estimate genome size and coverage of the fotail pine genome following XXXX. The contigs 
-(i.e., RAD tags) from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
+The resulting consensus linkage map was used to estimate genome size and coverage of the foxtail pine genome following XXXX. The contigs 
+from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
 and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. XXXX). Each contig from the assembly was queried against 
 the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
 hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
 coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
-of substitutions between two sequences (2ut, see Nei 1987), where the mutation rate (u) was assumed to be $1.0$ x $10^{-9}$ substitutions/site/year and the
-divergence time was assumed to be $8.0$ x $10^{7}$ years (Willyard et al. 2008). This translated into an average expectation of 16\% divergence
+of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed to be $1.0$ x $10^{-9}$ substitutions/site/year and the
+divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. This translated into an average expectation of 16\% divergence
 between any two DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for a portion of the variance
-around this expectation. Hits that exceeded these thresholds were transferred as annotations to the RAD tag appearing on the 
+around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig appearing on the 
 consensus linkage map for foxtail pine. 
 
 \section*{Results}
@@ -362,47 +362,98 @@ consensus linkage map for foxtail pine.
 \subsection*{DNA Sequence Analysis}
 
 The raw number of reads varied across libraries from a minimum of
-\num{71834280} (Red) to a maximum of \num{206365836} (Green), with an average of \num{153082376} 
-$\pm$ \num{49855941}. All raw reads were either 102 bp (Green, Yellow) or 110 (Red, Blue) in length, 
+\num{71834280} (red) to a maximum of \num{206365836} (green), with an average of \num{153082376} 
+$\pm$ \num{49855941}. All raw reads were either 102 bp (green, yellow) or 110 (red, blue) in length, 
 depending on sequencing technology: HiSeq 2500 vs 2000, respectively. In 
 general, the libraries run on the Illumina HiSeq 2500 platform had a \num{1.65}-fold greater 
 number of reads than those run on the Illumina 2000 HiSeq platform. Processing of reads 
 for quality reduced these numbers by approximately \num{1.66}-fold, with a range 
-of a \num{2.56}-fold (Red) to a \num{1.33}-fold (Yellow) reduction. After filtering, the average
+of a \num{2.56}-fold (red) to a \num{1.33}-fold (yellow) reduction. After filtering, the average
 length of reads was 88 $\pm$ 13 bp, with a range of 40 bp to 102 bp across libraries. 
 The number of quality-filtered reads per megagametophyte also varied \num{19741}-fold ($\pm$ \num{27069}-fold) 
 on average across libraries, with average minimums of 753 $\pm$ 603 bp to average maximums of 
 \num{3421571} $\pm$ \num{2070990} bp. After quality filtering this translated into an average total of 
 \num{8137663036} bp $\pm$ \num{3658147958} bp generated per library, ranging from 
-\num{2436531265} bp (Red) to \num{11643165529} bp (Yellow).  
+\num{2436531265} bp (red) to \num{11643165529} bp (yellow).  
 
-The largest number of reads ($n=\text{\num{6838986}}$) were obtained for a single megagmetophyte in the 
+The largest number of reads ($n=\text{\num{6838986}}$) were obtained for a single megagametophyte in the 
 green library. These reads were used to create an assembly for which alll other data were mapped against 
 for SNP calling and genotype determination. Optimization of assembly parameters (list here, see Figure 2) 
-resulted in an assembly with 231,053 contigs, with an average length of 89 bp $\pm$ 12 bp per contig 
+resulted in an assembly with \num{231053} contigs, with an average length of 89 bp $\pm$ 12 bp per contig 
 (range: \SIrange {61}{312}{bp}), and an average per-contig base coverage of \SIrange{4.5}{20.0}{X} (range: 
 \SIrange{1.5}{5069}{X})
 This assembly represented approximately 0.07\% of the genome of foxtail
 pine, which was assumed to be approximately 30 Gbp in size \citep{Murray:1998}.
 
-Using this assembly, \num{349542} putative SNPs were called (Table 1). These \num{349542} SNPs were located in
-\num{83051} unique contigs (35.94\% of the total), with a mean of 4 SNPs per contig (range: \SIrange{1}{32}{}). Filtering these SNPs by
+Using this assembly, \num{349542} putative SNPs were called (Table 1). These  \num{349542} SNPs were located in
+\num{83051} unique contigs (35.94\% of the total), with a mean of \num{4} SNPs per contig (range: \SIrange{1}{32}{}). Filtering these SNPs by
 expected segregation patterns, consistency with heterozygous calls for the psuedo-diploid sample, and minimum
-sample sizes for genotype calls, resulted in 983, \num{34261}, \num{21594}, and \num{35304} SNPs for the red, green, blue, 
+sample sizes for genotype calls, resulted in \num{983}, \num{34261}, \num{21594}, and \num{35304} SNPs for the red, green, blue, 
 and yellow libraries, respectively. The counts for the yellow and green libraries were also trimmed so as to remove
 unique contigs not found as polymorphic in the other libraries. This was done to facilitate the efficiency of the calculation of pairwise
-recombination fractions. These SNP counts represented \num{557}, \num{17051}, \num{11883} and \num{17506} contigs
+recombination fractions. These SNP counts represented \num{557}, \num{17051}, \num{11883}, and \num{17506} contigs
 for the red, green, blue, and yellow libraries, respectively. Patterns of shared polymorphic contigs, as well as
-SNPs, were as expected (Figure 2), with libraries comprised of megagametophytes sampled from maternal trees located in 
-the same geographical area sharing more polymorphic contigs and SNPs than comparisons .
-On average, megagametophytes in the filtered dataset had XX\% missing data across SNPs (range: 1.5\% to 99.0\%), 
-with the yellow library having the smallest average amount of missing data per 
-megagametophyte and the red library having the largest.
+SNPs, were as expected given the among region magnitude of genetic differentiation \citep[Figure 2, see][]{Eckert:2008}, 
+with libraries comprised of megagametophytes sampled from maternal trees located in 
+the same geographical area sharing more polymorphic contigs and SNPs than comparisons of maternal trees from different
+geographical regions. On average, megagametophytes in the filtered data set had 79.40\% ($\pm$ 14.7\%) missing data 
+across SNPs (range: 1.3\% to 99.8\%), with the green library having the smallest (74.3\% $\pm$ 18.9\%) and the red library having
+the largest average amount of missing data per megagametophyte (84.4\% $\pm$ 15.2\% ).
 
 \subsection*{Linkage Mapping}
+{Note: I still need to add supplemental figures}.
+Individual linkage maps were constructed for each maternal tree separately using an iterative approach
+based on imputation. All filtered SNPs for each maternal tree, regardless of being located in the same contig,
+were assessed for patterns of linkage followed by grouping and ordering of SNPs. Redundant SNPs were filtered
+\textit{post hoc} and used to test for biases in our analysis pipeline.
+
+Grouping of pairwise recombination fractions via hierarchical clustering was consistent with \num{12} linkage groups. 
+This was consistent with a minimum pairwise LOD score of approximately 5.0 for each maternal tree.
+Inspection of the distribution of silhouette values for values of $K$ \num{8} to \num{16} revealed that $K = 12$ was the best 
+clustering solution for each of the \num{4} maternal trees. This was confirmed by comparison of pairwise LOD scores 
+for SNPs within versus among the \num{12} linkage groups. Comparisons within linkage groups were on average 2.2-fold larger
+than among linkage groups, which was significantly greater than expected randomly ($n = 1,000$
+permutations/maternal tree, $P < 0.015$). 
+
+Marker ordering within putative linkage groups using MSTmap resulted in extremely long linkage maps (e.g., $> \num{50000} cM$) for each maternal tree. 
+This translated into the average number of recombination events that exceeded \num{100} per megagametophyte. This pattern
+is consistent with problems of inference due to missing data and genotyping errors \citep{Ward:2013}. To verify this assumption, data for the
+blue library were split into two sets of \num{35} megagametophytes - those with the least amount of missing data and those with the 
+largest amount of missing data. As expected, the inferred recombination distances were 3.5-fold smaller for the maps inferred
+using the megagametophytes with less missing data. Thus, we followed the approach of \citet{Ward:2013} to impute and error correct
+data based on our initial marker orderings.
+
+Imputation and error correction of genotype data for each linkage group for each maternal tree was carried out using Maskov. This
+process drastically reduced the number of inferred recombination events, including double crossovers, from $> 100$ per 
+megagametophyte to approximately $1$ to $2$ per megagametophyte. This reduction was controlled by setting a parameter
+in Maskov so as to produce a number of recombination events per megagametophyte that mirrored those observed previously for
+linkage mapping within conifers \citep{Eckert:2009, Martinez-Garcia:2013}. Changing this parameter had no effect on the downstream
+ordering of SNPs within linkage groups, but only changed the spatial resolution of the resulting linkage map.
+
+The resulting linkage maps for each maternal tree were aligned manually based on the presence of shared contigs. Overall, there
+was excellent agreement among maps, with only 115 SNPs being mapped to conflicting linkage groups across maternal trees. All 115
+SNPs with conflicting group assignments were unique to the red library. These were dropped from further consideration. Within linkage groups,
+SNPs present in multiple libraries were ordered similarly (pairwise Spearman rank correlations $> 0.956, P < 0.001$), with conflicting orderings 
+having average differences of XX cM (range: XX to XX cM). These differences were more prevalent in comparisons of maternal trees from
+different geographical regions. The resulting linkage maps for each maternal tree also resulted in SNPs from the same contig being mapped to the same position, with an average of only XX\% of SNPs from the same contig being mapped to a different position. For those SNPs from the same contig that
+did not map to the same position, the average difference in positioning was XX cM, with no instances of SNPs from the same contig being
+located on different linkage groups. We thus pruned multiple SNPs per contig by randomly selecting one SNP per contig from the data set and 
+re-estimated the linkage maps for each maternal tree as described previously. The resulting \num{4} linkage maps were taken as the final estimates 
+of linkage relationships among polymorphic contigs in each of the \num{4} maternal trees.
+
+The final \num{4} linkage maps varied in total length from 1037.40 to 1572.80 cM, with an average of 1290.29 cM ($\pm$ 219.5 cM; see Table 2, Figure 3). 
+In total, \num{20655} unique contigs representing \num{1931700} bp of DNA were mapped to a position within at least one linkage map. 
+The number of contigs varied 33.66-fold across linkage maps, with a minimum of 507 (red) to a maximum of \num{17066} (yellow). 
+These contigs were organized into an average of 741 ($\pm$ 335) unique positions, separated on average
+by 1.77 cM ($\pm$ 2.36 cM), across linkage maps, with the fewest number of unique positions observed 
+in the linkage map for the red maternal tree ($n = 296$) and the largest number in the linkage map for the blue maternal 
+tree ($n = 1101$). With respect to average distances between adjacent SNPs, the map for the red 
+maternal tree had the largest (5.53 cM $\pm$ 6.11 cM), while that for the blue maternal tree had the lowest (1.16 cM $\pm$ 0.77 cM).
+This translated into an average of XX contigs per position. Contigs were also non-randomly distributed across positions, with XXXX.
 
 \subsection*{Consensus Map Construction and Biological Interpretation}
 
+Chris, can you provide some text about the blast results? I can then work on the consensus map description after finishing up the stuff above.
 
 \section*{Discussion}
 
