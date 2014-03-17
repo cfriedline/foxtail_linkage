@@ -13,3 +13,6 @@ foxtail_linkage.pdf
 _region_.*
 *.out
 .#*
+*latexmk
+*.fls
+auto
