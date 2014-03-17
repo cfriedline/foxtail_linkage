@@ -66,23 +66,6 @@ $\ast$ E-mail: aeckert2@vcu.edu
 \section*{Abstract}
 
 \section*{Introduction}
-The genetic architecture of fitness-related traits has been a major focus of geneticists for 
-over a century \citep[reviewed by][]{Ellegren:2008}. Genetic architecture refers to the number, type, effect size, 
-genomic organization, interactions, and environmental dependency of the loci contributing to phenotypic variation 
-which in turn creates variation in fitness among individuals within populations \citep[cf.][]{Eckert:2012a}. 
-Interest in this architecture stems from the want to explain the nature of genetic variation which 
-contributes to evolution via the accumulation of adaptations within lineages (i.e., adaptive evolution).
-Early efforts to understand the genetic architecture of fitness-related traits
-focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation \citep{Fisher:1918}. 
-Recent work has extended this line of research, with myriad studies linking phenotypic with genetic variation 
-through linkage mapping, both within pedigrees \citep{Mauricio:2001, Neale:2011, Ritland:2011} and within 
-natural populations \citep{Ingvarsson:2011, Eckert:2013a}, 
-or through quantitative genetic experimentation \citep{Anderson:2013a, Anderson:2013b, Fournier-Level:2013}. Relatively 
-little empirical work outside of model organisms, however, has focused on the genomic organization 
-of loci contributing to fitness differences 
-among individuals \citep[but see][]{Stevison:2011}. This is despite clear theoretical predictions relating the evolution of 
-the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this architecture 
-\citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013}.
 
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
 and molecular levels \citep{Kawecki:2004, Pannell:2013}, so that some of the best
@@ -335,25 +318,27 @@ We took a two-step approach to the inference of the consensus linkage map. First
 into a framework linkage map using MergeMap \citep{Wu:2008b}.  
 We constructed a set of weights with which to rank SNP orderings from each map as more or less believable based on the average 
 amount of missing data, where a higher weight meant that the genotype data used to infer the linkage map had fewer instances
-of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on only those markers that appeared in three or more of the linkage maps 
-with the stipulation that two of the three linkage maps in which the marker appeared must be that for the green and yellow libraries.
-Second, the remaining SNPs were added to the framework map by
+of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on only those markers that appeared in three or more of the linkage maps, 
+with the stipulation that two of the three linkage maps in which the marker appeared must be that for the green and yellow libraries and that the
+amount of missing data in each of the libraries for these markers was $< 20^{th}$ percentile. Second, the remaining SNPs were added to the framework map by
 using the weighted average of the observed recombination fractions across libraries and constructing a linkage map as described previously
 based on these weighted average values. Consistency in the positioning and relative distances among framework markers was assessed using
 Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
 the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
-A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
-computing environment.
+A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. 
+Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical computing environment.
 
-The resulting consensus linkage map was used to estimate genome size and coverage of the foxtail pine genome following XXXX. The contigs 
+Framework markers on the resulting consensus linkage map were used to estimate the size \citep{Chakravarti:1991} and 
+coverage \citep{Lange:1982} of the foxtail pine genome. The contigs 
 from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
 and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. XXXX). Each contig from the assembly was queried against 
 the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
 hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
 coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
-of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed to be $1.0$ x $10^{-9}$ substitutions/site/year and the
-divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. This translated into an average expectation of 16\% divergence
-between any two DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for a portion of the variance
+of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed 
+to be $1.0$ x $10^{-9}$ substitutions/site/year and the divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years 
+\citep{Willyard:2007}. This translated into an average expectation of 16\% divergence
+between homologous DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for the variance
 around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig appearing on the 
 consensus linkage map for foxtail pine. 
 
@@ -408,14 +393,14 @@ were assessed for patterns of linkage followed by grouping and ordering of SNPs.
 \textit{post hoc} and used to test for biases in our analysis pipeline.
 
 Grouping of pairwise recombination fractions via hierarchical clustering was consistent with \num{12} linkage groups. 
-This was consistent with a minimum pairwise LOD score of approximately 5.0 for each maternal tree.
+This corresponded to a minimum pairwise LOD score of approximately 5.0 for each maternal tree for markers to be placed within the same linkage group.
 Inspection of the distribution of silhouette values for values of $K$ \num{8} to \num{16} revealed that $K = 12$ was the best 
 clustering solution for each of the \num{4} maternal trees. This was confirmed by comparison of pairwise LOD scores 
 for SNPs within versus among the \num{12} linkage groups. Comparisons within linkage groups were on average 2.2-fold larger
 than among linkage groups, which was significantly greater than expected randomly ($n = 1,000$
 permutations/maternal tree, $P < 0.015$). 
 
-Marker ordering within putative linkage groups using MSTmap resulted in extremely long linkage maps (e.g., $> \num{50000} cM$) for each maternal tree. 
+Marker ordering within putative linkage groups using MSTmap resulted in extremely long linkage maps (e.g., $>$ \SI{50000} {cM}) for each maternal tree. 
 This translated into the average number of recombination events that exceeded \num{100} per megagametophyte. This pattern
 is consistent with problems of inference due to missing data and genotyping errors \citep{Ward:2013}. To verify this assumption, data for the
 blue library were split into two sets of \num{35} megagametophytes - those with the least amount of missing data and those with the 
@@ -432,30 +417,72 @@ ordering of SNPs within linkage groups, but only changed the spatial resolution 
 
 The resulting linkage maps for each maternal tree were aligned manually based on the presence of shared contigs. Overall, there
 was excellent agreement among maps, with only 115 SNPs being mapped to conflicting linkage groups across maternal trees. All 115
-SNPs with conflicting group assignments were unique to the red library. These were dropped from further consideration. Within linkage groups,
-SNPs present in multiple libraries were ordered similarly (pairwise Spearman rank correlations $> 0.956, P < 0.001$), with conflicting orderings 
-having average differences of XX cM (range: XX to XX cM). These differences were more prevalent in comparisons of maternal trees from
-different geographical regions. The resulting linkage maps for each maternal tree also resulted in SNPs from the same contig being mapped to the same position, with an average of only XX\% of SNPs from the same contig being mapped to a different position. For those SNPs from the same contig that
-did not map to the same position, the average difference in positioning was XX cM, with no instances of SNPs from the same contig being
-located on different linkage groups. We thus pruned multiple SNPs per contig by randomly selecting one SNP per contig from the data set and 
-re-estimated the linkage maps for each maternal tree as described previously. The resulting \num{4} linkage maps were taken as the final estimates 
-of linkage relationships among polymorphic contigs in each of the \num{4} maternal trees.
+SNPs with conflicting group assignments were unique to the red library. These were dropped from further consideration. 
+Within linkage groups, SNPs present in multiple libraries were ordered similarly (pairwise Spearman rank correlations $> 0.956, 
+P < 0.001$), with conflicting orderings having average differences of 5.91 cM ($\pm$ 5.64 cM). The resulting linkage maps for each maternal tree also
+resulted in SNPs from the same contig largely being mapped to the same position, with an average of only 5.8\% of SNPs 
+from the same contig being mapped to a different position. 
+Approximately 94\% of the time, these different positions were adjacent on the linkage map. For those SNPs from the same contig that
+did not map to the same position, the average difference in positioning was 1.64 cM ($\pm$ 3.01 cM), with no instances 
+of SNPs from the same contig being located on different linkage groups. We thus pruned multiple SNPs per contig by randomly
+selecting one SNP per contig from the data set and re-estimated the linkage maps for each maternal tree as described previously. 
+The resulting \num{4} linkage maps were taken as the final estimates of linkage relationships among polymorphic contigs 
+in each of the \num{4} maternal trees.
 
-The final \num{4} linkage maps varied in total length from 1037.40 to 1572.80 cM, with an average of 1290.29 cM ($\pm$ 219.5 cM; see Table 2, Figure 3). 
+The final \num{4} linkage maps varied in total length from 1037.40 cM to 1572.80 cM, with an average of 1290.29 cM ($\pm$ 219.5 cM; see Table 2, Figure 3). 
 In total, \num{20655} unique contigs representing \num{1931700} bp of DNA were mapped to a position within at least one linkage map. 
 The number of contigs varied 33.66-fold across linkage maps, with a minimum of 507 (red) to a maximum of \num{17066} (yellow). 
 These contigs were organized into an average of 741 ($\pm$ 335) unique positions, separated on average
 by 1.77 cM ($\pm$ 2.36 cM), across linkage maps, with the fewest number of unique positions observed 
 in the linkage map for the red maternal tree ($n = 296$) and the largest number in the linkage map for the blue maternal 
-tree ($n = 1101$). With respect to average distances between adjacent SNPs, the map for the red 
+tree ($n = 1101$). With respect to average distances between adjacent positions, the linkage map for the red 
 maternal tree had the largest (5.53 cM $\pm$ 6.11 cM), while that for the blue maternal tree had the lowest (1.16 cM $\pm$ 0.77 cM).
-This translated into an average of XX contigs per position. Contigs were also non-randomly distributed across positions, with XXXX.
+This translated into an average of 15 ($\pm$ 27) contigs per position on average, with the linkage map for the red maternal tree
+having the fewest contigs per position on average (2 $\pm$ 2) and the linkage map for the yellow maternal tree the most contigs
+per position on average (27 $\pm$ 35). Contigs were also non-randomly distributed across positions for all linkage maps except that
+for the red maternal tree ($P < 0.001$), with elevated contig counts typically occurring at the ends of linkage groups (Figure 3).
 
 \subsection*{Consensus Map Construction and Biological Interpretation}
+
+A set of 507 framework SNPs were devised from those contigs shared across at least three of the four linkage maps. These 507 SNPs were used to construct
+a framework map using MergeMap. The resulting linkage map had an overall length of 1572.80 cM. Comparison of this map with those for
+each maternal tree revealed a strong similarity in positioning for each linkage group (Spearman rank correlations $> 0.98, P < 0.001$). 
+Given this overall similarity, we incorporated the remaining markers into the map by using weighted averages of observed pairwise recombination 
+fractions across maternal trees and inferred a consensus linkage map as outlined previously. Inferred marker positions and distances 
+for the framework markers were highly correlated across linkage groups in this map relative
+to that inferred using MergeMap and the framework map (Mantel correlations: $> 0.95, P < 0.001$). We used this as evidence in support of our approach and the
+inferred consensus linkage map was taken as the final consensus estimate of linkage relationships for the \num{20655} unique contigs
+located in the four maternal tree linkage maps.
+
+As with the individual tree maps, $K = 12$ linkage groups was most consistent with the averaged data. This corresponded to a minimum pairwise 
+LOD score of approximately 5.5 for each maternal tree for markers to be placed within the same linkage group.
+The consensus linkage map was 1192.00 cM in length, with linkage groups varying in length from 88.44 cM to 108.76 cM. There were 901 unique positions
+across the 12 linkage groups for this map, so that the average number of contigs per position was 23 ($\pm$ 35). These 901 positions
+were separated on average by 1.34 cM ($\pm$ 0.50 cM). As with the individual maternal tree linkage maps, contigs were non-randomly distributed 
+across positions ($P < 0.001$), with notable enrichment at the ends of inferred linkage groups. Using the 507 framework SNPs and the final consensus linkage map, 
+the estimated genome size of foxtail pine is 1276.04 cM (95\% confidence interval: 1174.31 - 1377.77 cM). As such, the estimated coverage of the genome 
+is 98.58\% (LOD threshold = 5.5, maximum distance among adjacent framework markers: 13.4 cM, number of framework markers: 507, $K = 2694$). 
 
 Chris, can you provide some text about the blast results? I can then work on the consensus map description after finishing up the stuff above.
 
 \section*{Discussion}
+The genetic architecture of fitness-related traits has been a major focus of geneticists for 
+over a century \citep[reviewed by][]{Ellegren:2008}. Genetic architecture refers to the number, type, effect size, 
+genomic organization, interactions, and environmental dependency of the loci contributing to phenotypic variation 
+which in turn creates variation in fitness among individuals within populations \citep[cf.][]{Eckert:2012a}. 
+Interest in this architecture stems from the want to explain the nature of genetic variation which 
+contributes to evolution via the accumulation of adaptations within lineages (i.e., adaptive evolution).
+Early efforts to understand the genetic architecture of fitness-related traits
+focused primarily on the number and effect size of the loci underlying heritable, phenotypic variation \citep{Fisher:1918}. 
+Recent work has extended this line of research, with myriad studies linking phenotypic with genetic variation 
+through linkage mapping, both within pedigrees \citep{Mauricio:2001, Neale:2011, Ritland:2011} and within 
+natural populations \citep{Ingvarsson:2011, Eckert:2013a}, 
+or through quantitative genetic experimentation \citep{Anderson:2013a, Anderson:2013b, Fournier-Level:2013}. Relatively 
+little empirical work outside of model organisms, however, has focused on the genomic organization 
+of loci contributing to fitness differences 
+among individuals \citep[but see][]{Stevison:2011}. This is despite clear theoretical predictions relating the evolution of 
+the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this architecture 
+\citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013}.
 
 \section*{Acknowledgements}
 
