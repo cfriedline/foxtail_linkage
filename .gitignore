@@ -10,3 +10,5 @@ foxtail_linkage.pdf
 *.bcf
 *.blg
 *.xml
+_region_.*
+*.out
