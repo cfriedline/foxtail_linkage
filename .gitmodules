@@ -1,3 +1,6 @@
 [submodule "assembly_foxtail_ipynb"]
 	path = assembly_foxtail_ipynb
 	url = https://github.com/cfriedline/assembly_foxtail.git
+[submodule "foxtail_blast_ipynb"]
+	path = foxtail_blast_ipynb
+	url = git://github.com/cfriedline/foxtail_blast
