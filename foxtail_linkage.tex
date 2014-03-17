@@ -301,7 +301,6 @@ employed MSTmap using the maximum likelihood objective function, grouping turned
 Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci within each cluster, along with the distances (i.e., cM) 
 in each cluster, were taken as the initial linkage map from which data were error-corrected and imputed.
 
- 
 Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics used in the algorithm 
 of Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and 
 error correction depends upon two choices: (1) the threshold for missing data for a given megagametophyte and (2) the number of 
@@ -327,11 +326,10 @@ based on these weighted average values. Consistency in the positioning and relat
 Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
 the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
 A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold 
-
 of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
-computing environment.
+computing environment \citep{R:2013}.
 
-Framework markers on the resulting consensus linkage map were used to estimate the size \citep{Chakravarti:1991} and 
+Framework markers on the resulting consensus linkage map were used to estimate the size \citep{Chakravarti:1991} and
 coverage \citep{Lange:1982} of the foxtail pine genome.  Each contig from the assembly was queried against 
 the set of scaffolds comprising the loblolly pine genome using blastn.  The contigs 
 from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools \citep{Altschul:1990vt} 
@@ -499,56 +497,6 @@ seeds. Funding for this project was made available to AJE via start-up funds fro
 Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
 
-
-\subsection*{Sensitivity Analysis}
-The production of linkage maps for each maternal tree required many assumptions.
-Given that the inferred maps will be used in downstream analyses, including acting as aids
-to help impute missing data in population-level sampling, we explored the effect of these assumptions on 
-the resulting linkage maps using sensitivity analysis. The effect of assumptions 
-were examined by modifying threshold values defining each assumption. We selected the
-data from the maternal tree with the largest number of reads as the focal linkage map with which to explore
-the sensitivity of our results to our assumptions.
-
-First, we explored the effect of assumptions made during the process of read mapping to detect SNPs and call genotypes 
-\citep[cf.][]{Pool:2010}. The mapping of reads requires a reference against which to match reads based on their similarity. 
-The assembly process, however, requires optimization of the hash length (see \nameref{ss:dna}), 
-which in turn affects the quality of the contigs comprising the assembly \citep{Earl:2011gt,Salzberg:2011fr,Bradnam:2013uu}.  
-Since it is the contigs in the assembly that directly affect the ability to map reads and hence call SNPs, we explored the effect 
-of assembly choice on SNP calling. We selected the next best assemblies flanking the assembly identified as optimal via maximum likelihood 
-and for each performed SNP calling as described previously. When loci were shared across SNP sets (see \nameref{ss:dna}), we 
-conducted linkage mapping as described previously (i.e., we used all of the other previous thresholds unless otherwise noted) for each 
-set and compared the resulting maps of the shared loci using Spearman rank correlations \citep{Spearman:1904}.  
-The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations) using a Bonferroni-corrected significance 
-threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly different orderings.
-
-Second, we explored the use of thresholds for segregation distortion and 
-use of the pseudo-diploid sample to call the maternal genotype to filter SNPs prior to linkage mapping. 
-We modified the significance threshold to Bonferroni-corrected values of $\alpha = 0.01, 0.05,$ 
-and $0.10$ to study the effects of segregation distortion on the resulting map. 
-Lastly, we built linkage maps with and without use of the pseudo-diploid based filtering. Comparisons among the resulting linkage 
-maps were made in a fully factorial design and maps were compared using pairwise Spearman correlation coefficients 
-(i.e., {$6 \choose 2$} = $15$ unique comparisons). The significance of each correlation coefficient 
-was tested using permutation analysis ($n = 10,000$ permutations) and a Bonferroni-corrected significance threshold of $\alpha = 0.05$. 
-Non-significant values were taken as evidence of significantly different orderings. In all cases, linkage mapping as described previously 
-(i.e., we used all of the other previous thresholds unless otherwise noted) was carried out for each of the resulting SNP sets based on 
-the optimal assembly.
-
-Lastly, we explored the thresholds used in imputation and error correction. We varied the threshold upon which 
-we allowed the maximum amount of missing data, as this may affect the uniqueness 
-or non-uniqueness of the minimum spanning tree used during ordering of the loci. Specifically, 
-we examined the effects of using as the threshold, the $10^{th}$, $25^{th}$, $50^{th}$, $75^{th}$, and $95^{th}$ percentiles of 
-the distribution of missing data across megagametophytes. We also varied the threshold determining 
-the number of consecutive loci allowed to have incorrect genotypes. Specifically, we 
-examined using as thresholds, 1\%, 5\%, and 10\% of the number of loci per cluster as being erroneous. We chose to 
-examine the effects of these threshold values in a fully factorial design requiring 15 treatment comparisons. As such we restricted 
-analysis to the largest linkage group for the maternal tree with the largest number of reads used to construct 
-the assembly. For each treatment combination we produced a new ordering, and when loci were shared, we calculated 
-the Spearman rank correlation of all possible pairwise combinations of the $15$ orderings (i.e., {$15 \choose 2$} = $105$ unique 
-comparisons). The significance of each comparison was tested via permutation analysis ($n = 10,000$ permutations) 
-using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Non-significant values were taken as evidence of significantly 
-different orderings.
-
-
 \clearpage
 
 \singlespacing
@@ -598,10 +546,19 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 
 \begin{figure}[ht]
   \centering
+  \includegraphics[width=1.0\textwidth]{Figure02_TGG}
+  \caption{Sharing of contigs across maternal tree maps from which the consensus map was constructed. Counts in each cell
+  represent the number of unique contigs appearing on the final consensus map. KM = Klamath Mountains; SN = Sierra Nevada.}
+  \label{f:Figure02_TGG}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \centering
   \includegraphics[width=\textwidth]{circos_con}
-  \caption{Consensus linkage map.  Positions on each linkage group are in centimorgan.  The color of the bars indicate SNP
-annotation density at each position ($\ge 50\%$ = green, $\ge 25\%$= red, $< 25\%$ = black).  Density of SNPs (count of SNPs mapping 
-to a specific position on the linkage group) at each position are indicated by histograms.  The total density at each position is indicated 
+  \caption{Consensus linkage map.  Positions on each linkage group are in centiMorgan. The color of the bars indicate SNP
+annotation density at each position ($\ge 50\%$ = green, $\ge 25\%$= red, $< 25\%$ = black). Density of SNPs (count of SNPs mapping 
+to a specific position on the linkage group) at each position are indicated by histograms. The total density at each position is indicated 
 in black, and density by family is indicated by respective color.}
   \label{f:con}
 \end{figure}
@@ -614,34 +571,6 @@ in black, and density by family is indicated by respective color.}
 
 %put supplementary figures and tables below here
 \subsection*{Supplementary Text}\label{ss:supp}
-
-\textbf{Simulation of Meiosis} - Simulations ($n = 200$) were used to explore 
-the effect of missing data and genotyping error on clustering. We 
-used a simple case of a single maternal tree with two chromosomes each of which contained 100 loci
-with an average spacing of \SI{1.5}{cM} ($\pm$ \SI{0.5}{cM}).
-The remainder of the data structure followed that observed for the red library and the general framework from \citet{Hackett:2003}. 
-This library was selectedbecause it had the lowest coverage, largest amount of missing data, and fewest SNPs.
-Recombination was modeled within chromosomes as a process comprised of only simple crossing-over. If a recombination event occurred, 
-a site within the chromosome was selected at random to define the breakpoint. After recombination, one of the two resulting haplotypes was
-selected at random with equal probability. This process was repeated $n = 76$ times to create
-an array of gametes for each chromosome. Once finished, genotyping error was introduced as a constant
-probability of $0.10$, so that one of the known haploid genotypes was changed to the alternate allele with probability $0.10$. 
-After introduction of errors, missing data were simulated by randomly removing data for each
-of the 76 haplotypes at random using the level of missing data observed for each haplotype in the red library
-as the per locus probability of being missing. For example, if an observed haplotype had $2\%$ missing data
-then the per locus probability of making a given haploid genotype missing was 0.02. The resulting data were
-clustered following the procedure outlined in \nameref{ss:linkage} using the known number of clusters ($K = 2$).
-This process was repeated $200$ times and for each replication the fraction of incorrectly classified loci was
-estimated. All simulations were performed with custom scripts in R \citep{R:2013}.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\textwidth]{misclassified}
-\caption{Error rate of Ward's method on grouping in the simple case of a maternal tree with
-two chromosomes (A) and the performance of maximizing the maximum of silhouette widths
-across different values of $K$ for the red library. Further details are given in the \nameref{ss:supp}.}
-\label{f:misclassified.pdf}
-\end{figure}
 
 
 \end{document}
