@@ -349,13 +349,13 @@ of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage gro
 computing environment.
 
 The resulting consensus linkage map was used to estimate genome size and coverage of the foxtail pine genome following XXXX. The contigs 
-from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
-and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. XXXX). Each contig from the assembly was queried against 
-the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
+from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools \citep{Altschul:1990vt} 
+and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. 1.01, annotation V2). Each contig from the 
+assembly was queried against the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
 hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
 coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
-of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed to be 
-$1.0$ x $10^{-9}$ substitutions/site/year and the divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. 
+of substitutions between two sequences \citep[$2 \mu t$, see][]{Nei:1987}, where the mutation rate ($\mu$) was assumed to be 
+$1.0$ x $10^{-9}$ substitutions/site/year and the divergence time ($t$) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. 
 This translated into an average expectation of 16\% divergence between any two DNA sequences of loblolly and foxtail pines. We rounded down to 
 75\% to account for a portion of the variance around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig 
 appearing on the consensus linkage map for foxtail pine. 
