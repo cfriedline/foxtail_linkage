@@ -48,7 +48,7 @@ Douglas E. Harwood$^{1}$,
 Annette Delfino Mix$^{2}$,
 Patricia E. Maloney$^{3}$, and
 Andrew J. Eckert$^{1,4}$
-\null
+
 
 \bf{1} Department of Biology, Virginia Commonwealth University, Richmond, VA 23284
 \\
@@ -317,6 +317,7 @@ and that it corresponds to the correct order of the loci if the minimum spanning
 employed MSTmap using the maximum likelihood objective function, grouping turned off, imputation of missing data turned off, and the 
 Kosambi mapping function \citep{Kosambi:1944}. The resulting ordering of loci within each cluster, along with the distances (i.e., cM) 
 in each cluster, were taken as the initial linkage map from which data were error-corrected and imputed.
+
  
 Data were subsequently imputed and corrected for errors using Maskov \citep{Ward:2013}. A full account of the mechanics used in the algorithm 
 of Maskov can be found in Text S1 from \citet{Ward:2013}. For our purposes, the accuracy of the imputation and 
@@ -342,7 +343,9 @@ using the weighted average of the observed recombination fractions across librar
 based on these weighted average values. Consistency in the positioning and relative distances among framework markers was assessed using
 Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
 the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
-A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
+A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold 
+
+of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
 computing environment.
 
 The resulting consensus linkage map was used to estimate genome size and coverage of the foxtail pine genome following XXXX. The contigs 
@@ -351,11 +354,11 @@ and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genom
 the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
 hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
 coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
-of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed to be $1.0$ x $10^{-9}$ substitutions/site/year and the
-divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. This translated into an average expectation of 16\% divergence
-between any two DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for a portion of the variance
-around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig appearing on the 
-consensus linkage map for foxtail pine. 
+of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed to be 
+$1.0$ x $10^{-9}$ substitutions/site/year and the divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. 
+This translated into an average expectation of 16\% divergence between any two DNA sequences of loblolly and foxtail pines. We rounded down to 
+75\% to account for a portion of the variance around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig 
+appearing on the consensus linkage map for foxtail pine. 
 
 \section*{Results}
 
@@ -435,7 +438,8 @@ was excellent agreement among maps, with only 115 SNPs being mapped to conflicti
 SNPs with conflicting group assignments were unique to the red library. These were dropped from further consideration. Within linkage groups,
 SNPs present in multiple libraries were ordered similarly (pairwise Spearman rank correlations $> 0.956, P < 0.001$), with conflicting orderings 
 having average differences of XX cM (range: XX to XX cM). These differences were more prevalent in comparisons of maternal trees from
-different geographical regions. The resulting linkage maps for each maternal tree also resulted in SNPs from the same contig being mapped to the same position, with an average of only XX\% of SNPs from the same contig being mapped to a different position. For those SNPs from the same contig that
+different geographical regions. The resulting linkage maps for each maternal tree also resulted in SNPs from the same contig being mapped to the same 
+position, with an average of only XX\% of SNPs from the same contig being mapped to a different position. For those SNPs from the same contig that
 did not map to the same position, the average difference in positioning was XX cM, with no instances of SNPs from the same contig being
 located on different linkage groups. We thus pruned multiple SNPs per contig by randomly selecting one SNP per contig from the data set and 
 re-estimated the linkage maps for each maternal tree as described previously. The resulting \num{4} linkage maps were taken as the final estimates 
@@ -574,10 +578,10 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 the effect of missing data and genotyping error on clustering. We 
 used a simple case of a single maternal tree with two chromosomes each of which contained 100 loci
 with an average spacing of \SI{1.5}{cM} ($\pm$ \SI{0.5}{cM}).
-The remainder of the data structure followed that observed for the red library and the general framework from \citet{Hackett:2003}. This library was selected
-because it had the lowest coverage, largest amount of missing data, and fewest SNPs.
-Recombination was modeled within chromosomes as a process comprised of only simple crossing-over. If a recombination event occurred, a site within the chromosome
-was selected at random to define the breakpoint. After recombination, one of the two resulting haplotypes was
+The remainder of the data structure followed that observed for the red library and the general framework from \citet{Hackett:2003}. 
+This library was selectedbecause it had the lowest coverage, largest amount of missing data, and fewest SNPs.
+Recombination was modeled within chromosomes as a process comprised of only simple crossing-over. If a recombination event occurred, 
+a site within the chromosome was selected at random to define the breakpoint. After recombination, one of the two resulting haplotypes was
 selected at random with equal probability. This process was repeated $n = 76$ times to create
 an array of gametes for each chromosome. Once finished, genotyping error was introduced as a constant
 probability of $0.10$, so that one of the known haploid genotypes was changed to the alternate allele with probability $0.10$. 
