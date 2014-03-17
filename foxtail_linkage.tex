@@ -332,22 +332,13 @@ of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage gro
 computing environment.
 
 Framework markers on the resulting consensus linkage map were used to estimate the size \citep{Chakravarti:1991} and 
-coverage \citep{Lange:1982} of the foxtail pine genome. The contigs 
-from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools (CITATION) 
-and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. XXXX). Each contig from the assembly was queried against 
-the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
-The resulting consensus linkage map was used to estimate genome size and coverage of the foxtail pine genome following XXXX. The contigs 
+coverage \citep{Lange:1982} of the foxtail pine genome.  Each contig from the assembly was queried against 
+the set of scaffolds comprising the loblolly pine genome using blastn.  The contigs 
 from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools \citep{Altschul:1990vt} 
 and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. 1.01, annotation V2). Each contig from the 
-assembly was queried against the set of scaffolds comprising the loblolly pine genome using blastn. The top hit from each comparison was retained and these top
-hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
+assembly was queried against the set of scaffolds comprising the loblolly pine genome using blastn. The hits from each comparison was 
+retained and these top hits were filtered based on query coverage and the percent identity. As a thresholds, we used a minimum of 50\% for the query
 coverage and 75\% for the percent identity. The percent identity for the query coverage was set according to the expected number
-of substitutions between two sequences \citep[2\textit{ut}, see][]{Nei:1987}, where the mutation rate (\textit{u}) was assumed 
-to be $1.0$ x $10^{-9}$ substitutions/site/year and the divergence time (\textit{t}) was assumed to be $8.0$ x $10^{7}$ years 
-\citep{Willyard:2007}. This translated into an average expectation of 16\% divergence
-between homologous DNA sequences of loblolly and foxtail pines. We rounded down to 75\% to account for the variance
-around this expectation. Hits that exceeded these thresholds were transferred as annotations to the contig appearing on the 
-consensus linkage map for foxtail pine. 
 of substitutions between two sequences \citep[$2 \mu t$, see][]{Nei:1987}, where the mutation rate ($\mu$) was assumed to be 
 $1.0$ x $10^{-9}$ substitutions/site/year and the divergence time ($t$) was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}. 
 This translated into an average expectation of 16\% divergence between any two DNA sequences of loblolly and foxtail pines. We rounded down to 
@@ -475,7 +466,9 @@ across positions ($P < 0.001$), with notable enrichment at the ends of inferred 
 the estimated genome size of foxtail pine is 1276.04 cM (95\% confidence interval: 1174.31 - 1377.77 cM). As such, the estimated coverage of the genome 
 is 98.58\% (LOD threshold = 5.5, maximum distance among adjacent framework markers: 13.4 cM, number of framework markers: 507, $K = 2694$). 
 
-Chris, can you provide some text about the blast results? I can then work on the consensus map description after finishing up the stuff above.
+Of the \num{20655} contigs in the reference assembly which contained SNPs, \num{5627} (27.2\%) contained BLAST hits which 
+passed the filtering threshold of 50\% query length and 75\% identity.  The averages of query length (bp), query coverage percentage, 
+and identity percentage were $94 \pm 7$, $86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. 
 
 \section*{Discussion}
 The genetic architecture of fitness-related traits has been a major focus of geneticists for 
