@@ -12,3 +12,4 @@ foxtail_linkage.pdf
 *.xml
 _region_.*
 *.out
+.#*
