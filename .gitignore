@@ -16,4 +16,3 @@ _region_.*
 *latexmk
 *.fls
 auto
-*#*
