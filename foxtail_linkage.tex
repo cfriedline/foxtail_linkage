@@ -69,7 +69,7 @@ $\ast$ E-mail: aeckert2@vcu.edu
 
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
 and molecular levels \citep{Kawecki:2004, Pannell:2013}, so that some of the best
-examples of adaptive evolution within lineages comes from the field of plant genetics \citep[e.g.,][]{Antonovics:1970}. 
+examples of adaptive evolution within lineages come from the field of plant genetics \citep[e.g.,][]{Antonovics:1970}. 
 Despite this evidence, relatively little work has focused explicitly on the genomic organization of loci contributing
 to these patterns \citep{Hoffman:2008}, which likely stemmed from the lack of genomic resources for plants relative to animals.
 Adaptive evolution has been extensively documented for forest trees, especially conifers, with many instances of 
@@ -330,8 +330,7 @@ of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage gro
 computing environment \citep{R:2013}.
 
 Framework markers on the resulting consensus linkage map were used to estimate the size \citep{Chakravarti:1991} and
-coverage \citep{Lange:1982} of the foxtail pine genome.  Each contig from the assembly was queried against 
-the set of scaffolds comprising the loblolly pine genome using blastn.  The contigs 
+coverage \citep{Lange:1982} of the foxtail pine genome. The contigs 
 from the assembly used to discover SNPs that appeared on the consensus linkage map were annotated using BLAST tools \citep{Altschul:1990vt} 
 and the most recent release of the loblolly pine (\textit{Pinus taeda} L.) genome sequence (v. 1.01, annotation V2). Each contig from the 
 assembly was queried against the set of scaffolds comprising the loblolly pine genome using blastn. The hits from each comparison was 
@@ -466,7 +465,8 @@ is 98.58\% (LOD threshold = 5.5, maximum distance among adjacent framework marke
 
 Of the \num{20655} contigs in the reference assembly which contained SNPs, \num{5627} (27.2\%) contained BLAST hits which 
 passed the filtering threshold of 50\% query length and 75\% identity.  The averages of query length (bp), query coverage percentage, 
-and identity percentage were $94 \pm 7$, $86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. 
+and identity percentage were $94 \pm 7$, $86.4\% \pm 13.0\%$, and $90.1\% \pm 
+3.9\%$, respectively. MORE HERE ABOUT BLAST. 
 
 \section*{Discussion}
 
@@ -482,11 +482,43 @@ Recent work has extended this line of research, with myriad studies linking phen
 through linkage mapping, both within pedigrees \citep{Mauricio:2001, Neale:2011, Ritland:2011} and within 
 natural populations \citep{Ingvarsson:2011, Eckert:2013a}, 
 or through quantitative genetic experimentation \citep{Anderson:2013a, Anderson:2013b, Fournier-Level:2013}. Relatively 
-little empirical work outside of model organisms, however, has focused on the genomic organization 
+little empirical work outside of model organisms, especially for plants, has focused on the genomic organization 
 of loci contributing to fitness differences 
 among individuals \citep[but see][]{Stevison:2011}. This is despite clear theoretical predictions relating the evolution of 
 the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this architecture 
 \citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013}.
+
+Here, we have provided a dense linkage map representing over 20,000 unique contigs
+distributed throughout the 30 Gbp genome of foxtail pine that can be used to aid in 
+the discovery and study of loci contributing to local adaptation. To our knowledge it represents the most dense linkage map ever produced within forest trees, although
+the number of unique positions is much less than the number of mapped contigs (i.e., about 1/20th). 
+Approximately 25\% of these contigs had significant similarity to sequences within the 
+draft loblolly pine genome. Importantly, our markers are dispersed in both genic and
+non-genic regions of the genome. The latter are often ignored in studies of local adaptation utilizing markers based on sequence capture ( ) or SNP arrays (e.g. ). This dense map, moreover,
+was created using affordable next generation sequencing technologies in combination with unique methods 
+of analysis, which highlights the feasibility of this approach to non-model conifers where genome sequencing and assembly are still not quite feasible. 
+With regard to map integrity, recombination fractions for pairs of SNPs
+segregating in multiple trees were highly correlated (STATS HERE), thus allowing for the creation of a robust consensus map, as well as highlighting the biological signal of 
+linkage that was apparent even in noisy ddRADseq data. When coupled with the other 
+biological signals apparent in our results, for example the enrichment of contigs at ends of linkage groups, we can be confident that our inferred linkage maps are based
+on biological, as opposed to statistical, signals. In further support of this claim, randomly subsampling our data to represent 10,000 contigs and performing linkage mapping
+as described previously resulted in a consensus linkage map that was indistinguishable
+from that pictured in Figure XX (Spearman rank correlation for shared SNPs across maps: 0.997, P < 0.0001).  
+
+Caution, however, is needed when interpreting our results. First, we used novel analysis methods that have not been tested fully using simulations. For example, the form of hierarchical clustering used here is not employed to our knowledge in any of the available software packages for linkage mapping. Thus, its utility on data of smaller or larger sizes than that presented here is unknown. Consistency of results across
+maternal trees, however, argues that these methods are unlikely
+to be completely inappropriate. Second, error-correction and imputation were used, which
+could have affected marker ordering and distances. As illustrated in Figure XX, however,
+marker order did not change with increasing stringency of error correction. What changed were marker distances, with increased stringency creating clumped distributions of makers. The effect of marker clumping on downstream uses of this linkage map, however, is likely to be minimal (e.g. inflation of QTL intervals) and balanced by XXX.
+Lastly, our sample sizes were not large enough to resolve
+linkage relationships beyond distances of approximately 1.3 cM. Increased number of sampled megagametophytes 
+would have allowed higher resolution, which could aid in downstream uses of our linkage map. Despite this level of resolution, however, XXXXX.
+
+The natural next step using this linkage map is to link fitness-related phenotypic
+variation with genotypes at mapped markers. We are currently using QTL mapping
+for delat13C to accomplish this goal. 
+
+
 
 \section*{Acknowledgements}
 
