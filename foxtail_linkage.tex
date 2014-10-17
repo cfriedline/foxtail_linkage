@@ -37,7 +37,7 @@
 \begin{flushleft} 
 \singlespacing
 {\Large \textbf{The genetic architecture of local adaptation I: The genomic landscape of 
-foxtail pine (\textit{Pinus balfouriana} Grev.\ \& Balf.)}}
+foxtail pine (\textit{Pinus balfouriana} Grev.\ \& Balf.) as revealed from a high-density linkage map}}
 % Insert Author names, affiliations and corresponding author email.
 
 
@@ -65,6 +65,34 @@ $\ast$ E-mail: aeckert2@vcu.edu
 
 \section*{Abstract}
 
+Explaining the origin and evolutionary dynamics of the genetic architecture of adaptation
+is a major research goal of evolutionary genetics. Myriad attempts have been made over the past
+decades to uncover the genetic components of adaptive genetic variance, especially for forest trees. 
+Despite the controversy surrounding the success of these attempts, a full understanding of adaptive genetic variance 
+necessitates knowledge about the genomic location and distributional patterns of the genetic components affecting fitness-related
+phenotypic traits. Even with advancements to next generation sequencing technologies, the production of full
+genome sequences for non-model species is often cost prohibitive, especially for tree species such as pines where genome
+size often exceeds $20$ to $30$ Gbp in size. Here, we address this need by constructing a dense linkage map for 
+foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of uncovering and explaining the origin
+and evolutionary dynamics of adaptive genetic variation for drought tolerance in natural populations of this forest 
+tree species. We utilized megagametophyte  arrays (\textit{n} $= 76 - 95$/tree) from four maternal trees in combination 
+with double-digestion restriction site associated DNA sequencing (ddRADSeq) to produce a consensus linkage map covering $98.58\%$ 
+of the foxtail pine genome, which was estimated to be $1276$ cM in length ($95\%$ CI: $1174-1378$ cM). A novel bioinformatic approach using iterative rounds 
+of marker ordering and imputation was employed to produce single-tree linkage maps ($507 - 17066$ contigs/map).
+These linkage maps were strongly collinear across maternal trees, with highly correlated marker orderings (Spearman's $\rho > 0.95$).
+A consensus linkage map derived from these single-tree linkage maps contained $20655$ contigs divided into $12$ 
+linkage groups along which $901$ unique positions were non-randomly distributed
+with an average spacing of $1.34$ cM between adjacent positions (\textit{n}$ = 23$ contigs/position). Of the $20655$ contigs positioned on the consensus 
+linkage map, $5627$ had enough sequence similarity to contigs contained within the most recent build of the loblolly pine 
+(\textit{P. taeda} L.) genome to identify them as  putative homologs containing both genic and non-genic loci. Importantly,
+all $901$ unique positions on the consensus linkage map had at least one contig with putative homology to loblolly pine.
+Our results indicate that high density linkage maps can be produced efficiently for non-model forest tree species 
+and that these maps have important functions as community-wide resources and as tools with which to 
+test hypotheses about the genetic architecture of adaptation. 
+
+\textbf{Key words:} Adaptation, double-digestion restriction site associated DNA sequencing, foxtail pine, linkage mapping, 
+\textit{Pinus balfouriana}
+
 \section*{Introduction}
 
 Evidence for adaptive evolution among populations of plants is commonly documented at both the phenotypic 
@@ -79,7 +107,7 @@ among loci contributing to adaptive evolution \citep{Neale:2011, Alberto:2013}. 
 genetic architecture of fitness-related traits, however, should also include 
 an examination of the genomic organization of the loci contributing to trait variation. Here, we leverage 
 this idea in the first of a series of papers dissecting the genetic architecture of fitness-related 
-traits in a non-model conifer species, foxtail pine (\textit{Pinus balfouriana} Grev.\ \& Balf.), with the 
+traits in a non-model conifer species, foxtail pine (\textit{Pinus balfouriana} Grev. \& Balf.), with the 
 ultimate goal of testing explicit evolutionary hypotheses about the genomic organization of loci 
 contributing to variation in fitness-related traits.
 
@@ -92,7 +120,7 @@ have large and complex genomes \citep{Murray:1998, Ahuja:2005}, with estimated a
 range of \SIrange{20}{30}{Gbp}. Several genome projects, each of which involves many laboratories, are underway or have been 
 completed \citep{Mackay:2012}. Even these efforts often initially result in limited information, however,
 as for example the current assemblies of the Norway spruce (\textit{Picea abies} L.) and loblolly pine (\textit{Pinus taeda} L.) genomes 
-contain millions of unordered contigs with average sizes in the thousands of base pairs \citep{Nystedt:2013}. An alternative, 
+contain millions of unordered contigs with average sizes in the thousands of base pairs \citep{Nystedt:2013, Neale:2014}. An alternative, 
 but not mutually-exclusive, approach to describing the genome of an organism 
 is that of linkage mapping. In this approach, genetic markers are ordered through observations of recombination events 
 within pedigrees. This approach dates to the beginning of genetics and the logic has remained relatively unchanged 
@@ -130,19 +158,19 @@ species are created with uncharacterized genetic markers \citep[e.g.,][]{Travis:
 architecture of fitness-related traits, outside of a handful of economically important conifer species, therefore, encompases  the 
 number and effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost restrictions, however, have largely disappeared. 
 It is now feasible to jointly discover polymorphisms and genotype samples using high-throughput DNA sequencing 
-approaches, such as restriction-site associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
+approaches, such as restriction site associated DNA sequencing \citep [RADseq; e.g.,][] {Peterson:2012}. 
 
 The generation of linkage maps from RADseq data is a complex endeavor due to the inherent stochasticity
 and error prone nature of these data. Recent examples in several crop species highlight the
 difficulties that must be overcome with respect to missing data and errors in calling polymorphic sites 
 and the resulting genotypes \citep{Pfender:2011, Ward:2013}. Despite these difficulties, RADseq has been 
-successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has not yet 
-been applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
+successively applied to samples taken from natural populations of non-model conifer species \citep{Parchman:2012}, but has yet 
+to be applied to linkage mapping in these species, so that an exploration of these methods to linkage mapping in the large and complex 
 genomes of conifers is warranted. Here, we take this approach using megagametophyte arrays from four maternal trees of foxtail pine
 to generate maternal linkage maps. There are currently no published linkage 
 maps for this species, which is only distantly related to loblolly pine \citep{Eckert:2006a}, nor any within the subsection \textit{Balfourianae}. 
-We subsequently discuss the utility of our inferred linkage maps to comparative genomics 
-within the conifers and to tests of how patterns of gene flow affect the genomic organization of loci underlying fitness-related traits.
+We subsequently discuss the utility of our inferred linkage maps to tests of evolutionary theory addressing local adaptation 
+and its genetic architecture.
 
 
 \section*{Materials and Methods}\label{ss:mats}
@@ -190,7 +218,7 @@ Total genomic DNA was isolated from each rescued megagametophyte using the DNeas
 kit following the manufacturer’s protocol (Qiagen, Germantown, MD). RADseq \citep{Davey:2010, Parchman:2012, Peterson:2012} 
 was used to generate a genome-wide set of 
 single nucleotide polymorphism (SNP) markers for linkage mapping following the protocol 
-outlined by \citet{Parchman:2012}. In brief, this protocol is a double-digestion, RADseq 
+outlined by \citet{Parchman:2012}. In brief, this protocol is a double-digestion, RADseq (ddRADSeq) 
 approach based on digestion of total genomic DNA using EcoRI and MseI followed by single-end 
 sequencing on the Illumina HiSeq platform. Following digestion, adapters 
 containing amplification and sequencing primers, as well as barcodes for multiplexing, 
@@ -290,7 +318,7 @@ We explored groupings ($K$) based on clustering on the interval $K=[8,16]$. This
 chosen because it brackets the haploid chromosome number of foxtail pine ($1N = 12$). This entailed 
 cutting the resulting dendrogram at a specific height, so that the desired number of groups resulted. 
 Solutions were compared using silhouette widths for each locus \citep{Rousseeuw:1987}. 
-The value of $K$ which maximized the number of loci for which the silhouette width was maximal 
+The value of $K$ which maximized the fraction of loci for which the silhouette width was maximal 
 across the different values of $K$ was selected as optimal.
 
 Ordering of loci within clusters was carried out using MSTmap \citep{Wu:2008a}. This method takes a full, undirected graph where 
@@ -323,7 +351,7 @@ with the stipulation that two of the three linkage maps in which the marker appe
 amount of missing data in each of the libraries for these markers was $< 20^{th}$ percentile. Second, the remaining SNPs were added to the framework map by
 using the weighted average of the observed recombination fractions across libraries and constructing a linkage map as described previously
 based on these weighted average values. Consistency in the positioning and relative distances among framework markers was assessed using
-Mantel tests (CITATION). Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
+Spearman \citep{Spearman:1904} and Mantel \citep{Mantel:1967} correlations. Specifically, pairwise distances (cM) among framework markers were extracted from each linkage group on 
 the framework map built using MergeMap as well as the map resulting from use of the weighted average recombination fractions in MSTmap. 
 A Mantel correlation was used to test the null hypothesis that  these distances were not correlated using a Bonferroni-corrected significance threshold 
 of $\alpha = 0.05$. Separate tests were performed for each of the 12 linkage groups. All analysis was conducted in the R ver. 3.0.2 statistical
@@ -363,7 +391,7 @@ on average across libraries, with average minimums of 753 $\pm$ 603 bp to averag
 
 The largest number of reads ($n=\text{\num{6838986}}$) were obtained for a single megagametophyte in the 
 green library. These reads were used to create an assembly for which alll other data were mapped against 
-for SNP calling and genotype determination. Optimization of assembly parameters (list here, see Figure 2) 
+for SNP calling and genotype determination. Optimization of assembly parameters (LIST HERE, CHRIS?) 
 resulted in an assembly with \num{231053} contigs, with an average length of 89 bp $\pm$ 12 bp per contig 
 (range: \SIrange {61}{312}{bp}), and an average per-contig base coverage of \SIrange{4.5}{20.0}{X} (range: 
 \SIrange{1.5}{5069}{X})
@@ -375,13 +403,15 @@ Using this assembly, \num{349542} putative SNPs were called (Table 1). These  \n
 expected segregation patterns, consistency with heterozygous calls for the psuedo-diploid sample, and minimum
 sample sizes for genotype calls, resulted in \num{983}, \num{34261}, \num{21594}, and \num{35304} SNPs for the red, green, blue, 
 and yellow libraries, respectively. The counts for the yellow and green libraries were also trimmed so as to remove
-unique contigs not found as polymorphic in the other libraries. This was done to facilitate the efficiency of the calculation of pairwise
+all but a handful ($n = 2$ for the yellow and $n = 6$ for green libraries) of the unique contigs not found as polymorphic in the 
+other libraries. This was done to facilitate the efficiency of the calculation of pairwise
 recombination fractions. These SNP counts represented \num{557}, \num{17051}, \num{11883}, and \num{17506} contigs
 for the red, green, blue, and yellow libraries, respectively. Patterns of shared polymorphic contigs, as well as
 SNPs, were as expected given the among region magnitude of genetic differentiation \citep[Figure 2, see][]{Eckert:2008}, 
 with libraries comprised of megagametophytes sampled from maternal trees located in 
 the same geographical area sharing more polymorphic contigs and SNPs than comparisons of maternal trees from different
-geographical regions. On average, megagametophytes in the filtered data set had 79.40\% ($\pm$ 14.7\%) missing data 
+geographical regions (nonparametric permutation analysis: $P < 0.05$).
+On average, megagametophytes in the filtered data set had 79.40\% ($\pm$ 14.7\%) missing data 
 across SNPs (range: 1.3\% to 99.8\%), with the green library having the smallest (74.3\% $\pm$ 18.9\%) and the red library having
 the largest average amount of missing data per megagametophyte (84.4\% $\pm$ 15.2\% ).
 
@@ -394,7 +424,7 @@ were assessed for patterns of linkage followed by grouping and ordering of SNPs.
 
 Grouping of pairwise recombination fractions via hierarchical clustering was consistent with \num{12} linkage groups. 
 This corresponded to a minimum pairwise LOD score of approximately 5.0 for each maternal tree for markers to be placed within the same linkage group.
-Inspection of the distribution of silhouette values for values of $K$ \num{8} to \num{16} revealed that $K = 12$ was the best 
+Inspection of the distribution of silhouette values for values of $K$ ranging from \num{8} to \num{16} revealed that $K = 12$ was the best 
 clustering solution for each of the \num{4} maternal trees. This was confirmed by comparison of pairwise LOD scores 
 for SNPs within versus among the \num{12} linkage groups. Comparisons within linkage groups were on average 2.2-fold larger
 than among linkage groups, which was significantly greater than expected randomly ($n = 1,000$
@@ -418,7 +448,7 @@ ordering of SNPs within linkage groups, but only changed the spatial resolution 
 The resulting linkage maps for each maternal tree were aligned manually based on the presence of shared contigs. Overall, there
 was excellent agreement among maps, with only 115 SNPs being mapped to conflicting linkage groups across maternal trees. All 115
 SNPs with conflicting group assignments were unique to the red library. These were dropped from further consideration. 
-Within linkage groups, SNPs present in multiple libraries were ordered similarly (pairwise Spearman rank correlations $> 0.956, 
+Within linkage groups, SNPs present in multiple libraries were ordered similarly (pairwise Spearman's $\rho > 0.956, 
 P < 0.001$), with conflicting orderings having average differences of 5.91 cM ($\pm$ 5.64 cM). The resulting linkage maps for each maternal tree also
 resulted in SNPs from the same contig largely being mapped to the same position, with an average of only 5.8\% of SNPs 
 from the same contig being mapped to a different position. 
@@ -446,11 +476,11 @@ for the red maternal tree ($P < 0.001$), with elevated contig counts typically o
 
 A set of 507 framework SNPs were devised from those contigs shared across at least three of the four linkage maps. These 507 SNPs were used to construct
 a framework map using MergeMap. The resulting linkage map had an overall length of 1572.80 cM. Comparison of this map with those for
-each maternal tree revealed a strong similarity in positioning for each linkage group (Spearman rank correlations $> 0.98, P < 0.001$). 
+each maternal tree revealed a strong similarity in positioning for each linkage group (Spearman's $\rho > 0.98, P < 0.001$). 
 Given this overall similarity, we incorporated the remaining markers into the map by using weighted averages of observed pairwise recombination 
 fractions across maternal trees and inferred a consensus linkage map as outlined previously. Inferred marker positions and distances 
 for the framework markers were highly correlated across linkage groups in this map relative
-to that inferred using MergeMap and the framework map (Mantel correlations: $> 0.95, P < 0.001$). We used this as evidence in support of our approach and the
+to that inferred using MergeMap and the framework map (Mantel's $r: > 0.95, P < 0.001$). We used this as evidence in support of our approach and the
 inferred consensus linkage map was taken as the final consensus estimate of linkage relationships for the \num{20655} unique contigs
 located in the four maternal tree linkage maps.
 
@@ -473,7 +503,7 @@ and identity percentage were $94 \pm 7$, $86.4\% \pm 13.0\%$, and $90.1\% \pm
 The genetic architecture of fitness-related traits has been a major focus of geneticists for 
 over a century \citep[reviewed by][]{Ellegren:2008}. Genetic architecture refers to the number, type, effect size, 
 genomic organization, interactions, and environmental dependency of the loci contributing to phenotypic variation 
-which in turn creates variation in fitness among individuals within populations \citep[cf.][]{Eckert:2012a}. 
+which in turn creates variation in fitness among individuals within populations \citep[cf.,][]{Eckert:2012a}. 
 Interest in this architecture stems from the want to explain the nature of genetic variation which 
 contributes to evolution via the accumulation of adaptations within lineages (i.e., adaptive evolution).
 Early efforts to understand the genetic architecture of fitness-related traits
@@ -485,40 +515,84 @@ or through quantitative genetic experimentation \citep{Anderson:2013a, Anderson:
 little empirical work outside of model organisms, especially for plants, has focused on the genomic organization 
 of loci contributing to fitness differences 
 among individuals \citep[but see][]{Stevison:2011}. This is despite clear theoretical predictions relating the evolution of 
-the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this architecture 
-\citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013}.
+the genetic architecture underlying fitness-related traits to the genomic organization of the loci comprising this 
+architecture \citep{Kirkpatrick:2006, Yeaman:2011, Yeaman:2013, Akerman:2014}.
 
 Here, we have provided a dense linkage map representing over 20,000 unique contigs
 distributed throughout the 30 Gbp genome of foxtail pine that can be used to aid in 
-the discovery and study of loci contributing to local adaptation. To our knowledge it represents the most dense linkage map ever produced within forest trees, although
-the number of unique positions is much less than the number of mapped contigs (i.e., about 1/20th). 
-Approximately 25\% of these contigs had significant similarity to sequences within the 
-draft loblolly pine genome. Importantly, our markers are dispersed in both genic and
-non-genic regions of the genome. The latter are often ignored in studies of local adaptation utilizing markers based on sequence capture ( ) or SNP arrays (e.g. ). This dense map, moreover,
+the discovery and study of loci contributing to local adaptation. To our knowledge it represents one of the most dense 
+linkage maps ever produced within forest trees, although the number of unique positions is much less than the number 
+of mapped contigs (i.e., about 1/20th). Approximately 25\% of these contigs had significant similarity to sequences within 
+the draft loblolly pine genome. Importantly, our markers are dispersed in both genic and
+non-genic regions of the genome. The latter are often ignored in studies of local adaptation utilizing markers based on 
+sequence capture \citep[e.g.,][]{Neves:2014} or SNP arrays \citep[e.g.,][]{Eckert:2010a}. This dense map, moreover,
 was created using affordable next generation sequencing technologies in combination with unique methods 
-of analysis, which highlights the feasibility of this approach to non-model conifers where genome sequencing and assembly are still not quite feasible. 
+of analysis, which highlights the feasibility of this approach to non-model conifers, where genome sequencing and 
+assembly are still not quite feasible given realistic research budgets. 
 With regard to map integrity, recombination fractions for pairs of SNPs
-segregating in multiple trees were highly correlated (STATS HERE), thus allowing for the creation of a robust consensus map, as well as highlighting the biological signal of 
+segregating in multiple trees were highly correlated (Mantel's \textit{r} $> 0.90$ for all comparisons across linkage groups), thus allowing for the 
+creation of a robust consensus map, as well as highlighting the biological signal of 
 linkage that was apparent even in noisy ddRADseq data. When coupled with the other 
-biological signals apparent in our results, for example the enrichment of contigs at ends of linkage groups, we can be confident that our inferred linkage maps are based
-on biological, as opposed to statistical, signals. In further support of this claim, randomly subsampling our data to represent 10,000 contigs and performing linkage mapping
+biological signals apparent in our results (e.g., trees from the same regional population sharing SNPs more often), we can be 
+confident that our inferred linkage maps are based
+on biological, as opposed to statistical, signals. In further support of this claim, randomly subsampling our data to 
+represent 10,000 contigs and performing linkage mapping
 as described previously resulted in a consensus linkage map that was indistinguishable
-from that pictured in Figure XX (Spearman rank correlation for shared SNPs across maps: 0.997, P < 0.0001).  
+from that pictured in Figure $3$ (Spearman's $\rho = 0.997, P < 0.0001$).  
 
-Caution, however, is needed when interpreting our results. First, we used novel analysis methods that have not been tested fully using simulations. For example, the form of hierarchical clustering used here is not employed to our knowledge in any of the available software packages for linkage mapping. Thus, its utility on data of smaller or larger sizes than that presented here is unknown. Consistency of results across
-maternal trees, however, argues that these methods are unlikely
+The linkage map produced here is valuable in numerous ways. First, it provides a dense resource for
+quantitative trait locus (QTL) mapping. For example, our next step using this linkage map is
+to link fitness-related phenotypic variation with genotypes at mapped markers. We are currently mapping
+QTLs for $\delta^{13}$C to accomplish this goal. Importantly, this will represent one of the first QTL maps in the
+clade of soft pines outside of section \textit{Quinquefoliae}. Second, the framework provided here is optimal for imputation 
+and phasing of data during population genomic inferences utilizing samples from natural populations, another avenue of 
+research currently underway. Third, our linkage map is the foundation upon which theoretical expectations can be tested.
+For example, the theory of Yeaman and Whitlock (2011) predicts that the loci contributing to local adaptation should
+be differentially clustered in genomes as a function of rates of gene flow among populations. Magnitudes of gene flow 
+among stands differ dramatically within the regional populations of foxtail pine. Fourth, 
+knowledge about the physical ordering of loci allows patterns of linkage disequilibrium (LD) within natural populations
+to be better characterized. The role of LD in local adaptation has long been recognized \citep[see][]{Akerman:2014}, yet empirical studies of its
+role are difficult without some knowledge of physical relationships among loci. This is because LD among physically linked
+markers is expected to some degree, whereas LD among physically unlinked markers must have originated from some
+evolutionary process (e.g., genetic drift, natural selection). Lastly, continued production of linkage maps 
+across the Pinaceae will aid comparative genomics and evolutionary inference through study of synteny and the evolution
+of genome structure \citep{Ritland:2011}. It is thus clear 
+that the continued identification of loci putatively affecting fitness-related traits is limited when 
+performed in isolation of knowledge about the genome from which those loci were sampled. Appeals to the production of 
+full genome sequences, while laudable, are often naive for non-model species, because the true costs to produce a genome
+sequence are usually much higher than quoted and the scale that matters most for many questions
+in evolutionary genetics is that of recombination distance. Of course, production of both resources is optimal, but
+a genome sequence alone tells one nothing about recombination and LD, whereas a linkage map does.
+
+Caution, however, is needed when interpreting our results. First, we used novel analysis methods that have not been tested 
+using simulations. For example, the form of hierarchical clustering used here is not employed to our knowledge in any 
+of the available software packages used for linkage mapping. Thus, its utility on data of smaller or larger sizes than that 
+presented here is unknown. Consistency of results across maternal trees, however, argues that our methods are unlikely
 to be completely inappropriate. Second, error-correction and imputation were used, which
-could have affected marker ordering and distances. As illustrated in Figure XX, however,
-marker order did not change with increasing stringency of error correction. What changed were marker distances, with increased stringency creating clumped distributions of makers. The effect of marker clumping on downstream uses of this linkage map, however, is likely to be minimal (e.g. inflation of QTL intervals) and balanced by XXX.
-Lastly, our sample sizes were not large enough to resolve
-linkage relationships beyond distances of approximately 1.3 cM. Increased number of sampled megagametophytes 
-would have allowed higher resolution, which could aid in downstream uses of our linkage map. Despite this level of resolution, however, XXXXX.
+could have affected marker ordering and distances. Marker order, however, did not change with increasing stringency of error correction. What changed were marker distances, with 
+increased stringency creating clumped distributions of makers. This was also apparent in the total map length, which 
+is at the lower end of that observed for conifers \citep[cf.,][]{Ritland:2011}.The effect of marker clumping on downstream uses of 
+this  linkage map, however, is likely to be minimal (e.g. bias in QTL intervals) and balanced by the increased number of 
+mapped markers. The relative importance of imputation and error correction, moreover, is to some degree affected by
+experimental conditions. Here, we did not standardize the total amount of DNA for each megagametophyte prior to 
+construction of libraries (concentration ranges: ~$10 ng/ul to > 50 ng/ul$), which likely affected the 19,000-fold variation
+in the number of reads across megametophytes. Future studies would putatively benefit from considering this prior to 
+library construction. Third, we used a form of hierarchical clustering
+that required the number of groups to be defined \textit{a priori}. \textit{Post hoc} analysis indicated that this 
+corresponded to a LOD threshold of approximately $5.5$ and that $12$ was an optimal number of groups (Fig. SX). Selection
+of a larger or smaller number of groups, moreover, did not change marker ordering within groups substantially.
+Lastly, our sample sizes were not large enough to resolve linkage relationships beyond distances of approximately 
+1.3 cM. Increased number of sampled megagametophytes 
+would have allowed higher resolution, which could aid in downstream uses of our linkage map. Despite this level of 
+resolution, however, we have produced one of the largest linkage maps to date for a forest tree species \citep{Eckert:2010b, Martinez-Garcia:2013, Neves:2014}.
 
-The natural next step using this linkage map is to link fitness-related phenotypic
-variation with genotypes at mapped markers. We are currently using QTL mapping
-for delat13C to accomplish this goal. 
-
-
+Conifer genomics is emerging as a mature scientific field \citep{Mackay:2012}. Draft genome sequences of several species have been released 
+and more are planned. As shown here, production of high-density linkage maps is a fruitful endeavor to accompany this
+maturation. Specifically, linkage maps provide ample information about genomic structure that is needed for the study
+of local adaptation in native populations of forest tree species. Here, we have produced a high-density linkage map for
+foxtail pine using methods applicable to any non-model conifer species, thus opening the door for further studies 
+of genome structure and the genetic architecture of local adaptation in this rather understudied clade of pines, as well as
+the Pinaceae as a whole. 
 
 \section*{Acknowledgements}
 
@@ -528,6 +602,13 @@ In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining
 seeds. Funding for this project was made available to AJE via start-up funds from Virginia 
 Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
+
+\section*{Data Archiving Statement}
+
+Raw short read data are located in the NCBI Short read archive (accession numbers: XXXXXX ). VCF files and linkage map files 
+are located as supporting documents (Files SX - SX). The consensus linkage map, as well as
+single-tree linkage maps, are also available in the Comparative Mapping Database on Dendrome 
+(accession numbers: XXXXX-XXXXX).
 
 \clearpage
 
@@ -550,15 +631,36 @@ Longitude & -123.1332 & -122.7922 & -118.1706 & -118.1706 \\
 Platform & HiSeq2500 & HiSeq2000 & HiSeq2000 & HiSeq2500 \\
 No. Megagametophytes & 95 & 95 & 76 & 73 \\
 Reads (total) & NA & NA & NA & NA \\
-Reads (assembly) & NA & NA & NA & NA \\
-No. Contigs & 120605 & 81211 & 26596 & 231053 \\
-Length (min - max) & 92 (61 - 283) & 101 (65 - 215) & 102 (65 - 288)  & 95 (61 - 312) \\
-No. SNPs & 106057 & 68465 & 28322 & 178715 \\
+No. SNPs (raw) & 106057 & 68465 & 28322 & 178715 \\
+No. SNPs (filtered) & 35304 & 21594 & 983 & 34261 \\
+No. contigs (filtered) & 17506 & 11883 & 557 & 17051 \\
 Missing Data (min - max) & 69.41 (1.22 - 99.97) & 70.20 (1.58 - 99.98) & 78.24 (2.04 - 99.98) & 67.17 (1.45-99.50) \\
 \bottomrule
 \end{tabular}
-\caption{Attributes of the data structure related to maternal tree. Notes: the sum total length of
-contigs in each assembly: blue: 7918275 bp, red: 2728398 bp, yellow: 10838392 bp, green: 20678013 bp} 
+\caption{Attributes of the data structure related to maternal tree.} 
+\label{t:label}
+\end{table}
+\end{landscape}
+
+\clearpage
+\begin{landscape}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cccccc}
+\toprule
+Attribute & Yellow & Blue & Red & Green & Consensus \\
+\midrule
+No. contigs & 17506 & 11883 & 557 & 17051 & 20655 \\
+No. positions & 728 & 1101 & 296 & 839 & 901 \\
+Contigs/position & 24 & 11 & 2 & 20 & 23 \\
+Total bp mapped & 1596325 & 1025088 & 47222 & 1583269 & 1931700 \\
+Total length (cM) & 1037.40 & 1263.46 & 1572.80 & 1287.48 & 1192.10 \\
+cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
+\bottomrule
+\end{tabular}
+\caption{Attributes of single-tree and the consensus linkage maps. Values for ratio variables are totals and are not averaged 
+across linkage groups (see Tables SX-SX).} 
 \label{t:label}
 \end{table}
 \end{landscape}
@@ -568,7 +670,7 @@ contigs in each assembly: blue: 7918275 bp, red: 2728398 bp, yellow: 10838392 bp
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.0\textwidth]{Figure01_TGG}
-\caption{Geographical locations of foxta il pine samples used to construct a common garden located in Placerville, CA. Circles 
+\caption{Geographical locations of foxtail pine samples used to construct a common garden located in Placerville, CA. Circles 
 denote the 15 unique locations from which $4$ to $17$ maternal trees were sampled. Circles enclosed in squares denote 
 locations from which maternal trees used in linkage mapping were sampled. Photo credits: lower: T. Burt; upper: A. Delfino Mix}
 \label{f:Figure01_TGG}
@@ -578,7 +680,7 @@ locations from which maternal trees used in linkage mapping were sampled. Photo 
 
 \begin{figure}[ht]
    \centering
-%  \includegraphics[width=1.0\textwidth]{Figure02_TGG}
+ \includegraphics[width=1.0\textwidth]{Figure02_TGG}
   \caption{Sharing of contigs across maternal tree maps from which the consensus map was constructed. Counts in each cell
   represent the number of unique contigs appearing on the final consensus map. KM = Klamath Mountains; SN = Sierra Nevada.}
   \label{f:Figure02_TGG}
