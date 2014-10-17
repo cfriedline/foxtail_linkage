@@ -66,9 +66,8 @@ $\ast$ E-mail: aeckert2@vcu.edu
 \section*{Abstract}
 
 Explaining the origin and evolutionary dynamics of the genetic architecture of adaptation
-is a major research goal of evolutionary genetics. Myriad attempts have been made over the past
-decades to uncover the genetic components of adaptive genetic variance, especially for forest trees. 
-Despite the controversy surrounding the success of these attempts, a full understanding of adaptive genetic variance 
+is a major research goal of evolutionary genetics.
+Despite the controversy surrounding the success of the attempts to accomplish this goal, a full understanding of adaptive genetic variation 
 necessitates knowledge about the genomic location and distributional patterns of the genetic components affecting fitness-related
 phenotypic traits. Even with advancements to next generation sequencing technologies, the production of full
 genome sequences for non-model species is often cost prohibitive, especially for tree species such as pines where genome
@@ -410,7 +409,7 @@ for the red, green, blue, and yellow libraries, respectively. Patterns of shared
 SNPs, were as expected given the among region magnitude of genetic differentiation \citep[Figure 2, see][]{Eckert:2008}, 
 with libraries comprised of megagametophytes sampled from maternal trees located in 
 the same geographical area sharing more polymorphic contigs and SNPs than comparisons of maternal trees from different
-geographical regions (nonparametric permutation analysis: $P < 0.05$).
+geographical regions (nonparametric permutation analysis: $P < 0.001$, see Supplemental Text).
 On average, megagametophytes in the filtered data set had 79.40\% ($\pm$ 14.7\%) missing data 
 across SNPs (range: 1.3\% to 99.8\%), with the green library having the smallest (74.3\% $\pm$ 18.9\%) and the red library having
 the largest average amount of missing data per megagametophyte (84.4\% $\pm$ 15.2\% ).
@@ -470,7 +469,7 @@ maternal tree had the largest (5.53 cM $\pm$ 6.11 cM), while that for the blue m
 This translated into an average of 15 ($\pm$ 27) contigs per position on average, with the linkage map for the red maternal tree
 having the fewest contigs per position on average (2 $\pm$ 2) and the linkage map for the yellow maternal tree the most contigs
 per position on average (27 $\pm$ 35). Contigs were also non-randomly distributed across positions for all linkage maps except that
-for the red maternal tree ($P < 0.001$), with elevated contig counts typically occurring at the ends of linkage groups (Figure 3).
+for the red maternal tree ($P < 0.001$, see Supplemental Text), with elevated contig counts typically occurring at the ends of linkage groups (Figure 3).
 
 \subsection*{Consensus Map Construction and Biological Interpretation}
 
@@ -489,7 +488,7 @@ LOD score of approximately 5.5 for each maternal tree for markers to be placed w
 The consensus linkage map was 1192.00 cM in length, with linkage groups varying in length from 88.44 cM to 108.76 cM. There were 901 unique positions
 across the 12 linkage groups for this map, so that the average number of contigs per position was 23 ($\pm$ 35). These 901 positions
 were separated on average by 1.34 cM ($\pm$ 0.50 cM). As with the individual maternal tree linkage maps, contigs were non-randomly distributed 
-across positions ($P < 0.001$), with notable enrichment at the ends of inferred linkage groups. Using the 507 framework SNPs and the final consensus linkage map, 
+across positions ($P < 0.001$, see Supplemental Text), with notable enrichment at the ends of inferred linkage groups. Using the 507 framework SNPs and the final consensus linkage map, 
 the estimated genome size of foxtail pine is 1276.04 cM (95\% confidence interval: 1174.31 - 1377.77 cM). As such, the estimated coverage of the genome 
 is 98.58\% (LOD threshold = 5.5, maximum distance among adjacent framework markers: 13.4 cM, number of framework markers: 507, $K = 2694$). 
 
@@ -701,10 +700,56 @@ in black, and density by family is indicated by respective color.}
 
 \beginsupplement
 
-\section*{Supplementary Material}
+\section*{Supplementary Materials}
 
 %put supplementary figures and tables below here
 \subsection*{Supplementary Text}\label{ss:supp}
+
+A nonparametric permutation analysis was used to test the hypothesis that sharing of polymorphic
+contigs was greater between maternal trees located in the same regional population. The null hypothesis
+in this case is that the degree of sharing between trees in the same regional population is not different
+than between trees in different regional populations. To conduct this test, we constructed a null distribution 
+of the difference between mean within versus mean between levels of contig sharing. This distribution was
+based on permutations, where each permutation consisted of randomly sampling with replacement contigs from the full set
+of contigs prior to filtering for each maternal tree identifier. The number of each contigs for each maternal
+tree identifier was equal to that observed in the original dataset. Given these assignments, the degree of sharing (DS)
+between trees was calculated as:
+
+DS = number of contigs shared/number of unique contigs in the pairwise comparison
+
+Given four maternal trees, there are 6 pairwise comparisons, of which there are 2 within regional population and
+4 between regional population comparisons. Using these pairwise values, we constructed a test statistic defined as
+the difference between the mean within regional population value of DS and the mean between regional population
+value of DS. We simulated $10000$ value of this test statistic to form the null distribution and rejected
+the null hypothesis when the observed test statistic fell in the upper 95\% tail of this null
+distribution. Using this approach, the observed test statistic was 0.06337814. The limits of the simulated null distribution
+were -0.0349 to 0.0415. Thus the observed test statistic fell completely outside the upper tail of the null distribution, which
+gives a \textit{P}-value of $P < 0.0001$.
+
+The spatial distribution of contigs along linkage groups was tested against complete spatial randomness using simulations.
+Specifically, we used the variance in the observed number of contigs mapped to each unique position across the entire linkage map
+as the test statistic. The null distribution of the test statistic was created by simulating $10000$ Poisson-distributed variables, each 
+with the number of random values equal to the number of unique positions on the linkage map under consideration and the mean 
+equal to the mean number of contigs per position. For each Poisson-distributed variable, the variance was calculated. The set of
+$10000$ variances was used as the null distribution expected under complete spatial randomness. A separate null distribution was
+constructed for each maternal tree. If the observed variance fell in either the 2.5\% or 97.5\% tail of the null distribution, the null
+hypothesis was rejected. For example, the values used 
+for the consensus linkage map were: observed variance $= 1245.423$, average expected variance of Poisson-distributed variable $= 
+23$, $95\%$ CI of null expectation: $20.915 - 25.246$, and limits of the null distribution: $19.214 - 27.655$.The \textit{P}-value for
+the observed variance is thus $P < 0.0001$. This test does not explicitly test spatial randomness of the unique positions on a linkage
+map, but rather tests the assumption that the intensities (i.e., the number of mapped contigs) at each position follow a Poisson distribution. 
+This approach was chosen because distances in the inferred linkage maps were sensitive the error correction and imputation. Of course, 
+the number of contigs at each mapped position is also sensitive to this process, although relaxing the error correction parameter in
+Maskov resulted in similar results for a range of values that resulted in realistic linkage map lengths. Thus, we were confident that this
+result is not only a function of error correction and imputation. All linkage maps except for the single-tree map from the red maternal tree
+had greater than expected variances across positions in counts of mapped contigs relative to the null model of a Poisson-distributed variable.
+
+\subsection*{Supplementary Tables}\label{ss:supp}
+
+
+\subsection*{Supplementary Figures}\label{ss:supp}
+
+
 
 
 \end{document}
