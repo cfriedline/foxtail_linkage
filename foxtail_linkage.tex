@@ -1,4 +1,7 @@
-\documentclass[11pt]{article}
+%\RequirePackage{fix-cm}
+\documentclass[smallextended]{svjour3}
+\smartqed
+
 \pdfoutput=1
 \usepackage{simplemargins}
 \usepackage{url}
@@ -10,7 +13,7 @@
 \setlength{\parskip}{1.6ex} 
 \setallmargins{1in} 
 \linespread{1.6}
-\usepackage[round]{natbib}
+\usepackage{natbib}
 \usepackage{color}
 \usepackage{subfigure}
 \usepackage{booktabs}
@@ -20,7 +23,7 @@
 
 % make subfigure labels capitalized
 \renewcommand{\thesubfigure}{(\Alph{subfigure})}
-
+ 
 %setup supplement
 \newcommand{\beginsupplement}{%
         \setcounter{table}{0}
@@ -31,39 +34,68 @@
         \renewcommand{\thesubsection}{S\arabic{subsection}} 
      }
 
+%set citation punctuation according to website guidelines
+\bibpunct[;]{(}{)}{;}{a}{}{,}
+
 \begin{document}
 
-% Title must be 150 characters or less
-\begin{flushleft} 
-\singlespacing
-{\Large \textbf{The genetic architecture of local adaptation I: The genomic landscape of 
-foxtail pine (\textit{Pinus balfouriana} Grev.\ \& Balf.) as revealed from a high-density linkage map}}
-% Insert Author names, affiliations and corresponding author email.
+\title{The genetic architecture of local adaptation I: The genomic landscape of 
+foxtail pine (\textit{Pinus balfouriana} Grev.\ \& Balf.) as revealed from a high-density linkage map.}
 
 
-Christopher J.\ Friedline$^{1}$, 
-Brandon M. Lind$^{1}$,
-Erin M. Hobson,$^{1}$,
-Douglas E. Harwood$^{1}$, 
-Annette Delfino Mix$^{2}$,
-Patricia E. Maloney$^{3}$, and
-Andrew J. Eckert$^{1,4}$
+\titlerunning{The genetic architecture of local adaptation I}
 
+\author{Christopher J.\ Friedline \and
+Brandon M. Lind \and 
+Erin M. Hobson \and 
+Douglas E. Harwood \and  
+Annette Delfino Mix \and 
+Patricia E. Maloney \and 
+Andrew J. Eckert*
+}
 
-\bf{1} Department of Biology, Virginia Commonwealth University, Richmond, VA 23284
-\\
-\bf{2} Institute of Forest Genetics, USDA Pacific Southwest Research Station, Placerville, 
-CA 95667
-\\
-\bf{3} Department of Plant Pathology, University of California, Davis, CA 95616
-\\
-\bf{4} Author for Correspondence
+\institute{C. Friedline  \at
+Department of Biology \\
+Virginia Commonwealth University \\
+Richmond, VA  23284 \\
+\email{cfriedline@vcu.edu}
+\and
+B. Lind \at 
+Department of Biology \\
+Virginia Commonwealth University \\
+Richmond, VA  23284 \\
+\email{lindb@vcu.edu}
+\and 
+D. Harwood \at
+Department of Biology \\
+Virginia Commonwealth University \\
+Richmond, VA  23284 \\
+\email{harwoodde@vcu.edu}
+\and
+A. Mix \at 
+Institute of Forest Genetics \\
+USDA Pacific Southwest Research Station \\
+Placerville, CA 9566 \\
+\email{}
+\and 
+P. Maloney \at 
+Department of Plant Pathology \\
+University of California \\ 
+Davis, CA 95616 \\
+\email{}
+\and
+A. Eckert (*Corresponding author) \at 
+Department of Biology \\
+Virginia Commonwealth University \\
+Richmond, VA  23284\\
+\email{aeckert2@vcu.edu}
+}
 
+\date{Received: date / Accepted: date}
 
-$\ast$ E-mail: aeckert2@vcu.edu
-\end{flushleft}
+\maketitle
 
-\section*{Abstract}
+\begin{abstract}
 
 Explaining the origin and evolutionary dynamics of the genetic architecture of adaptation
 is a major research goal of evolutionary genetics.
@@ -80,17 +112,19 @@ of the foxtail pine genome, which was estimated to be $1276$ cM in length ($95\%
 of marker ordering and imputation was employed to produce single-tree linkage maps ($507 - 17066$ contigs/map; lengths: $1037.40 - 1572.80$ cM).
 These linkage maps were collinear across maternal trees, with highly correlated marker orderings (Spearman's $\rho > 0.95$).
 A consensus linkage map derived from these single-tree linkage maps contained $12$ 
-linkage groups along which $20655$ contigs were non-randomly distributed across $901$ unique positions,
-with an average spacing of $1.34$ cM between adjacent positions (\textit{n}$ = 23$ contigs/position). Of the $20655$ contigs positioned on the consensus 
+linkage groups along which \num{20655} contigs were non-randomly distributed across $901$ unique positions,
+with an average spacing of $1.34$ cM between adjacent positions (\textit{n}$ = 23$ contigs/position). Of the \num{20655} contigs positioned on the consensus 
 linkage map, $5627$ had enough sequence similarity to contigs contained within the most recent build of the loblolly pine 
-(\textit{P. taeda} L.) genome to identify them as  putative homologs containing both genic and non-genic loci. Importantly,
+(\textit{P. taeda} L.) genome to identify them as putative homologs containing both genic and non-genic loci. Importantly,
 all $901$ unique positions on the consensus linkage map had at least one contig with putative homology to loblolly pine.
 Our results indicate that high density linkage maps can be produced efficiently for non-model forest tree species 
 and that these maps have important functions as community-wide resources and as tools with which to 
 test hypotheses about the genetic architecture of adaptation. 
 
-\textbf{Key words:} Adaptation, double-digestion restriction site associated DNA sequencing, foxtail pine, linkage mapping, 
-\textit{Pinus balfouriana}
+\keywords{Adaptation \and double-digestion restriction site associated DNA sequencing \and foxtail pine 
+\and linkage mapping \and \textit{Pinus balfouriana}}
+
+\end{abstract}
 
 \section*{Introduction}
 
@@ -588,14 +622,15 @@ foxtail pine using methods applicable to any non-model conifer species, thus ope
 genome structure and the genetic architecture  of local adaptation in this rather understudied clade of pines, 
 as well as the Pinaceae as a whole. 
 
-\section*{Acknowledgements}
-
+\begin{acknowledgements}
 The authors would like to thank the staff at the USDA Institute of Forest Genetics, the 
 VCU Nucleic Acids Research Facility, and the VCU Center for High Performance Computing. 
 In addition, we would like to thank Tom Blush and Tom Burt for help in obtaining 
 seeds. Funding for this project was made available to AJE via start-up funds from Virginia 
 Commonwealth University. CJF was supported by the National Science Foundation (NSF) National Plant Genome 
 Initiative (NPGI): Postdoctoral Research Fellowship in Biology (PRFB) FY 2013 Award \#NSF-NPGI-PRFB-1306622.
+\end{acknowledgements}
+
 
 \section*{Data Archiving Statement}
 
@@ -605,10 +640,11 @@ are located as supporting documents (Files SX - SX).
 The consensus linkage map, as well as single-tree linkage maps, are also available 
 in the Comparative Mapping Database on Dendrome (accession numbers: XXXXX-XXXXX).
 
+
 \clearpage
 
-\singlespacing
 \bibliographystyle{spbasic}
+
 \bibliography{refs}
 
 \clearpage
