@@ -521,8 +521,11 @@ was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}.  This translated
 into an average expectation of 16\% divergence between any two DNA sequences of
 loblolly and foxtail pines. We rounded down to 75\% to account for a portion of
 the variance around this expectation. Hits that exceeded these thresholds were
-transferred as annotations to the contig appearing on the consensus linkage map
-for foxtail pine.
+transferred as annotations, as obtained from the annotation gff files, to the
+contig appearing on the consensus linkage map for foxtail pine. The resulting GO
+annotations were visualized and analyzed with ReviGO (Gene Ontology monthly
+release 10/2014; UniProt-to-GO mapping 9/30/2014) \citep{Supek:2011bw} allowing
+a similarity of 50\% across terms.
 
 \section*{Results}
 
@@ -704,8 +707,14 @@ Of the \num{20655} contigs in the reference assembly which contained SNPs,
 \num{5627} (27.2\%) contained BLAST hits ($n=5853$) which passed the filtering
 threshold of 50\% query length and 75\% identity.  The averages of query length
 (bp), query coverage percentage, and identity percentage were $94 \pm 7$,
-$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. MORE HERE ABOUT
-BLAST.
+$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. There were XXX hits
+to scaffolds (XXX unique).  Of these, we found 0 GO terms associated with
+low-quality, partial genes and 19 GO terms associated with low-quality
+full-length genes. For the high-quality set of annotated genes, we found 116 GO
+terms associated with partial genes and 253 associated to whole genes.  We consider 
+valid hits to the genome assembly in regions that are not annotated (regardless of 
+annotation quality) as putatively non-genic. Therefore, of the \num{5627} contigs 
+containing SNPs, XXX are in putatively non-genic regions of the genome. 
 
 \section*{Discussion}
 
