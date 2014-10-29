@@ -287,11 +287,11 @@ quality control steps were demultiplexed into sample-specific fastq files by exa
 known barcodes; reads which did not match were excluded.
 
 The individual with the largest number of reads across all four locations was assembled using 
-Velvet (Zerbino, version 1.2.10), with hash length ($k$) coverage cutoff optimized using parameter sweeps of $k$ 
+Velvet (Zerbino, version 1.2.10), with hash length ($k$) optimized using parameter sweeps of $k$ 
 through the contributed VelvetOptimiser (\url{http://www.vicbioinformatics.com}, version 2.2.5) 
-script (for odd $k$ on $k=[19,65]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
+script (for odd $k$ on $k=[19,63]$).  Assembly robustness was evaluated in each case using the LAP likelihood 
 framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186) following mapping of the original reads to the 
-assembly with Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive}).  The assembly with the highest 
+assembly with Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive-local}).  The assembly with the 
 maximum likelihood value was chosen as the reference for SNP calling.
 
 SNPs were called for all individuals against the reference using the following methodology.  First, 
@@ -426,12 +426,11 @@ on average across libraries, with average minimums of 753 $\pm$ 603 bp to averag
 \num{2436531265} bp (red) to \num{11643165529} bp (yellow).  
 
 The largest number of reads ($n=\text{\num{6838986}}$) were obtained for a single megagametophyte in the 
-green library. These reads were used to create an assembly for which alll other data were mapped against 
-for SNP calling and genotype determination. Optimization of assembly parameters (LIST HERE, CHRIS?) 
-resulted in an assembly with \num{231053} contigs, with an average length of 89 bp $\pm$ 12 bp per contig 
+green library. These reads were used to create an assembly against which all other data were mapped  
+for SNP calling and genotype determination. Optimization of assembly parameters ($k=31, lnL=-110.071)$, 
+resulted in an assembly of \num{231053} contigs, with an average length of 89 bp $\pm$ 12 bp per contig 
 (range: \SIrange {61}{312}{bp}), and an average per-contig base coverage of \SIrange{4.5}{20.0}{X} (range: 
-\SIrange{1.5}{5069}{X})
-This assembly represented approximately 0.07\% of the genome of foxtail
+\SIrange{1.5}{5069}{X}). This assembly represented approximately 0.07\% of the genome of foxtail
 pine, which was assumed to be approximately 30 Gbp in size \citep{Murray:1998}.
 
 Using this assembly, \num{349542} putative SNPs were called (Table 1). These  \num{349542} SNPs were located in
