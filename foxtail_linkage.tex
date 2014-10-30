@@ -60,7 +60,7 @@ Richmond, VA  23284 \\
 \email{cfriedline@vcu.edu}
 \and
 B. Lind \at 
-Department of Biology \\
+Integrative Life Sciences (ask Bill) \\
 Virginia Commonwealth University \\
 Richmond, VA  23284 \\
 \email{lindb@vcu.edu}
@@ -104,34 +104,34 @@ Richmond, VA  23284\\
   affecting fitness-related phenotypic traits. Even with advancements to next
   generation sequencing technologies, the production of full genome sequences
   for non-model species is often cost prohibitive, especially for tree species
-  such as pines where genome size often exceeds $20$ to $30$ Gbp in size. Here,
+  such as pines where genome size often exceeds 20 to 30 Gbp in size. Here,
   we address this need by constructing a dense linkage map for foxtail pine
   (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of
   uncovering and explaining the origin and evolutionary dynamics of adaptive
   genetic variation for drought tolerance in natural populations of this forest
-  tree species. We utilized megagametophyte arrays (\textit{n} $= 76 - 95$
+  tree species. We utilized megagametophyte arrays ($n$ = 76--95
   megagametophytes/tree) from four maternal trees in combination with
   double-digestion restriction site associated DNA sequencing (ddRADseq) to
-  produce a consensus linkage map covering $98.58\%$ of the foxtail pine genome,
-  which was estimated to be $1276$ cM in length ($95\%$ CI: $1174-1378$ cM). A
+  produce a consensus linkage map covering 98.58\% of the foxtail pine genome,
+  which was estimated to be 1276 cM in length (95\% CI: $1174-1378$ cM). A
   novel bioinformatic approach using iterative rounds of marker ordering and
-  imputation was employed to produce single-tree linkage maps ($507 - 17066$
-  contigs/map; lengths: $1037.40 - 1572.80$ cM).  These linkage maps were
-  collinear across maternal trees, with highly correlated marker orderings
-  (Spearman's $\rho > 0.95$).  A consensus linkage map derived from these
-  single-tree linkage maps contained $12$ linkage groups along which \num{20655}
-  contigs were non-randomly distributed across $901$ unique positions
-  (\textit{n}$ = 23$ contigs/position), with an average spacing of $1.34$ cM
-  between adjacent positions. Of the \num{20655} contigs positioned on the
-  consensus linkage map, $5627$ had enough sequence similarity to contigs
+  imputation was employed to produce single-tree linkage maps
+  (\num{507}--\num{17066} contigs/map; lengths: 1037.40--1572.80 cM).  These
+  linkage maps were collinear across maternal trees, with highly correlated
+  marker orderings (Spearman's $\rho > 0.95$).  A consensus linkage map derived
+  from these single-tree linkage maps contained 12 linkage groups along which
+  \num{20655} contigs were non-randomly distributed across 901 unique
+  positions ($n = 23$ contigs/position), with an average spacing of
+  $1.34$ cM between adjacent positions. Of the \num{20655} contigs positioned on
+  the consensus linkage map, 5627 had enough sequence similarity to contigs
   contained within the most recent build of the loblolly pine (\textit{P. taeda}
-  L.) genome to identify them as putative homologs containing both genic ($n = 339$) and
-  non-genic ($n = 5288$) loci. Importantly, all $901$ unique positions on the consensus
-  linkage map had at least one contig with putative homology to loblolly pine.
-  Our results indicate that high density linkage maps can be produced
-  efficiently for non-model forest tree species and that these maps have
-  important functions as community-wide resources and as tools with which to
-  test hypotheses about the genetic architecture of adaptation.
+  L.) genome to identify them as putative homologs containing both genic ($n =
+  339$) and non-genic ($n = 5288$) loci. Importantly, all 901 unique positions
+  on the consensus linkage map had at least one contig with putative homology to
+  loblolly pine.  Our results indicate that high density linkage maps can be
+  produced efficiently for non-model forest tree species and that these maps
+  have important functions as community-wide resources and as tools with which
+  to test hypotheses about the genetic architecture of adaptation.
 
 \keywords{Adaptation \and double-digestion restriction site associated DNA
   sequencing \and foxtail pine \and linkage mapping \and \textit{Pinus
@@ -342,7 +342,7 @@ quality and biological meaning.
 
 DNA sequence reads were demultiplexed into sample-level fastq files, following
 quality control and filtering.  The filtering pipeline was adapted from
-\citep{Friedline:2012fm}, and is briefly: reads containing any N beyond the
+\citet{Friedline:2012fm}. Briefly, reads containing any N beyond the
 first base were excluded. Reads having N as the first base were shifted to
 exclude it.  Additional quality filtering ensured that all reads in the
 resulting set for downstream processing had a minimum average quality score of
@@ -351,18 +351,19 @@ the bases had quality scores below 30. Reads passing the quality control steps
 were demultiplexed into sample-specific fastq files by exact pattern matching to
 known barcodes; reads which did not match were excluded.
 
-The individual with the largest number of reads across all four locations was
-assembled using Velvet (Zerbino, version 1.2.10), with hash length ($k$)
-optimized using parameter sweeps of $k$ through the contributed VelvetOptimiser
-(\url{http://www.vicbioinformatics.com}, version 2.2.5) script (for odd $k$ on
-$k=[19,63]$).  Assembly robustness was evaluated in each case using the LAP
-likelihood framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186)
-following mapping of the original reads to the assembly with Bowtie2
-\citep{Langmead:2012jh} (\texttt{--local --very-sensitive-local}).  The assembly
-with the maximum likelihood value was chosen as the reference for SNP calling.
+The individual with the largest number of reads across all four maternal trees
+was assembled using Velvet (Zerbino, version 1.2.10), with hash length ($k$)
+optimized using parameter sweeps of $k$ through the contributed
+\texttt{VelvetOptimiser} (\url{http://www.vicbioinformatics.com}, version 2.2.5)
+script (for odd $k$ on $k=[19,63]$).  Assembly robustness was evaluated in each
+case using the LAP likelihood framework \citep{Ghodsi:2013bc}, version 1.1 (svn
+commit r186) following mapping of the original reads to the assembly with
+Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive-local}).  The
+assembly with the maximum likelihood value was chosen as the reference for SNP
+calling.
 
 SNPs were called for all individuals against the reference using the following
-methodology.  First, reads were mapped to the reference with Bowtie2
+methodology.  First, reads were mapped to the reference with \texttt{Bowtie2}
 (\texttt{--local --very-sensitive-local}).  These resulting sam files were
 converted to their binary equivalent (e.g., bam) using \texttt{samtools} version
 0.1.19 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using
@@ -390,7 +391,7 @@ genotype calls for each of the alternate alleles. The resulting subset of SNPs
 was then used as the input to linkage analysis.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
-The production of a linkage map for a single tree requires three main steps: (1)
+The production of a linkage map requires three main steps: (1)
 calculation of pairwise distances between all pairs of loci, (2) clustering
 (i.e., grouping) of loci based on these pairwise distances, and (3) ordering of
 loci within each cluster \citep{Cheema:2009}.  A variety of software packages
@@ -483,9 +484,9 @@ We took a two-step approach to the inference of the consensus linkage
 map. First, the four linkage maps, one for each maternal tree, were combined
 into a framework linkage map using MergeMap \citep{Wu:2008b}.  We constructed a
 set of weights with which to rank SNP orderings from each map as more or less
-believable based on the average amount of missing data, where a higher weight
+probable based on the average amount of missing data, where a higher weight
 meant that the genotype data used to infer the linkage map had fewer instances
-of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on
+of missing data (red: 0.05, green: 0.40, blue: 0.15, yellow: 0.40). We focused on
 only those markers that appeared in three or more of the linkage maps, with the
 stipulation that two of the three linkage maps in which the marker appeared must
 be that for the green and yellow libraries and that the amount of missing data
@@ -574,7 +575,7 @@ libraries. This was done to facilitate the efficiency of the calculation of
 pairwise recombination fractions. These SNP counts represented \num{507},
 \num{16925}, \num{10967}, and \num{17066} contigs for the red, green, blue, and
 yellow libraries, respectively. Patterns of shared polymorphic contigs, as well
-as SNPs, were as expected given the among region magnitude of genetic
+as SNPs, were as expected given the among-region magnitude of genetic
 differentiation \citep[Figure 2, see][]{Eckert:2008}, with libraries comprised
 of megagametophytes sampled from maternal trees located in the same geographical
 area sharing more polymorphic contigs and SNPs than comparisons of maternal
@@ -709,7 +710,7 @@ Of the \num{20655} contigs in the reference assembly which contained SNPs,
 threshold of 50\% query length and 75\% identity.  The averages of query length
 (bp), query coverage percentage, and identity percentage were $94 \pm 7$,
 $86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. Of these hits, we
-find 339 contigs with SNPs in annotated regions of the genome to which GO terms
+found 339 contigs with SNPs in annotated regions of the genome to which GO terms
 have been attached.  We found 0 GO terms associated with low-quality, partial
 genes and 19 GO terms associated with low-quality, full-length genes. For the
 high-quality set of annotated genes, we found 116 GO terms associated with
@@ -954,11 +955,11 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
 \caption{Summary of incidence of GO terms for contigs containing SNPs at varying
   levels of annotation quality in the loblolly pine genome. As defined in the
   loblolly annotation readme file, high quality genes are categorized as such if
-  they 1) have one or more forms of supporting RNA-Seq/EST evidence, 2) contain
-  a recognizable protein domain, 3) contain canonical start/splice sites, and 4)
-  are multi-exonic. In contrast, low quality annotations meet the criteria
-  above, but only contain a single exon and/r do not contain a recognizable
-  domain.}
+  they (1) have one or more forms of supporting RNA-Seq/EST evidence, (2)
+  contain a recognizable protein domain, (3) contain canonical start/splice
+  sites, and (4) are multi-exonic. In contrast, low quality annotations meet the
+  criteria above, but only contain a single exon and/r do not contain a
+  recognizable domain.}
 \label{f:snp_venn}
 \end{figure}
 
