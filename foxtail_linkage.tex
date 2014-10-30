@@ -60,7 +60,7 @@ Richmond, VA  23284 \\
 \email{cfriedline@vcu.edu}
 \and
 B. Lind \at 
-Department of Biology \\
+Integrative Life Sciences (ask Bill) \\
 Virginia Commonwealth University \\
 Richmond, VA  23284 \\
 \email{lindb@vcu.edu}
@@ -342,7 +342,7 @@ quality and biological meaning.
 
 DNA sequence reads were demultiplexed into sample-level fastq files, following
 quality control and filtering.  The filtering pipeline was adapted from
-\citep{Friedline:2012fm}, and is briefly: reads containing any N beyond the
+\citet{Friedline:2012fm}. Briefly, reads containing any N beyond the
 first base were excluded. Reads having N as the first base were shifted to
 exclude it.  Additional quality filtering ensured that all reads in the
 resulting set for downstream processing had a minimum average quality score of
@@ -351,18 +351,19 @@ the bases had quality scores below 30. Reads passing the quality control steps
 were demultiplexed into sample-specific fastq files by exact pattern matching to
 known barcodes; reads which did not match were excluded.
 
-The individual with the largest number of reads across all four locations was
-assembled using Velvet (Zerbino, version 1.2.10), with hash length ($k$)
-optimized using parameter sweeps of $k$ through the contributed VelvetOptimiser
-(\url{http://www.vicbioinformatics.com}, version 2.2.5) script (for odd $k$ on
-$k=[19,63]$).  Assembly robustness was evaluated in each case using the LAP
-likelihood framework \citep{Ghodsi:2013bc}, version 1.1 (svn commit r186)
-following mapping of the original reads to the assembly with Bowtie2
-\citep{Langmead:2012jh} (\texttt{--local --very-sensitive-local}).  The assembly
-with the maximum likelihood value was chosen as the reference for SNP calling.
+The individual with the largest number of reads across all four maternal trees
+was assembled using Velvet (Zerbino, version 1.2.10), with hash length ($k$)
+optimized using parameter sweeps of $k$ through the contributed
+\texttt{VelvetOptimiser} (\url{http://www.vicbioinformatics.com}, version 2.2.5)
+script (for odd $k$ on $k=[19,63]$).  Assembly robustness was evaluated in each
+case using the LAP likelihood framework \citep{Ghodsi:2013bc}, version 1.1 (svn
+commit r186) following mapping of the original reads to the assembly with
+Bowtie2 \citep{Langmead:2012jh} (\texttt{--local --very-sensitive-local}).  The
+assembly with the maximum likelihood value was chosen as the reference for SNP
+calling.
 
 SNPs were called for all individuals against the reference using the following
-methodology.  First, reads were mapped to the reference with Bowtie2
+methodology.  First, reads were mapped to the reference with \texttt{Bowtie2}
 (\texttt{--local --very-sensitive-local}).  These resulting sam files were
 converted to their binary equivalent (e.g., bam) using \texttt{samtools} version
 0.1.19 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using
@@ -390,7 +391,7 @@ genotype calls for each of the alternate alleles. The resulting subset of SNPs
 was then used as the input to linkage analysis.
 
 \subsection*{Linkage Analysis}\label{ss:linkage}
-The production of a linkage map for a single tree requires three main steps: (1)
+The production of a linkage map requires three main steps: (1)
 calculation of pairwise distances between all pairs of loci, (2) clustering
 (i.e., grouping) of loci based on these pairwise distances, and (3) ordering of
 loci within each cluster \citep{Cheema:2009}.  A variety of software packages
@@ -483,9 +484,9 @@ We took a two-step approach to the inference of the consensus linkage
 map. First, the four linkage maps, one for each maternal tree, were combined
 into a framework linkage map using MergeMap \citep{Wu:2008b}.  We constructed a
 set of weights with which to rank SNP orderings from each map as more or less
-believable based on the average amount of missing data, where a higher weight
+probable based on the average amount of missing data, where a higher weight
 meant that the genotype data used to infer the linkage map had fewer instances
-of missing data (red: 0.05, green: 0.40,blue: 0.15, yellow: 0.40). We focused on
+of missing data (red: 0.05, green: 0.40, blue: 0.15, yellow: 0.40). We focused on
 only those markers that appeared in three or more of the linkage maps, with the
 stipulation that two of the three linkage maps in which the marker appeared must
 be that for the green and yellow libraries and that the amount of missing data
@@ -574,7 +575,7 @@ libraries. This was done to facilitate the efficiency of the calculation of
 pairwise recombination fractions. These SNP counts represented \num{507},
 \num{16925}, \num{10967}, and \num{17066} contigs for the red, green, blue, and
 yellow libraries, respectively. Patterns of shared polymorphic contigs, as well
-as SNPs, were as expected given the among region magnitude of genetic
+as SNPs, were as expected given the among-region magnitude of genetic
 differentiation \citep[Figure 2, see][]{Eckert:2008}, with libraries comprised
 of megagametophytes sampled from maternal trees located in the same geographical
 area sharing more polymorphic contigs and SNPs than comparisons of maternal
