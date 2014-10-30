@@ -231,7 +231,7 @@ discovery via DNA sequencing followed by genotyping of those polymorphisms
 outside of economically important species are created with uncharacterized
 genetic markers \citep[e.g.,][]{Travis:1998}. Much of the knowledge about the
 genetic architecture of fitness-related traits, outside of a handful of
-economically important conifer species, therefore, encompases the number and
+economically important conifer species, therefore, encompasses the number and
 effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost
 restrictions, however, have largely disappeared.  It is now feasible to jointly
 discover polymorphisms and genotype samples using high-throughput DNA sequencing
@@ -368,9 +368,10 @@ converted to their binary equivalent (e.g., bam) using \texttt{samtools} version
 0.1.19 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using
 \texttt{bcftools} and filtered using \texttt{vcfutils} to exclude SNPs with less
 than 100x coverage. The resulting variant call files (vcf) were further
-processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels,
-exclude genotype calls below a quality threshold of 5, and output as a matrix
-(\texttt{--012}) the haploid genotype of each megagametophyte for each SNP.
+processed using \texttt{vcftools} version 0.1.11 \citep{Danecek:2011gz} to
+remove indels, exclude genotype calls below a quality threshold of 5, and output
+as a matrix (\texttt{--012}) the haploid genotype of each megagametophyte for
+each SNP.
 
 We used several thresholds to filter called SNPs for linkage mapping. First, we
 excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1
