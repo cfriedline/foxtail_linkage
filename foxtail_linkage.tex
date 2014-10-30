@@ -104,34 +104,35 @@ Richmond, VA  23284\\
   affecting fitness-related phenotypic traits. Even with advancements to next
   generation sequencing technologies, the production of full genome sequences
   for non-model species is often cost prohibitive, especially for tree species
-  such as pines where genome size often exceeds 20 to 30 Gbp in size. Here,
-  we address this need by constructing a dense linkage map for foxtail pine
+  such as pines where genome size often exceeds 20 to 30 Gbp in size. Here, we
+  address this need by constructing a dense linkage map for foxtail pine
   (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of
   uncovering and explaining the origin and evolutionary dynamics of adaptive
   genetic variation for drought tolerance in natural populations of this forest
   tree species. We utilized megagametophyte arrays ($n$ = 76--95
-  megagametophytes/tree) from four maternal trees in combination with
+  \si{megagametophytes/tree}) from four maternal trees in combination with
   double-digestion restriction site associated DNA sequencing (ddRADseq) to
   produce a consensus linkage map covering 98.58\% of the foxtail pine genome,
-  which was estimated to be 1276 cM in length (95\% CI: $1174-1378$ cM). A
-  novel bioinformatic approach using iterative rounds of marker ordering and
-  imputation was employed to produce single-tree linkage maps
-  (\num{507}--\num{17066} contigs/map; lengths: 1037.40--1572.80 cM).  These
-  linkage maps were collinear across maternal trees, with highly correlated
-  marker orderings (Spearman's $\rho > 0.95$).  A consensus linkage map derived
-  from these single-tree linkage maps contained 12 linkage groups along which
-  \num{20655} contigs were non-randomly distributed across 901 unique
-  positions ($n = 23$ contigs/position), with an average spacing of
-  $1.34$ cM between adjacent positions. Of the \num{20655} contigs positioned on
-  the consensus linkage map, 5627 had enough sequence similarity to contigs
-  contained within the most recent build of the loblolly pine (\textit{P. taeda}
-  L.) genome to identify them as putative homologs containing both genic ($n =
-  339$) and non-genic ($n = 5288$) loci. Importantly, all 901 unique positions
-  on the consensus linkage map had at least one contig with putative homology to
-  loblolly pine.  Our results indicate that high density linkage maps can be
-  produced efficiently for non-model forest tree species and that these maps
-  have important functions as community-wide resources and as tools with which
-  to test hypotheses about the genetic architecture of adaptation.
+  which was estimated to be \SI{1276}{cM} in length (95\% CI:
+  \SIrange{1174}{1378}{cM}). A novel bioinformatic approach using iterative
+  rounds of marker ordering and imputation was employed to produce single-tree
+  linkage maps (\num{507}--\num{17066} contigs/map; lengths: 1037.40--1572.80
+  cM).  These linkage maps were collinear across maternal trees, with highly
+  correlated marker orderings (Spearman's $\rho > 0.95$).  A consensus linkage
+  map derived from these single-tree linkage maps contained 12 linkage groups
+  along which \num{20655} contigs were non-randomly distributed across 901
+  unique positions ($n = 23$ contigs/position), with an average spacing of
+  \SI{1.34}{cM} between adjacent positions. Of the \num{20655} contigs
+  positioned on the consensus linkage map, 5627 had enough sequence similarity
+  to contigs contained within the most recent build of the loblolly pine
+  (\textit{P. taeda} L.) genome to identify them as putative homologs containing
+  both genic ($n = 339$) and non-genic ($n = 5288$) loci. Importantly, all 901
+  unique positions on the consensus linkage map had at least one contig with
+  putative homology to loblolly pine.  Our results indicate that high density
+  linkage maps can be produced efficiently for non-model forest tree species and
+  that these maps have important functions as community-wide resources and as
+  tools with which to test hypotheses about the genetic architecture of
+  adaptation.
 
 \keywords{Adaptation \and double-digestion restriction site associated DNA
   sequencing \and foxtail pine \and linkage mapping \and \textit{Pinus
@@ -159,7 +160,7 @@ fitness-related traits, however, should also include an examination of the
 genomic organization of the loci contributing to trait variation. Here, we
 leverage this idea in the first of a series of papers dissecting the genetic
 architecture of fitness-related traits in a non-model conifer species, foxtail
-pine (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of
+pine (\textit{Pinus balfouriana} Grev.\  \& Balf.), with the ultimate goal of
 testing explicit evolutionary hypotheses about the genomic organization of loci
 contributing to variation in fitness-related traits.
 
@@ -386,7 +387,7 @@ $\chi^2$ test and corrections on a family-wise basis.  Second, for each family,
 we filtered the resulting SNPs based on the genotype of the pseudo-diploid
 sample in that family so as to keep only those SNPs where the pseudo-diploid was
 either 1) called a heterozygote or 2) had a missing genotype call.  Lastly, we
-filtered the resulting SNPs so as keep only those that had a minimum of $5$
+filtered the resulting SNPs so as keep only those that had a minimum of 5
 genotype calls for each of the alternate alleles. The resulting subset of SNPs
 was then used as the input to linkage analysis.
 
@@ -819,20 +820,20 @@ intervals), as this bias would affect QTL size and not necessarily inference of
 QTL presence or absence. The relative importance of imputation and error
 correction is to some degree affected by experimental conditions. Here, we did
 not standardize the total amount of DNA for each megagametophyte prior to
-construction of libraries (concentration ranges: $10$ ng/ul to $>50$ ng/ul),
-which likely affected the average 19,741-fold variation in the number of reads
+construction of libraries (concentration ranges: \SIrange{10}{>50}{ng/ul},
+which likely affected the average \num{19741}-fold variation in the number of reads
 across megametophytes. Future studies would putatively benefit from considering
 this prior to library construction. Third, we used a form of hierarchical
 clustering that required the number of groups to be defined
 subjectively. \textit{Post hoc} analysis indicated that our clustering solution
-corresponded to a LOD threshold of approximately $5.5$ and that $12$ was an
+corresponded to a LOD threshold of approximately 5.5 and that 12 was an
 optimal number of groups (Figure S1). Selection of a larger or smaller number of
-groups, moreover, did not change marker ordering within groups substantially.
+groups ($K$), moreover, did not change marker ordering within groups substantially.
 Typically, changing $K$ to a larger value only broke existing linkage groups
 into more pieces, whereas changing $K$ to smaller values merged existing linkage
 groups. Marker orderings within these broken or merged groups, however, did not
 change.  Lastly, our sample sizes were not large enough to resolve linkage
-relationships beyond distances of approximately 1.0 cM \citep[but
+relationships beyond distances of approximately \SI{1.0}{cM} \citep[but
 see][]{Neves:2014}. Increased number of sampled megagametophytes would have
 allowed higher resolution, which could aid in downstream uses of our linkage
 map. Despite this level of resolution, however, we have produced one of the
@@ -905,7 +906,7 @@ Reads (total) & NA & NA & 71834280 & 206365836 \\
 \begin{table}[ht]
 \centering
 \caption{Attributes of single-tree and the consensus linkage maps. Values for ratio variables are totals and are not averaged 
-  across linkage groups (see Tables S1-S5).} 
+  across linkage groups (see Tables S1--S5).} 
 
 \begin{tabular}{cccccc}
 \toprule
@@ -929,7 +930,7 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
 \includegraphics[width=1.0\textwidth]{Figure01_TGG}
 \caption{Geographical locations of foxtail pine samples used to construct a
   common garden located in Placerville, CA. Circles denote the 15 unique
-  locations from which $4$ to $17$ maternal trees were sampled. Circles enclosed
+  locations from which 4 to 17 maternal trees were sampled. Circles enclosed
   in squares denote locations from which maternal trees used in linkage mapping
   were sampled. Photo credits: lower: T. Burt; upper: A. Delfino Mix}
 \label{f:Figure01_TGG}
@@ -1007,20 +1008,20 @@ Given four maternal trees, there are 6 pairwise comparisons, of which there are
 2 within regional population and 4 between regional population
 comparisons. Using these pairwise values, we constructed a test statistic
 defined as the difference between the mean within regional population value of
-DS and the mean between regional population value of DS. We simulated $10000$
-values of this test statistic to form the null distribution and rejected the
-null hypothesis when the observed test statistic fell in the upper 95\% tail of
-this null distribution (i.e., a one-tailed test). Using this approach, the
-observed test statistic was 0.06337814. The limits of the simulated null
-distribution were -0.0349 to 0.0415. Thus the observed test statistic fell
-completely outside the upper tail of the null distribution, which gives a
-\textit{P}-value of $P < 0.0001$.
+DS and the mean between regional population value of DS. We simulated
+\num{10000} values of this test statistic to form the null distribution and
+rejected the null hypothesis when the observed test statistic fell in the upper
+95\% tail of this null distribution (i.e., a one-tailed test). Using this
+approach, the observed test statistic was 0.06337814. The limits of the
+simulated null distribution were -0.0349 to 0.0415. Thus the observed test
+statistic fell completely outside the upper tail of the null distribution, which
+gives a $P$-value of $p < 0.0001$.
 
 The spatial distribution of contigs along linkage groups was tested against
 complete spatial randomness using simulations.  Specifically, we used the
 variance in the observed number of contigs mapped to each unique position across
 the entire linkage map as the test statistic. The null distribution of the test
-statistic was created by simulating $10000$ Poisson-distributed variables, each
+statistic was created by simulating \num{10000} Poisson-distributed variables, each
 with the number of random values equal to the number of unique positions on the
 linkage map under consideration and the mean equal to the mean number of contigs
 per position. For each Poisson-distributed variable, the variance was
@@ -1030,8 +1031,8 @@ constructed for each maternal tree. If the observed variance fell in either the
 2.5\% or 97.5\% tail of the null distribution, the null hypothesis was
 rejected. For example, the values used for the consensus linkage map were:
 observed variance $= 1245.423$, average expected variance of Poisson-distributed
-variable $= 23$, $95\%$ CI of null expectation: $20.915 - 25.246$, and limits of
-the null distribution: $19.214 - 27.655$.The \textit{P}-value for the observed
+variable $= 23$, $95\%$ CI of null expectation: 20.915--25.246, and limits of
+the null distribution: 19.214--27.655.  The $P$-value for the observed
 variance is thus $P < 0.0001$. This test does not explicitly test spatial
 randomness of the unique positions on a linkage map, but rather tests the
 assumption that the intensities (i.e., the number of mapped contigs) at each
@@ -1040,7 +1041,7 @@ distances in the inferred linkage maps were sensitive the error correction and
 imputation. Of course, the number of contigs at each mapped position is also
 sensitive to this process, although relaxing the error correction parameter in
 Maskov resulted in similar results for a range of values that resulted in
-realistic linkage map lengths (i.e., total lengths < $3000$ cM). Thus, we were
+realistic linkage map lengths (i.e., total lengths $< \SI{3000}{cM}$. Thus, we were
 confident that this result is not only a function of error correction and
 imputation. All linkage maps except for the single-tree map from the red
 maternal tree had greater than expected variances across positions in counts of
