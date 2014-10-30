@@ -519,8 +519,8 @@ identity. As a thresholds, we used a minimum of 50\% for the query coverage and
 75\% for the percent identity. The percent identity for the query coverage was
 set according to the expected number of substitutions between two sequences
 \citep[$2 \mu t$, see][]{Nei:1987}, where the mutation rate ($\mu$) was assumed
-to be $1.0$ x $10^{-9}$ substitutions/site/year and the divergence time ($t$)
-was assumed to be $8.0$ x $10^{7}$ years \citep{Willyard:2007}.  This translated
+to be \num{1e-9} \si{substitutions/site/year} and the divergence time ($t$)
+was assumed to be \num{8e7} years \citep{Willyard:2007}.  This translated
 into an average expectation of 16\% divergence between any two DNA sequences of
 loblolly and foxtail pines. We rounded down to 75\% to account for a portion of
 the variance around this expectation. Hits that exceeded these thresholds were
@@ -543,13 +543,13 @@ yellow) or 110 (red, blue) in length, depending on sequencing technology: HiSeq
 the Illumina 2000 HiSeq platform. Processing of reads for quality reduced these
 numbers by approximately \num{1.66}-fold, with a range of a \num{2.56}-fold
 (red) to a \num{1.33}-fold (yellow) reduction. After filtering, the average
-length of reads was 88 $\pm$ 13 bp, with a range of 40 bp to 102 bp across
-libraries.  The number of quality-filtered reads per megagametophyte also varied
-\num{19741}-fold ($\pm$ \num{27069}-fold) on average across libraries, with
-average minimums of 753 $\pm$ 603 bp to average maximums of \num{3421571} $\pm$
-\num{2070990} bp. After quality filtering this translated into an average total
-of \num{8137663036} bp $\pm$ \num{3658147958} bp generated per library, ranging
-from \num{2436531265} bp (red) to \num{11643165529} bp (yellow).
+length of reads was 88 $\pm$ \SI{13}{bp}, with a range of \SIrange{40}{102}{bp}
+across libraries.  The number of quality-filtered reads per megagametophyte also
+varied \num{19741}-fold ($\pm$ \num{27069}-fold) on average across libraries,
+with average minimums of 753 $\pm$ 603 bp to average maximums of \num{3421571}
+$\pm$ \SI{2070990}{bp}. After quality filtering this translated into an average
+total of \SI{8137663036}{bp} $\pm$ \SI{3658147958}{bp} generated per library,
+ranging from \SI{2436531265}{bp} (red) to \SI{11643165529}{bp} (yellow).
 
 The largest number of reads ($n=\text{\num{6838986}}$) were obtained for a
 single megagametophyte in the green library. These reads were used to create an
