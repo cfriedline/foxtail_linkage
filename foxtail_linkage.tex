@@ -884,16 +884,17 @@ Database on Dendrome (accession number: XXXXX).
 \begin{table}[ht]
 \centering
 \caption{Attributes of the data structure related to maternal tree.} 
-\begin{tabular}{ccccc}
+\begin{tabular}{lrrrr}
 \toprule
 Attribute & Yellow & Blue & Red & Green\\
 \midrule
 Region & Klamath & Klamath & Sierra Nevada & Sierra Nevada \\
 Latitude & 44.7483 & 41.1959 & 36.4481 & 36.4481 \\
 Longitude & -123.1332 & -122.7922 & -118.1706 & -118.1706 \\
-Platform & HiSeq2500 & HiSeq2000 & HiSeq2000 & HiSeq2500 \\
-Megagametophytes & 95 & 95 & 76 & 73 \\
-Reads (total) & NA & NA & 71834280 & 206365836 \\
+Illumina Platform & HiSeq 2500 & HiSeq 2000 & HiSeq 2000 & HiSeq 2500 \\
+\# Megagametophytes & 95 & 95 & 76 & 73 \\
+Reads (total) & \num{174516834} & \num{159612555} & \num{71834280} & \num{206365836} \\
+Reads (filtered) & \num{131540433} & \num{80498688} & \num{28041978} & \num{129396774} \\
 \bottomrule
 \end{tabular}
 \label{t:label}
@@ -906,7 +907,7 @@ Reads (total) & NA & NA & 71834280 & 206365836 \\
 \caption{Attributes of single-tree and the consensus linkage maps. Values for ratio variables are totals and are not averaged 
   across linkage groups (see Tables S1--S5).} 
 
-\begin{tabular}{cccccc}
+\begin{tabular}{lrrrrr}
 \toprule
 Attribute & Yellow & Blue & Red & Green & Consensus \\
 \midrule
@@ -1052,22 +1053,22 @@ mapped contigs relative to the null model of a Poisson-distributed variable.
   
 \begin{table}[ht]
   \caption{Attributes of the single-tree linkage by linkage group (LG) for the yellow maternal tree (Klamath).}
-\begin{tabular}{ccccccc}
+\begin{tabular}{lrrrrrr}
 \toprule
 Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
 \midrule
-LG1 & 1394 & 59 & 24 & 130466 & 85.17 & 1.44 \\
-LG2 & 1518 & 52 & 29 & 142195 & 71.07 & 1.37 \\
-LG3 & 1174 & 50 & 23 & 110032 & 69.35 & 1.39 \\
-LG4 & 879 & 58 & 15 & 82151 & 86.87 & 1.50 \\
-LG5 & 2046 & 79 & 26 & 191663 & 109.62 & 1.39 \\
-LG6 & 1893 & 51 & 37 & 176401 & 67.97 & 1.33 \\
-LG7 & 1681 & 56 & 30 & 157609 & 79.47 & 1.42 \\
-LG8 & 1863 & 70 & 27 & 173888 & 97.32 & 1.39 \\
-LG9 & 1480 & 63 & 23 & 138205 & 86.86 & 1.38 \\
-LG10 & 872 & 68 & 13 & 81645 & 97.32 & 1.43 \\
-LG11 & 578 & 61 & 9 & 54056 & 101.42 & 1.66 \\
-LG12 & 1688 & 61 & 28 & 158014 & 84.96 & 1.39 \\
+LG1 & 1394 & 59 & 24 & \num{130466} & 85.17 & 1.44 \\
+LG2 & 1518 & 52 & 29 & \num{142195} & 71.07 & 1.37 \\
+LG3 & 1174 & 50 & 23 & \num{110032} & 69.35 & 1.39 \\
+LG4 & 879 & 58 & 15 & \num{82151} & 86.87 & 1.50 \\
+LG5 & 2046 & 79 & 26 & \num{191663} & 109.62 & 1.39 \\
+LG6 & 1893 & 51 & 37 & \num{176401} & 67.97 & 1.33 \\
+LG7 & 1681 & 56 & 30 & \num{157609} & 79.47 & 1.42 \\
+LG8 & 1863 & 70 & 27 & \num{173888} & 97.32 & 1.39 \\
+LG9 & 1480 & 63 & 23 & \num{138205} & 86.86 & 1.38 \\
+LG10 & 872 & 68 & 13 & \num{81645} & 97.32 & 1.43 \\
+LG11 & 578 & 61 & 9 & \num{54056} & 101.42 & 1.66 \\
+LG12 & 1688 & 61 & 28 & \num{158014} & 84.96 & 1.39 \\
 \bottomrule
 \end{tabular} 
 \label{t:label}
@@ -1079,22 +1080,22 @@ LG12 & 1688 & 61 & 28 & 158014 & 84.96 & 1.39 \\
 \begin{landscape}
 \begin{table}[ht]
   \caption{Attributes of the single-tree linkage by linkage group (LG) for the blue maternal tree (Klamath).} 
-\begin{tabular}{ccccccc}
+\begin{tabular}{lrrrrrr}
 \toprule
 Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
 \midrule
-LG1 & 1085 & 128 & 8 & 101420 & 112.69 & 0.88 \\
-LG2 & 982 & 81 & 12 & 91963 & 102.56 & 1.27 \\
-LG3 & 1306 & 113 & 12 & 121886 & 103.84 & 0.92 \\
-LG4 & 610 & 85 & 7 & 57028 & 96.18 & 1.13 \\
-LG5 & 904 & 76 & 12 & 84711 & 108.75 & 1.43 \\
-LG6 & 1769 & 129 & 14 & 165198 & 108.89 & 0.84 \\
-LG7 & 879 & 89 & 10 & 82216 & 101.30 & 1.14 \\
-LG8 & 805 & 66 & 12 & 75042 & 108.89 & 1.65 \\
-LG9 & 1001 & 98 & 10 & 93821 & 98.76 & 1.01 \\
-LG10 & 470 & 93 & 5 & 44024 & 108.90 & 1.17 \\
-LG11 & 365 & 84 & 4 & 34052 & 111.42 & 1.33 \\
-LG12 & 791 & 59 & 13 & 73727 & 101.28 & 1.72 \\
+LG1 & 1085 & 128 & 8 & \num{101420} & 112.69 & 0.88 \\
+LG2 & 982 & 81 & 12 & \num{91963} & 102.56 & 1.27 \\
+LG3 & 1306 & 113 & 12 & \num{121886} & 103.84 & 0.92 \\
+LG4 & 610 & 85 & 7 & \num{57028} & 96.18 & 1.13 \\
+LG5 & 904 & 76 & 12 & \num{84711} & 108.75 & 1.43 \\
+LG6 & 1769 & 129 & 14 & \num{165198} & 108.89 & 0.84 \\
+LG7 & 879 & 89 & 10 & \num{82216} & 101.30 & 1.14 \\
+LG8 & 805 & 66 & 12 & \num{75042} & 108.89 & 1.65 \\
+LG9 & 1001 & 98 & 10 & \num{93821} & 98.76 & 1.01 \\
+LG10 & 470 & 93 & 5 & \num{44024} & 108.90 & 1.17 \\
+LG11 & 365 & 84 & 4 & \num{34052} & 111.42 & 1.33 \\
+LG12 & 791 & 59 & 13 & \num{73727} & 101.28 & 1.72 \\
 \bottomrule
 \end{tabular}
 \label{t:label}
@@ -1132,22 +1133,22 @@ LG12 & 28 & 17 & 2 & 2650 & 149.54 & 8.80 \\
 
 \begin{table}[ht]
 \caption{Attributes of the single-tree linkage by linkage group (LG) for the green maternal tree (Sierra Nevada).} 
-\begin{tabular}{ccccccc}
+\begin{tabular}{lrrrrrr}
 \toprule
 Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
 \midrule
-LG1 & 1568 & 71 & 22 & 146650 & 108.83 & 1.53 \\
-LG2 & 1520 & 57 & 27 & 142272 & 110.77 & 1.94 \\
-LG3 & 1444 & 73 & 20 & 135159 & 114.08 & 1.56 \\
-LG4 & 911 & 64 & 14 & 85200 & 108.98 & 1.70 \\
-LG5 & 1811 & 73 & 25 & 169546 & 76.83 & 1.05 \\
-LG6 & 2157 & 80 & 27 & 201113 & 100.04 & 1.25 \\
-LG7 & 1597 & 74 & 22 & 149767 & 114.34 & 1.55 \\
-LG8 & 1663 & 71 & 23 & 155356 & 123.28 & 1.74 \\
-LG9 & 1457 & 73 & 20 & 136192 & 96.47 & 1.32 \\
-LG10 & 805 & 73 & 11 & 75315 & 101.80 & 1.39 \\
-LG11 & 553 & 70 & 8 & 51843 & 121.49 & 1.74 \\
-LG12 & 1439 & 60 & 24 & 134856 & 110.57 & 1.84 \\
+LG1 & 1568 & 71 & 22 & \num{146650} & 108.83 & 1.53 \\
+LG2 & 1520 & 57 & 27 & \num{142272} & 110.77 & 1.94 \\
+LG3 & 1444 & 73 & 20 & \num{135159} & 114.08 & 1.56 \\
+LG4 & 911 & 64 & 14 & \num{85200} & 108.98 & 1.70 \\
+LG5 & 1811 & 73 & 25 & \num{169546} & 76.83 & 1.05 \\
+LG6 & 2157 & 80 & 27 & \num{201113} & 100.04 & 1.25 \\
+LG7 & 1597 & 74 & 22 & \num{149767} & 114.34 & 1.55 \\
+LG8 & 1663 & 71 & 23 & \num{155356} & 123.28 & 1.74 \\
+LG9 & 1457 & 73 & 20 & \num{136192} & 96.47 & 1.32 \\
+LG10 & 805 & 73 & 11 & \num{75315} & 101.80 & 1.39 \\
+LG11 & 553 & 70 & 8 & \num{51843} & 121.49 & 1.74 \\
+LG12 & 1439 & 60 & 24 & \num{134856} & 110.57 & 1.84 \\
 \bottomrule
 \end{tabular}
 \label{t:label}
@@ -1158,22 +1159,22 @@ LG12 & 1439 & 60 & 24 & 134856 & 110.57 & 1.84 \\
 \begin{landscape}
 \begin{table}[ht]
 \caption{Attributes of the consensus linkage by linkage group (LG).} 
-\begin{tabular}{ccccccc}
+\begin{tabular}{lrrrrrr}
 \toprule
 Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
 \midrule
-LG1 & 1938 & 80 & 24 & 181309 & 101.64 & 1.27 \\
-LG2 & 1837 & 73 & 25 & 172031 & 88.44 & 1.21 \\
-LG3 & 1977 & 77 & 26 & 184680 & 93.10 & 1.21 \\
-LG4 & 1108 & 73 & 15 & 103585 & 96.23 & 1.32 \\
-LG5 & 2068 & 82 & 25 & 193722 & 107.35 & 1.31 \\
-LG6 & 2843 & 96 & 30 & 265356 & 92.59 & 0.96 \\
-LG7 & 1871 & 70 & 27 & 175272 & 96.22 & 1.37 \\
-LG8 & 1863 & 70 & 27 & 173888 & 107.16 & 1.53 \\
-LG9 & 1818 & 71 & 26 & 169974 & 95.89 & 1.35 \\
-LG10 & 956 & 76 & 13 & 89477 & 106.06 & 1.40 \\
-LG11 & 687 & 71 & 10 & 64299 & 108.76 & 1.53 \\
-LG12 & 1689 & 62 & 27 & 158107 & 98.56 & 1.60 \\
+LG1 & 1938 & 80 & 24 & \num{181309} & 101.64 & 1.27 \\
+LG2 & 1837 & 73 & 25 & \num{172031} & 88.44 & 1.21 \\
+LG3 & 1977 & 77 & 26 & \num{184680} & 93.10 & 1.21 \\
+LG4 & 1108 & 73 & 15 & \num{103585} & 96.23 & 1.32 \\
+LG5 & 2068 & 82 & 25 & \num{193722} & 107.35 & 1.31 \\
+LG6 & 2843 & 96 & 30 & \num{265356} & 92.59 & 0.96 \\
+LG7 & 1871 & 70 & 27 & \num{175272} & 96.22 & 1.37 \\
+LG8 & 1863 & 70 & 27 & \num{173888} & 107.16 & 1.53 \\
+LG9 & 1818 & 71 & 26 & \num{169974} & 95.89 & 1.35 \\
+LG10 & 956 & 76 & 13 & \num{89477} & 106.06 & 1.40 \\
+LG11 & 687 & 71 & 10 & \num{64299} & 108.76 & 1.53 \\
+LG12 & 1689 & 62 & 27 & \num{158107} & 98.56 & 1.60 \\
 \bottomrule
 \end{tabular}
 \label{t:label}
