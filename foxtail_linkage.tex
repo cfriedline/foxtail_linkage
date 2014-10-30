@@ -50,7 +50,7 @@
 \titlerunning{Linkage maps and local adaptation}
 
 \author{Christopher J.\ Friedline \and Brandon M. Lind \and Erin M. Hobson \and
-  Douglas E. Harwood \and Annette Delfino Mix \and Patricia E. Maloney \and
+  Douglas E. Harwood \and Annette Delfino-Mix \and Patricia E. Maloney \and
   Andrew J. Eckert* }
 
 \institute{C. Friedline  \at
@@ -71,7 +71,7 @@ Virginia Commonwealth University \\
 Richmond, VA  23284 \\
 \email{harwoodde@vcu.edu}
 \and
-A. Mix \at 
+A. Delfino-Mix \at 
 Institute of Forest Genetics \\
 USDA Pacific Southwest Research Station \\
 Placerville, CA 9566 \\
@@ -231,7 +231,7 @@ discovery via DNA sequencing followed by genotyping of those polymorphisms
 outside of economically important species are created with uncharacterized
 genetic markers \citep[e.g.,][]{Travis:1998}. Much of the knowledge about the
 genetic architecture of fitness-related traits, outside of a handful of
-economically important conifer species, therefore, encompases the number and
+economically important conifer species, therefore, encompasses the number and
 effect size of uncharacterized genetic markers \citep{Ritland:2011}. Cost
 restrictions, however, have largely disappeared.  It is now feasible to jointly
 discover polymorphisms and genotype samples using high-throughput DNA sequencing
@@ -368,9 +368,10 @@ converted to their binary equivalent (e.g., bam) using \texttt{samtools} version
 0.1.19 (\texttt{view, sort, index}) \citep{Li:2009ka}.  SNPs were called using
 \texttt{bcftools} and filtered using \texttt{vcfutils} to exclude SNPs with less
 than 100x coverage. The resulting variant call files (vcf) were further
-processed using \texttt{vcftools} version 0.1.11 (cite) to remove indels,
-exclude genotype calls below a quality threshold of 5, and output as a matrix
-(\texttt{--012}) the haploid genotype of each megagametophyte for each SNP.
+processed using \texttt{vcftools} version 0.1.11 \citep{Danecek:2011gz} to
+remove indels, exclude genotype calls below a quality threshold of 5, and output
+as a matrix (\texttt{--012}) the haploid genotype of each megagametophyte for
+each SNP.
 
 We used several thresholds to filter called SNPs for linkage mapping. First, we
 excluded SNPs using a $\chi^2$ test of homogeneity against an expectation of 1:1
@@ -778,25 +779,26 @@ in the clade of soft pines outside of section \textit{Quinquefoliae}. Second,
 the framework provided here is optimal for imputation and phasing of data during
 population genomic inferences utilizing samples from natural populations
 \citep{Scheet:2006}.  Third, our linkage map is the foundation upon which
-theoretical expectations can be tested.  For example, the theory of Yeaman and
-Whitlock (2011) predicts that the loci contributing to local adaptation should
-be differentially clustered in genomes as a function of rates of gene flow among
-populations. Magnitudes of gene flow among stands differ dramatically within the
-regional populations of foxtail pine, and pairwise plots of synteny across
-maternal trees revealed several instances of differential marker orderings
-between regional populations consistent with areas of the genome with structural
-differences (see Figures S7-S8). These areas, however, were the exception, as
-marker orderings across trees were highly correlated.  Fourth, knowledge about
-the physical ordering of loci allows patterns of linkage disequilibrium (LD)
-within natural populations to be better characterized. The role of LD in local
-adaptation has long been recognized \citep[see][]{Akerman:2014}, yet empirical
-studies of its role are difficult without some knowledge of physical
-relationships among loci. This is because LD among physically linked markers is
-expected to some degree, whereas LD among physically unlinked markers must have
-originated from some evolutionary process (e.g., genetic drift, natural
-selection). Lastly, continued production of linkage maps across the Pinaceae
-will aid comparative genomics and evolutionary inference through study of
-synteny and the evolution of genome structure \citep{Ritland:2011}.
+theoretical expectations can be tested.  For example, the theory of
+\citet{Yeaman:2011} predicts that the loci contributing to local adaptation
+should be differentially clustered in genomes as a function of rates of gene
+flow among populations. Magnitudes of gene flow among stands differ dramatically
+within the regional populations of foxtail pine, and pairwise plots of synteny
+across maternal trees revealed several instances of differential marker
+orderings between regional populations consistent with areas of the genome with
+structural differences (see Figures S7-S8). These areas, however, were the
+exception, as marker orderings across trees were highly correlated.  Fourth,
+knowledge about the physical ordering of loci allows patterns of linkage
+disequilibrium (LD) within natural populations to be better characterized. The
+role of LD in local adaptation has long been recognized
+\citep[see][]{Akerman:2014}, yet empirical studies of its role are difficult
+without some knowledge of physical relationships among loci. This is because LD
+among physically linked markers is expected to some degree, whereas LD among
+physically unlinked markers must have originated from some evolutionary process
+(e.g., genetic drift, natural selection). Lastly, continued production of
+linkage maps across the Pinaceae will aid comparative genomics and evolutionary
+inference through study of synteny and the evolution of genome structure
+\citep{Ritland:2011}.
 
 Caution is needed when interpreting our results. First, we used novel analysis
 methods that have not been tested using simulations. For example, the form of
