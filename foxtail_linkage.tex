@@ -106,7 +106,7 @@ Richmond, VA  23284\\
   address this need by constructing a dense linkage map for foxtail pine
   (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of
   uncovering and explaining the origin and evolutionary dynamics of adaptive
-  genetic variation for drought tolerance in natural populations of this forest
+  genetic variation in natural populations of this forest
   tree species. We utilized megagametophyte arrays ($n$ = 76--95
   \si{megagametophytes/tree}) from four maternal trees in combination with
   double-digestion restriction site associated DNA sequencing (ddRADseq) to
@@ -126,11 +126,12 @@ Richmond, VA  23284\\
   (\textit{P. taeda} L.) genome to identify them as putative homologs containing
   both genic ($n = 339$) and non-genic ($n = 5288$) loci. Importantly, all 901
   unique positions on the consensus linkage map had at least one contig with
-  putative homology to loblolly pine.  Our results indicate that high density
-  linkage maps can be produced efficiently for non-model forest tree species and
-  that these maps have important functions as community-wide resources and as
-  tools with which to test hypotheses about the genetic architecture of
-  adaptation.
+  putative homology to loblolly pine.  When combined with the other biological 
+  signals that predominate in our data (e.g., correlations of recombination fractions across single trees) , 
+ we show that dense linkage maps for non-model forest tree species can be efficiently constructed using
+ next generation sequencing technologies. We subsequently discuss the usefulness of these maps
+ as community-wide resources and as tools with which to test hypotheses about the genetic architecture of
+ adaptation. 
 
 \keywords{Adaptation \and double-digestion restriction site associated DNA
   sequencing \and foxtail pine \and linkage mapping \and \textit{Pinus
@@ -244,7 +245,7 @@ respect to missing data and errors in calling polymorphic sites and the
 resulting genotypes \citep{Pfender:2011, Ward:2013}. Despite these difficulties,
 RADseq has been successively applied to samples taken from natural populations
 of non-model conifer species \citep{Parchman:2012}, but has yet to be applied to
-linkage mapping in these species, so that an exploration of these methods to
+linkage mapping in these species, such that an exploration of these methods to
 linkage mapping in the large and complex genomes of conifers is warranted. Here,
 we take this approach using megagametophyte arrays from four maternal trees of
 foxtail pine to generate maternal linkage maps. There are currently no published
@@ -293,8 +294,8 @@ seeds were germinated from each seed collection and 35 of those 50 seedlings
 were planted in a common garden located at the USDA Institute of Forest
 Genetics, Placerville, California (Figure \ref{f:Figure01_TGG}). The common
 garden was established using a randomized block design and involved three
-separate plantings of seeds spanning approximately one year from June 6, 2012
-until May 20, 2013. Four of the 141 maternal trees were selected at random ($n =
+separate plantings of seeds spanning approximately one year (June 6, 2012
+until May 20, 2013). Four of the 141 maternal trees were selected at random ($n =
 2$ from the Klamath region and $n = 2$ from the southern Sierra Nevada) for
 linkage analysis. Libraries were color-coded and are referred to as red
 (southern Sierra Nevada), green (southern Sierra Nevada), blue (Klamath), and
@@ -580,9 +581,9 @@ of megagametophytes sampled from maternal trees located in the same geographical
 area sharing more polymorphic contigs and SNPs than comparisons of maternal
 trees from different geographical regions (nonparametric permutation analysis:
 $P < 0.0001$, see Supplemental Text).  On average, megagametophytes in the
-filtered data set had 79.40\% ($\pm$ 14.7\%) missing data across SNPs (range:
-1.3\% to 99.8\%), with the green library having the smallest (74.3\% $\pm$
-18.9\%) and the red library having the largest average amount of missing data
+filtered data set had 79.40\% ($\pm$ 14.7\%) missing data (i.e., a missing haploid genotype)
+across SNPs (range: 1.3\% to 99.8\%), with the green library having the smallest 
+(74.3\% $\pm$ 18.9\%) and the red library having the largest average amount of missing data
 per megagametophyte (84.4\% $\pm$ 15.2\%).
 
 \subsection*{Linkage Mapping}
@@ -710,8 +711,10 @@ threshold of 50\% query length and 75\% identity.  The averages of query length
 (bp), query coverage percentage, and identity percentage were $94 \pm 7$,
 $86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. Of these hits, we
 found 339 contigs with SNPs in annotated regions of the genome to which GO terms
-have been attached.  We found 0 GO terms associated with low-quality, partial
-genes and 19 GO terms associated with low-quality, full-length genes. For the
+have been attached. We found 0 GO terms associated with low-quality, partial
+genes, where quality and completeness of the gene model were taken directly from
+the loblolly pine scaffold to which homology in foxtail pine was established,
+and 19 GO terms associated with low-quality, full-length genes. For the
 high-quality set of annotated genes, we found 116 GO terms associated with
 partial genes and 253 associated to whole genes.  The coincidence of GO terms is
 summarized in Figure \ref{f:snp_venn}. We also consider valid hits to the genome
@@ -764,9 +767,9 @@ linkage groups).  This allowed for the creation of a robust consensus linkage
 map, as well as highlighted the biological signal of linkage apparent even in
 noisy ddRADseq data. When coupled with the other biological signals in our
 results (e.g., trees from the same regional population sharing SNPs more often),
-we can be confident that our inferred linkage maps are based on primarily
+we can be confident that our inferred linkage maps are based primarily on
 biological, as opposed to statistical, signals. In further support of this
-claim, randomly subsampling our data to represent 10,000 contigs and performing
+claim, randomly subsampling our data to represent \num{10000} contigs and performing
 linkage mapping as described previously resulted in a consensus linkage map that
 was indistinguishable from that pictured in Figure $3$ (Spearman's $\rho =
 0.997, P < 0.0001$).
@@ -850,7 +853,7 @@ high-density linkage maps is a fruitful endeavor to accompany this
 maturation. The results presented here are promising and also provide guidance
 for future attempts in additional species.  Specifically, linkage maps provide ample
 information about genomic structure that is needed for the study of local
-adaptation in native populations \citep[cf.,][]{Limborg:2014}. Here, we have produced a high-density
+adaptation in natural populations \citep[cf.,][]{Limborg:2014}. Here, we have produced a high-density
 linkage map for foxtail pine using methods applicable to any non-model conifer
 species, thus opening the door for further studies of genome structure and the
 genetic architecture of local adaptation in this rather understudied clade of
@@ -946,8 +949,10 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
  \includegraphics[width=1.0\textwidth]{Figure02_TGG}
  \caption{Sharing of contigs across maternal tree maps from which the consensus
    map was constructed. Counts in each cell represent the number of unique
-   contigs appearing on the final consensus map. KM = Klamath Mountains; SN =
-   Sierra Nevada.}
+   contigs appearing on the final consensus map. Unique contigs for the yellow
+   and green maternal trees were largely discarded to make estimation of 
+   pairwise recombination fractions computationally feasible (see Materials and Methods).
+   KM = Klamath Mountains; SN = Sierra Nevada.}
   \label{f:Figure02_TGG}
 \end{figure}
  
@@ -1018,7 +1023,7 @@ rejected the null hypothesis when the observed test statistic fell in the upper
 approach, the observed test statistic was 0.06337814. The limits of the
 simulated null distribution were -0.0349 to 0.0415. Thus the observed test
 statistic fell completely outside the upper tail of the null distribution, which
-gives a $P$-value of $p < 0.0001$.
+gives $P < 0.0001$.
 
 The spatial distribution of contigs along linkage groups was tested against
 complete spatial randomness using simulations.  Specifically, we used the
@@ -1034,11 +1039,12 @@ constructed for each maternal tree. If the observed variance fell in either the
 2.5\% or 97.5\% tail of the null distribution, the null hypothesis was
 rejected. For example, the values used for the consensus linkage map were:
 observed variance $= 1245.423$, average expected variance of Poisson-distributed
-variable $= 23$, $95\%$ CI of null expectation: 20.915--25.246, and limits of
-the null distribution: 19.214--27.655.  The $P$-value for the observed
-variance is thus $P < 0.0001$. This test does not explicitly test spatial
-randomness of the unique positions on a linkage map, but rather tests the
-assumption that the intensities (i.e., the number of mapped contigs) at each
+variable $= 23$ with $95\%$ CI of null expectation of 20.915--25.246, and limits of
+the null distribution of 19.214--27.655.  The $P$-value for the observed
+variance is thus $P < 0.0001$. 
+
+This test does not explicitly test spatial randomness of the unique positions on a linkage map, 
+but rather tests the assumption that the intensities (i.e., the number of mapped contigs) at each
 position follow a Poisson distribution.  This approach was chosen because
 distances in the inferred linkage maps were sensitive the error correction and
 imputation. Of course, the number of contigs at each mapped position is also
