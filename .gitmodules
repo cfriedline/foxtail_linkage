@@ -4,3 +4,6 @@
 [submodule "foxtail_blast_ipynb"]
 	path = foxtail_blast_ipynb
 	url = git://github.com/cfriedline/foxtail_blast
+[submodule "foxtail_circos_ipynb"]
+	path = foxtail_circos_ipynb
+	url = https://github.com/cfriedline/foxtail_circos.git
