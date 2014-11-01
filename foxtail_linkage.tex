@@ -343,13 +343,15 @@ quality and biological meaning.
 DNA sequence reads were demultiplexed into sample-level fastq files, following
 quality control and filtering.  The filtering pipeline was adapted from
 \citep{Friedline:2012fm}, and is briefly: reads containing any N beyond the
-first base were excluded. Reads having N as the first base were shifted to
-exclude it.  Additional quality filtering ensured that all reads in the
-resulting set for downstream processing had a minimum average quality score of
-30 over 5 bp, overlapping windows and that not more than \SI{20}{\percent} of
-the bases had quality scores below 30. Reads passing the quality control steps
-were demultiplexed into sample-specific fastq files by exact pattern matching to
-known barcodes; reads which did not match were excluded.
+first base were excluded, however, reads having N as the first base were shifted
+by one base to the right to exclude it (i.e, a read starting with NTGC would
+become a read starting with TGC).  Additional quality filtering ensured that all
+reads in the resulting set for downstream processing had a minimum average
+quality score of 30 over 5-bp sliding windows and that not more than
+\SI{20}{\percent} of the bases had quality scores below 30. Reads passing the
+quality control steps were demultiplexed into sample-specific fastq files by
+exact pattern matching to known barcodes; reads which did not match a known
+barcode were excluded.
 
 The individual with the largest number of reads across all four maternal trees
 was assembled using Velvet (Zerbino, version 1.2.10), with hash length ($k$)
