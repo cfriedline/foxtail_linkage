@@ -707,22 +707,12 @@ adjacent framework markers: 13.4 cM, number of framework markers: 507, $K =
 2694$).
 
 Of the \num{20655} contigs in the reference assembly which contained SNPs,
-\num{5627} (27.2\%) contained BLAST hits ($n=5853$) which passed the filtering
+\num{5627} (27.2\%) contained BLASTn hits ($n=5853$) which passed the filtering
 threshold of 50\% query length and 75\% identity.  The averages of query length
 (bp), query coverage percentage, and identity percentage were $94 \pm 7$,
-$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. Of these hits, we
-found 339 contigs with SNPs in annotated regions of the genome to which GO terms
-have been attached. We found 0 GO terms associated with low-quality, partial
-genes, where quality and completeness of the gene model were taken directly from
-the loblolly pine scaffold to which homology in foxtail pine was established,
-and 19 GO terms associated with low-quality, full-length genes. For the
-high-quality set of annotated genes, we found 116 GO terms associated with
-partial genes and 253 associated to whole genes.  The coincidence of GO terms is
-summarized in Figure \ref{f:snp_venn}. We also consider valid hits to the genome
-assembly in regions that are not annotated (regardless of annotation quality) as
-putatively non-genic. Therefore, of the \num{5627} contigs containing SNPs, 94\%
-($n=5288$) are in putatively non-genic regions of the genome.
-
+$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. We found 2802 (p =
+\SI{48.9}{\percent}) instances SNPs mapping to genic regions in the loblolly 
+pine genome ($n = 587$ scaffolds) representing 303 unique GO terms.
 
 
 \section*{Discussion}
@@ -960,22 +950,6 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
   \label{f:Figure02_TGG}
 \end{figure}
  
-\clearpage
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\textwidth]{snp_venn}
-\caption{Summary of incidence of GO terms for contigs containing SNPs at varying
-  levels of annotation quality in the loblolly pine genome. As defined in the
-  loblolly annotation readme file, high quality genes are categorized as such if
-  they (1) have one or more forms of supporting RNA-Seq/EST evidence, (2)
-  contain a recognizable protein domain, (3) contain canonical start/splice
-  sites, and (4) are multi-exonic. In contrast, low quality annotations meet the
-  criteria above, but only contain a single exon and/r do not contain a
-  recognizable domain.}
-\label{f:snp_venn}
-\end{figure}
-
 \clearpage
 
 \begin{figure}[ht]
