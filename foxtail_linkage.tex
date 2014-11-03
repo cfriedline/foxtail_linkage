@@ -58,7 +58,7 @@ Richmond, VA  23284 \\
 \email{cfriedline@vcu.edu}
 \and
 B. Lind \at 
-Integrative Life Sciences (ask Bill) \\
+Integrative Life Sciences \\
 Virginia Commonwealth University \\
 Richmond, VA  23284 \\
 \email{lindb@vcu.edu}
@@ -102,36 +102,37 @@ Richmond, VA  23284\\
   affecting fitness-related phenotypic traits. Even with advances in next
   generation sequencing technologies, the production of full genome sequences
   for non-model species is often cost prohibitive, especially for tree species
-  such as pines where genome size often exceeds 20 to 30 Gbp. We
-  address this need by constructing a dense linkage map for foxtail pine
-  (\textit{Pinus balfouriana} Grev. \& Balf.), with the ultimate goal of
-  uncovering and explaining the origin and evolutionary dynamics of adaptive
-  genetic variation in natural populations of this forest
-  tree species. We utilized megagametophyte arrays ($n$ = 76--95
-  \si{megagametophytes/tree}) from four maternal trees in combination with
-  double-digestion restriction site associated DNA sequencing (ddRADseq) to
-  produce a consensus linkage map covering 98.58\% of the foxtail pine genome,
-  which was estimated to be \SI{1276}{cM} in length (95\% CI:
-  \SIrange{1174}{1378}{cM}). A novel bioinformatic approach using iterative
-  rounds of marker ordering and imputation was employed to produce single-tree
-  linkage maps (\num{507}--\num{17066} contigs/map; lengths: 1037.40--1572.80
-  cM).  These linkage maps were collinear across maternal trees, with highly
-  correlated marker orderings (Spearman's $\rho > 0.95$).  A consensus linkage
-  map derived from these single-tree linkage maps contained 12 linkage groups
-  along which \num{20655} contigs were non-randomly distributed across 901
-  unique positions ($n = 23$ contigs/position), with an average spacing of
-  \SI{1.34}{cM} between adjacent positions. Of the \num{20655} contigs
-  positioned on the consensus linkage map, 5627 had enough sequence similarity
-  to contigs contained within the most recent build of the loblolly pine
-  (\textit{P. taeda} L.) genome to identify them as putative homologs containing
-  both genic ($n = 339$) and non-genic ($n = 5288$) loci. Importantly, all 901
-  unique positions on the consensus linkage map had at least one contig with
-  putative homology to loblolly pine.  When combined with the other biological 
-  signals that predominate in our data (e.g., correlations of recombination fractions across single trees), 
- we show that dense linkage maps for non-model forest tree species can be efficiently constructed using
- next generation sequencing technologies. We subsequently discuss the usefulness of these maps
- as community-wide resources and as tools with which to test hypotheses about the genetic architecture of
- adaptation. 
+  such as pines where genome size often exceeds 20 to 30 Gbp. We address
+  this need by constructing a dense linkage map for foxtail pine (\textit{Pinus
+    balfouriana} Grev. \& Balf.), with the ultimate goal of uncovering and
+  explaining the origin and evolutionary dynamics of adaptive genetic variation
+  in natural populations of this forest tree species. We utilized
+  megagametophyte arrays ($n$ = 76--95 \si{megagametophytes/tree}) from four
+  maternal trees in combination with double-digestion restriction site
+  associated DNA sequencing (ddRADseq) to produce a consensus linkage map
+  covering 98.58\% of the foxtail pine genome, which was estimated to be
+  \SI{1276}{cM} in length (95\% CI: \SIrange{1174}{1378}{cM}). A novel
+  bioinformatic approach using iterative rounds of marker ordering and
+  imputation was employed to produce single-tree linkage maps
+  (\num{507}--\num{17066} contigs/map; lengths: 1037.40--1572.80 cM).  These
+  linkage maps were collinear across maternal trees, with highly correlated
+  marker orderings (Spearman's $\rho > 0.95$).  A consensus linkage map derived
+  from these single-tree linkage maps contained 12 linkage groups along which
+  \num{20655} contigs were non-randomly distributed across 901 unique positions
+  ($n = 23$ contigs/position), with an average spacing of \SI{1.34}{cM} between
+  adjacent positions. Of the \num{20655} contigs positioned on the consensus
+  linkage map, 5627 had enough sequence similarity to contigs contained within
+  the most recent build of the loblolly pine (\textit{P. taeda} L.) genome to
+  identify them as putative homologs containing both genic and
+  non-genic loci. Importantly, all 901 unique positions on the
+  consensus linkage map had at least one contig with putative homology to
+  loblolly pine.  When combined with the other biological signals that
+  predominate in our data (e.g., correlations of recombination fractions across
+  single trees) , we show that dense linkage maps for non-model forest tree
+  species can be efficiently constructed using next generation sequencing
+  technologies. We subsequently discuss the usefulness of these maps as
+  community-wide resources and as tools with which to test hypotheses about the
+  genetic architecture of adaptation.
 
 \keywords{Adaptation \and double-digestion restriction site associated DNA
   sequencing \and foxtail pine \and linkage mapping \and \textit{Pinus
@@ -581,10 +582,10 @@ of megagametophytes sampled from maternal trees located in the same geographical
 area sharing more polymorphic contigs and SNPs than comparisons of maternal
 trees from different geographical regions (nonparametric permutation analysis:
 $P < 0.0001$, see Supplemental Text).  On average, megagametophytes in the
-filtered data set had 79.40\% ($\pm$ 14.7\%) missing data (i.e., a missing haploid genotype)
-across SNPs (range: 1.3\% to 99.8\%), with the green library having the smallest 
-(74.3\% $\pm$ 18.9\%) and the red library having the largest average amount of missing data
-per megagametophyte (84.4\% $\pm$ 15.2\%).
+filtered data set had 79.40\% ($\pm$ 14.7\%) missing data (i.e., a missing
+haploid genotype) across SNPs (range: 1.3\% to 99.8\%), with the green library
+having the smallest (74.3\% $\pm$ 18.9\%) and the red library having the largest
+average amount of missing data per megagametophyte (84.4\% $\pm$ 15.2\%).
 
 \subsection*{Linkage Mapping}
 
@@ -706,22 +707,12 @@ adjacent framework markers: 13.4 cM, number of framework markers: 507, $K =
 2694$).
 
 Of the \num{20655} contigs in the reference assembly which contained SNPs,
-\num{5627} (27.2\%) contained BLAST hits ($n=5853$) which passed the filtering
+\num{5627} (27.2\%) contained BLASTn hits ($n=5853$) which passed the filtering
 threshold of 50\% query length and 75\% identity.  The averages of query length
 (bp), query coverage percentage, and identity percentage were $94 \pm 7$,
-$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. Of these hits, we
-found 339 contigs with SNPs in annotated regions of the genome to which GO terms
-have been attached. We found 0 GO terms associated with low-quality, partial
-genes, where quality and completeness of the gene model were taken directly from
-the loblolly pine scaffold to which homology in foxtail pine was established,
-and 19 GO terms associated with low-quality, full-length genes. For the
-high-quality set of annotated genes, we found 116 GO terms associated with
-partial genes and 253 associated to whole genes.  The coincidence of GO terms is
-summarized in Figure \ref{f:snp_venn}. We also consider valid hits to the genome
-assembly in regions that are not annotated (regardless of annotation quality) as
-putatively non-genic. Therefore, of the \num{5627} contigs containing SNPs, 94\%
-($n=5288$) are in putatively non-genic regions of the genome.
-
+$86.4\% \pm 13.0\%$, and $90.1\% \pm 3.9\%$, respectively. We found 2802 (p =
+\SI{48.9}{\percent}) instances SNPs mapping to genic regions in the loblolly 
+pine genome ($n = 587$ scaffolds) representing 303 unique GO terms.
 
 
 \section*{Discussion}
@@ -851,13 +842,13 @@ Conifer genomics is emerging as a mature scientific field
 species have been released and more are planned. As shown here, production of
 high-density linkage maps is a fruitful endeavor to accompany this
 maturation. The results presented here are promising and also provide guidance
-for future attempts in additional species.  Specifically, linkage maps provide ample
-information about genomic structure that is needed for the study of local
-adaptation in natural populations \citep[cf.,][]{Limborg:2014}. Here, we have produced a high-density
-linkage map for foxtail pine using methods applicable to any non-model conifer
-species, thus opening the door for further studies of genome structure and the
-genetic architecture of local adaptation in this rather understudied clade of
-pines, as well as the Pinaceae as a whole.
+for future attempts in additional species.  Specifically, linkage maps provide
+ample information about genomic structure that is needed for the study of local
+adaptation in natural populations \citep[cf.,][]{Limborg:2014}. Here, we have
+produced a high-density linkage map for foxtail pine using methods applicable to
+any non-model conifer species, thus opening the door for further studies of
+genome structure and the genetic architecture of local adaptation in this rather
+understudied clade of pines, as well as the Pinaceae as a whole.
 
 \begin{acknowledgements}
   The authors would like to thank the staff at the USDA Institute of Forest
@@ -877,7 +868,9 @@ Raw short read data are located in the NCBI Short Read Archive (accession
 numbers: XXXXXX).  The assembly used for read mapping and SNP calling, VCF
 files, and linkage map files are located as supporting documents (Files SX -
 SX).  The consensus linkage map is also available in the Comparative Mapping
-Database located at the Dendrome website (accession number: XXXXX).
+Database located at the Dendrome website (accession number: XXXXX). Source 
+code for this manuscript and data analyses are located at 
+\url{http://www.github.com/cfriedline/foxtail_linkage}. 
 
 
 \clearpage
@@ -911,8 +904,9 @@ Reads (filtered) & \num{131540433} & \num{80498688} & \num{28041978} & \num{1293
 
 \begin{table}[ht]
 \centering
-\caption{Attributes of single-tree and the consensus linkage maps. Values for ratio variables are totals and are not averaged 
-  across linkage groups (see Tables S1--S5).} 
+\caption{Attributes of single-tree and the consensus linkage maps. Values for 
+  ratio variables are totals and are not averaged across linkage groups (see 
+  Tables S1--S5).} 
 
 \begin{tabular}{lrrrrr}
 \toprule
@@ -936,8 +930,8 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
 \includegraphics[width=1.0\textwidth]{Figure01_TGG}
 \caption{Geographical locations of foxtail pine samples used to construct a
   common garden located in Placerville, CA. Circles denote the 15 unique
-  locations from which 4 to 17 maternal trees were sampled. Circles enclosed
-  in squares denote locations from which maternal trees used in linkage mapping
+  locations from which 4 to 17 maternal trees were sampled. Circles enclosed in
+  squares denote locations from which maternal trees used in linkage mapping
   were sampled. Photo credits: lower: T. Burt; upper: A. Delfino Mix}
 \label{f:Figure01_TGG}
 \end{figure}
@@ -950,40 +944,30 @@ cM/position & 1.43 & 1.15 & 5.31 & 1.53 & 1.32 \\
  \caption{Sharing of contigs across maternal tree maps from which the consensus
    map was constructed. Counts in each cell represent the number of unique
    contigs appearing on the final consensus map. Unique contigs for the yellow
-   and green maternal trees were largely discarded to make estimation of 
-   pairwise recombination fractions computationally feasible (see Materials and Methods).
-   KM = Klamath Mountains; SN = Sierra Nevada.}
+   and green maternal trees were largely discarded to make estimation of
+   pairwise recombination fractions computationally feasible (see Materials and
+   Methods).  KM = Klamath Mountains; SN = Sierra Nevada.}
   \label{f:Figure02_TGG}
 \end{figure}
  
 \clearpage
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=0.8\textwidth]{snp_venn}
-\caption{Summary of incidence of GO terms for contigs containing SNPs at varying
-  levels of annotation quality in the loblolly pine genome. As defined in the
-  loblolly annotation readme file, high quality genes are categorized as such if
-  they (1) have one or more forms of supporting RNA-Seq/EST evidence, (2)
-  contain a recognizable protein domain, (3) contain canonical start/splice
-  sites, and (4) are multi-exonic. In contrast, low quality annotations meet the
-  criteria above, but only contain a single exon and/r do not contain a
-  recognizable domain.}
-\label{f:snp_venn}
-\end{figure}
-
-\clearpage
-
-\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{circos_con}
-  \caption{Consensus linkage map.  Positions on each linkage group are in
-    centiMorgan. The color of the bars indicate SNP annotation density at each
-    position ($\ge 50\%$ = green, $\ge 25\%$= red, $< 25\%$ = black). Density of
-    SNPs (count of SNPs mapping to a specific position on the linkage group) at
-    each position are indicated by histograms. The total density at each
-    position is indicated in black, and density by family is indicated by
-    respective color.}
+  \caption{Consensus linkage map of 12 linkage groups, derived from SNPs among
+    individuals of four populations.  Working inward from the outermost section
+    of the figure, for each linkage group: (1) the solid black bars represent
+    the span of recombination distances (in centiMorgan) for markers; (2) the
+    individual tick marks show the locations of the markers and the colors
+    represent the density of annotation of the SNPs at that position (($\ge
+    50\%$ = green, $\ge 25\%$= red, $< 25\%$ = black) to homologous locations in
+    lobolly pine); (3) The black density plot represents the counts of SNPs from
+    all four families mapping to a specific position in the linkage group; (4)
+    the colored density plots show the contribution SNPs from the individual
+    families to the markers on the map at each position, and are shown in order
+    by total read count in the library, with yellow having the most and red
+    having the least amount of reads.}
   \label{f:con}
 \end{figure}
 
@@ -1029,32 +1013,33 @@ The spatial distribution of contigs along linkage groups was tested against
 complete spatial randomness using simulations.  Specifically, we used the
 variance in the observed number of contigs mapped to each unique position across
 the entire linkage map as the test statistic. The null distribution of the test
-statistic was created by simulating \num{10000} Poisson-distributed variables, each
-with the number of random values equal to the number of unique positions on the
-linkage map under consideration and the mean equal to the mean number of contigs
-per position. For each Poisson-distributed variable, the variance was
+statistic was created by simulating \num{10000} Poisson-distributed variables,
+each with the number of random values equal to the number of unique positions on
+the linkage map under consideration and the mean equal to the mean number of
+contigs per position. For each Poisson-distributed variable, the variance was
 calculated. The set of $10000$ variances was used as the null distribution
 expected under complete spatial randomness. A separate null distribution was
 constructed for each maternal tree. If the observed variance fell in either the
 2.5\% or 97.5\% tail of the null distribution, the null hypothesis was
 rejected. For example, the values used for the consensus linkage map were:
 observed variance $= 1245.423$, average expected variance of Poisson-distributed
-variable $= 23$ with $95\%$ CI of null expectation of 20.915--25.246, and limits of
-the null distribution of 19.214--27.655.  The $P$-value for the observed
-variance is thus $P < 0.0001$. 
+variable $= 23$ with $95\%$ CI of null expectation of 20.915--25.246, and limits
+of the null distribution of 19.214--27.655.  The $P$-value for the observed
+variance is thus $P < 0.0001$.
 
-This test does not explicitly test spatial randomness of the unique positions on a linkage map, 
-but rather tests the assumption that the intensities (i.e., the number of mapped contigs) at each
-position follow a Poisson distribution.  This approach was chosen because
-distances in the inferred linkage maps were sensitive the error correction and
-imputation. Of course, the number of contigs at each mapped position is also
-sensitive to this process, although relaxing the error correction parameter in
-Maskov resulted in similar results for a range of values that resulted in
-realistic linkage map lengths (i.e., total lengths $< \SI{3000}{cM}$. Thus, we were
-confident that this result is not only a function of error correction and
-imputation. All linkage maps except for the single-tree map from the red
-maternal tree had greater than expected variances across positions in counts of
-mapped contigs relative to the null model of a Poisson-distributed variable.
+This test does not explicitly test spatial randomness of the unique positions on
+a linkage map, but rather tests the assumption that the intensities (i.e., the
+number of mapped contigs) at each position follow a Poisson distribution.  This
+approach was chosen because distances in the inferred linkage maps were
+sensitive the error correction and imputation. Of course, the number of contigs
+at each mapped position is also sensitive to this process, although relaxing the
+error correction parameter in Maskov resulted in similar results for a range of
+values that resulted in realistic linkage map lengths (i.e., total lengths $<
+\SI{3000}{cM}$. Thus, we were confident that this result is not only a function
+of error correction and imputation. All linkage maps except for the single-tree
+map from the red maternal tree had greater than expected variances across
+positions in counts of mapped contigs relative to the null model of a
+Poisson-distributed variable.
 
 \begin{landscape}
 
@@ -1064,22 +1049,22 @@ mapped contigs relative to the null model of a Poisson-distributed variable.
 \begin{table}[ht]
   \caption{Attributes of the single-tree linkage by linkage group (LG) for the yellow maternal tree (Klamath).}
 \begin{tabular}{lrrrrrr}
-\toprule
-Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
-\midrule
-LG1 & 1394 & 59 & 24 & \num{130466} & 85.17 & 1.44 \\
-LG2 & 1518 & 52 & 29 & \num{142195} & 71.07 & 1.37 \\
-LG3 & 1174 & 50 & 23 & \num{110032} & 69.35 & 1.39 \\
-LG4 & 879 & 58 & 15 & \num{82151} & 86.87 & 1.50 \\
-LG5 & 2046 & 79 & 26 & \num{191663} & 109.62 & 1.39 \\
-LG6 & 1893 & 51 & 37 & \num{176401} & 67.97 & 1.33 \\
-LG7 & 1681 & 56 & 30 & \num{157609} & 79.47 & 1.42 \\
-LG8 & 1863 & 70 & 27 & \num{173888} & 97.32 & 1.39 \\
-LG9 & 1480 & 63 & 23 & \num{138205} & 86.86 & 1.38 \\
-LG10 & 872 & 68 & 13 & \num{81645} & 97.32 & 1.43 \\
-LG11 & 578 & 61 & 9 & \num{54056} & 101.42 & 1.66 \\
-LG12 & 1688 & 61 & 28 & \num{158014} & 84.96 & 1.39 \\
-\bottomrule
+  \toprule
+  Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
+  \midrule
+  LG1 & 1394 & 59 & 24 & \num{130466} & 85.17 & 1.44 \\
+  LG2 & 1518 & 52 & 29 & \num{142195} & 71.07 & 1.37 \\
+  LG3 & 1174 & 50 & 23 & \num{110032} & 69.35 & 1.39 \\
+  LG4 & 879 & 58 & 15 & \num{82151} & 86.87 & 1.50 \\
+  LG5 & 2046 & 79 & 26 & \num{191663} & 109.62 & 1.39 \\
+  LG6 & 1893 & 51 & 37 & \num{176401} & 67.97 & 1.33 \\
+  LG7 & 1681 & 56 & 30 & \num{157609} & 79.47 & 1.42 \\
+  LG8 & 1863 & 70 & 27 & \num{173888} & 97.32 & 1.39 \\
+  LG9 & 1480 & 63 & 23 & \num{138205} & 86.86 & 1.38 \\
+  LG10 & 872 & 68 & 13 & \num{81645} & 97.32 & 1.43 \\
+  LG11 & 578 & 61 & 9 & \num{54056} & 101.42 & 1.66 \\
+  LG12 & 1688 & 61 & 28 & \num{158014} & 84.96 & 1.39 \\
+  \bottomrule
 \end{tabular} 
 \label{t:label}
 \end{table}
@@ -1091,22 +1076,22 @@ LG12 & 1688 & 61 & 28 & \num{158014} & 84.96 & 1.39 \\
 \begin{table}[ht]
   \caption{Attributes of the single-tree linkage by linkage group (LG) for the blue maternal tree (Klamath).} 
 \begin{tabular}{lrrrrrr}
-\toprule
-Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
-\midrule
-LG1 & 1085 & 128 & 8 & \num{101420} & 112.69 & 0.88 \\
-LG2 & 982 & 81 & 12 & \num{91963} & 102.56 & 1.27 \\
-LG3 & 1306 & 113 & 12 & \num{121886} & 103.84 & 0.92 \\
-LG4 & 610 & 85 & 7 & \num{57028} & 96.18 & 1.13 \\
-LG5 & 904 & 76 & 12 & \num{84711} & 108.75 & 1.43 \\
-LG6 & 1769 & 129 & 14 & \num{165198} & 108.89 & 0.84 \\
-LG7 & 879 & 89 & 10 & \num{82216} & 101.30 & 1.14 \\
-LG8 & 805 & 66 & 12 & \num{75042} & 108.89 & 1.65 \\
-LG9 & 1001 & 98 & 10 & \num{93821} & 98.76 & 1.01 \\
-LG10 & 470 & 93 & 5 & \num{44024} & 108.90 & 1.17 \\
-LG11 & 365 & 84 & 4 & \num{34052} & 111.42 & 1.33 \\
-LG12 & 791 & 59 & 13 & \num{73727} & 101.28 & 1.72 \\
-\bottomrule
+  \toprule
+  Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
+  \midrule
+  LG1 & 1085 & 128 & 8 & \num{101420} & 112.69 & 0.88 \\
+  LG2 & 982 & 81 & 12 & \num{91963} & 102.56 & 1.27 \\
+  LG3 & 1306 & 113 & 12 & \num{121886} & 103.84 & 0.92 \\
+  LG4 & 610 & 85 & 7 & \num{57028} & 96.18 & 1.13 \\
+  LG5 & 904 & 76 & 12 & \num{84711} & 108.75 & 1.43 \\
+  LG6 & 1769 & 129 & 14 & \num{165198} & 108.89 & 0.84 \\
+  LG7 & 879 & 89 & 10 & \num{82216} & 101.30 & 1.14 \\
+  LG8 & 805 & 66 & 12 & \num{75042} & 108.89 & 1.65 \\
+  LG9 & 1001 & 98 & 10 & \num{93821} & 98.76 & 1.01 \\
+  LG10 & 470 & 93 & 5 & \num{44024} & 108.90 & 1.17 \\
+  LG11 & 365 & 84 & 4 & \num{34052} & 111.42 & 1.33 \\
+  LG12 & 791 & 59 & 13 & \num{73727} & 101.28 & 1.72 \\
+  \bottomrule
 \end{tabular}
 \label{t:label}
 \end{table}
@@ -1117,22 +1102,22 @@ LG12 & 791 & 59 & 13 & \num{73727} & 101.28 & 1.72 \\
 \begin{table}[ht]
   \caption{Attributes of the single-tree linkage by linkage group (LG) for the red maternal tree (Sierra Nevada).} 
 \begin{tabular}{ccccccc}
-\toprule
-Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
-\midrule
-LG1 & 100 & 26 & 4 & 9388 & 123.44 & 4.75 \\
-LG2 & 24 & 16 & 2 & 2205 & 47.54 & 2.97 \\
-LG3 & 50 & 34 & 1 & 4642 & 134.27 & 3.95 \\
-LG4 & 34 & 18 & 2 & 3202 & 133.33 & 7.41 \\
-LG5 & 50 & 40 & 1 & 4631 & 169.48 & 4.24 \\
-LG6 & 35 & 19 & 2 & 3191 & 136.74 & 7.20 \\
-LG7 & 65 & 43 & 2 & 6059 & 135.49 & 3.15 \\
-LG8 & 30 & 18 & 2 & 2814 & 125.48 & 6.97 \\
-LG9 & 37 & 22 & 2 & 3428 & 143.35 & 6.52 \\
-LG10 & 38 & 33 & 1 & 3511 & 166.06 & 5.03 \\
-LG11 & 16 & 10 & 2 & 1501 & 108.08 & 10.81 \\
-LG12 & 28 & 17 & 2 & 2650 & 149.54 & 8.80 \\
-\bottomrule
+  \toprule
+  Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
+  \midrule
+  LG1 & 100 & 26 & 4 & 9388 & 123.44 & 4.75 \\
+  LG2 & 24 & 16 & 2 & 2205 & 47.54 & 2.97 \\
+  LG3 & 50 & 34 & 1 & 4642 & 134.27 & 3.95 \\
+  LG4 & 34 & 18 & 2 & 3202 & 133.33 & 7.41 \\
+  LG5 & 50 & 40 & 1 & 4631 & 169.48 & 4.24 \\
+  LG6 & 35 & 19 & 2 & 3191 & 136.74 & 7.20 \\
+  LG7 & 65 & 43 & 2 & 6059 & 135.49 & 3.15 \\
+  LG8 & 30 & 18 & 2 & 2814 & 125.48 & 6.97 \\
+  LG9 & 37 & 22 & 2 & 3428 & 143.35 & 6.52 \\
+  LG10 & 38 & 33 & 1 & 3511 & 166.06 & 5.03 \\
+  LG11 & 16 & 10 & 2 & 1501 & 108.08 & 10.81 \\
+  LG12 & 28 & 17 & 2 & 2650 & 149.54 & 8.80 \\
+  \bottomrule
 \end{tabular}
 \label{t:label}
 \end{table}
@@ -1144,22 +1129,22 @@ LG12 & 28 & 17 & 2 & 2650 & 149.54 & 8.80 \\
 \begin{table}[ht]
 \caption{Attributes of the single-tree linkage by linkage group (LG) for the green maternal tree (Sierra Nevada).} 
 \begin{tabular}{lrrrrrr}
-\toprule
-Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
-\midrule
-LG1 & 1568 & 71 & 22 & \num{146650} & 108.83 & 1.53 \\
-LG2 & 1520 & 57 & 27 & \num{142272} & 110.77 & 1.94 \\
-LG3 & 1444 & 73 & 20 & \num{135159} & 114.08 & 1.56 \\
-LG4 & 911 & 64 & 14 & \num{85200} & 108.98 & 1.70 \\
-LG5 & 1811 & 73 & 25 & \num{169546} & 76.83 & 1.05 \\
-LG6 & 2157 & 80 & 27 & \num{201113} & 100.04 & 1.25 \\
-LG7 & 1597 & 74 & 22 & \num{149767} & 114.34 & 1.55 \\
-LG8 & 1663 & 71 & 23 & \num{155356} & 123.28 & 1.74 \\
-LG9 & 1457 & 73 & 20 & \num{136192} & 96.47 & 1.32 \\
-LG10 & 805 & 73 & 11 & \num{75315} & 101.80 & 1.39 \\
-LG11 & 553 & 70 & 8 & \num{51843} & 121.49 & 1.74 \\
-LG12 & 1439 & 60 & 24 & \num{134856} & 110.57 & 1.84 \\
-\bottomrule
+  \toprule
+  Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
+  \midrule
+  LG1 & 1568 & 71 & 22 & \num{146650} & 108.83 & 1.53 \\
+  LG2 & 1520 & 57 & 27 & \num{142272} & 110.77 & 1.94 \\
+  LG3 & 1444 & 73 & 20 & \num{135159} & 114.08 & 1.56 \\
+  LG4 & 911 & 64 & 14 & \num{85200} & 108.98 & 1.70 \\
+  LG5 & 1811 & 73 & 25 & \num{169546} & 76.83 & 1.05 \\
+  LG6 & 2157 & 80 & 27 & \num{201113} & 100.04 & 1.25 \\
+  LG7 & 1597 & 74 & 22 & \num{149767} & 114.34 & 1.55 \\
+  LG8 & 1663 & 71 & 23 & \num{155356} & 123.28 & 1.74 \\
+  LG9 & 1457 & 73 & 20 & \num{136192} & 96.47 & 1.32 \\
+  LG10 & 805 & 73 & 11 & \num{75315} & 101.80 & 1.39 \\
+  LG11 & 553 & 70 & 8 & \num{51843} & 121.49 & 1.74 \\
+  LG12 & 1439 & 60 & 24 & \num{134856} & 110.57 & 1.84 \\
+  \bottomrule
 \end{tabular}
 \label{t:label}
 \end{table}
@@ -1170,22 +1155,22 @@ LG12 & 1439 & 60 & 24 & \num{134856} & 110.57 & 1.84 \\
 \begin{table}[ht]
 \caption{Attributes of the consensus linkage by linkage group (LG).} 
 \begin{tabular}{lrrrrrr}
-\toprule
-Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
-\midrule
-LG1 & 1938 & 80 & 24 & \num{181309} & 101.64 & 1.27 \\
-LG2 & 1837 & 73 & 25 & \num{172031} & 88.44 & 1.21 \\
-LG3 & 1977 & 77 & 26 & \num{184680} & 93.10 & 1.21 \\
-LG4 & 1108 & 73 & 15 & \num{103585} & 96.23 & 1.32 \\
-LG5 & 2068 & 82 & 25 & \num{193722} & 107.35 & 1.31 \\
-LG6 & 2843 & 96 & 30 & \num{265356} & 92.59 & 0.96 \\
-LG7 & 1871 & 70 & 27 & \num{175272} & 96.22 & 1.37 \\
-LG8 & 1863 & 70 & 27 & \num{173888} & 107.16 & 1.53 \\
-LG9 & 1818 & 71 & 26 & \num{169974} & 95.89 & 1.35 \\
-LG10 & 956 & 76 & 13 & \num{89477} & 106.06 & 1.40 \\
-LG11 & 687 & 71 & 10 & \num{64299} & 108.76 & 1.53 \\
-LG12 & 1689 & 62 & 27 & \num{158107} & 98.56 & 1.60 \\
-\bottomrule
+  \toprule
+  Attribute & No. contigs & No. positions & Contigs/position & Total bp mapped & Total length (cM) & cM/position \\
+  \midrule
+  LG1 & 1938 & 80 & 24 & \num{181309} & 101.64 & 1.27 \\
+  LG2 & 1837 & 73 & 25 & \num{172031} & 88.44 & 1.21 \\
+  LG3 & 1977 & 77 & 26 & \num{184680} & 93.10 & 1.21 \\
+  LG4 & 1108 & 73 & 15 & \num{103585} & 96.23 & 1.32 \\
+  LG5 & 2068 & 82 & 25 & \num{193722} & 107.35 & 1.31 \\
+  LG6 & 2843 & 96 & 30 & \num{265356} & 92.59 & 0.96 \\
+  LG7 & 1871 & 70 & 27 & \num{175272} & 96.22 & 1.37 \\
+  LG8 & 1863 & 70 & 27 & \num{173888} & 107.16 & 1.53 \\
+  LG9 & 1818 & 71 & 26 & \num{169974} & 95.89 & 1.35 \\
+  LG10 & 956 & 76 & 13 & \num{89477} & 106.06 & 1.40 \\
+  LG11 & 687 & 71 & 10 & \num{64299} & 108.76 & 1.53 \\
+  LG12 & 1689 & 62 & 27 & \num{158107} & 98.56 & 1.60 \\
+  \bottomrule
 \end{tabular}
 \label{t:label}
 \end{table}
